@@ -208,6 +208,7 @@
     entities:
       - sensor.ups_status
       - sensor.qnap_status
+      - sensor.home_to_work
   devices:
     name: Device Status
     view: yes

@@ -1,4 +1,4 @@
-## customize.yaml
+### customize.yaml
 #z-wave
   switch.greenwall_19:
     friendly_name: Back Deck Watering

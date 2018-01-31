@@ -38,3 +38,13 @@ google_calendars.yaml
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+*.yamlold
+
+*.yamlsave
+
+*.yamltxt
+
+*.yamltext
+
+.ftpconfig

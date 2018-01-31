@@ -34,6 +34,13 @@
     - 12
     - 16
     - 20
+- platform: google_travel_time
+  name: Home to Work
+  api_key: !secret google_maps_api_key
+  origin: zone.home
+  destination: zone.work
+
+## templates
 - platform: template
   sensors:
     template_nursery_air_quality:
