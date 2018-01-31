@@ -12,8 +12,8 @@
   action:
       service: light.turn_on
       entity_id: light.tv_4
-#      data:
-#        brightness_pct: 30
+      data:
+        brightness: 30
 
 #Turn off Hall light 2 minutes after last movement
 - alias: "Hall motion sensor OFF"

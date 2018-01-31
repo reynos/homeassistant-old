@@ -50,7 +50,6 @@
         entity_id: fan.nursery
         night_mode: false
 
-
 ##{{ states('input_select.nursery_fan_speed') }}
 
 #- alias: "Dyson Oscillate on"

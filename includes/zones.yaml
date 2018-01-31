@@ -1,9 +1,7 @@
 ### zones.yaml
 - name: Home
-  latitude: -33.895389
-  longitude: 151.264934
-#  latitude: !secret home_lat
-#  longitude: !secret home_lon
+  latitude: !secret home_lat
+  longitude: !secret home_lon
   radius: 50
   icon: mdi:home
 

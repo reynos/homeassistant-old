@@ -1,11 +1,11 @@
-## scenes.yaml
+### scenes.yaml
   - name: Evening
     entities:
       group.evening: on
       light.lounge_lamp_3:
         state: on
         rgb_color: [255, 64, 0]
-        brightness_pct: 10
+        brightness: 30
 #        brightness_pct: 50
 #        rgb_color: [255, 147, 41]
 #        kelvin: 1900
