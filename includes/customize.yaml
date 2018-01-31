@@ -1,0 +1,61 @@
+#z-wave
+  switch.greenwall_19:
+    friendly_name: Back Deck Watering
+    icon: mdi:water
+#trackers
+  device_tracker.darren:
+    entity_picture: !secret picture_url_darren
+  device_tracker.blythe:
+    entity_picture: !secret picture_url_blythe
+#temps
+  sensor.nursery_temperature:
+    friendly_name: Nursery Temp
+  sensor.temperature_9:
+    friendly_name: Bondi Temp
+  sensor.high_temperature_11:
+    friendly_name: Bondi Maximum
+  sensor.humidity_12:
+    friendly_name: Bondi Humidity
+#Sonos
+  media_player.kitchen:
+    friendly_name: Kitchen Sonos
+  media_player.lounge:
+    friendly_name: Lounge Sonos
+  media_player.nursery:
+    friendly_name: Nursery Sonos
+  media_player.study:
+    friendly_name: Study Sonos
+  media_player.front_garden:
+    friendly_name: Front Gardnen Sonos
+  media_player.bathroom:
+    friendly_name: Bathroom Sonos
+  media_player.master_bedroom:
+    friendly_name: Master Bedroom Sonos
+#Samsung TV
+  media_player.loungetv:
+    friendly_name: Lounge Room TV
+  media_player.bed_room_ua60h7000:
+    friendly_name: Master Bedroom TV
+#Plex
+  media_player.tv_ua65js8000:
+    friendly_name: Lounge Room Plex
+  media_player.tv_ua60h7000:
+    friendly_name: Master Bedroom Plex
+#speedtest
+    sensor.speedtest_download:
+      friendly_name: Internet Down
+    sensor.speedtest_upload:
+      friendly_name: Internet Up
+    sensor.speedtest_ping:
+      friendly_name: Internet Ping
+#other
+  sun.sun:
+    entity_picture: http://images.all-free-download.com/images/graphiclarge/smiling_sun_312442.jpg
+  sensor.current_version:
+    friendly_name: HA Version
+  sensor.template_calendar_family:
+    friendly_name: 'Upcoming:'
+    icon: mdi:calendar-clock
+
+#  entity_picture: https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/11667519_10153599056036617_7838571209201168609_n.jpg?oh=b2885213f7b6071f47fde11d5fba0a44&oe=59E70E47
+#  entity_picture: https://scontent-syd2-1.xx.fbcdn.net/v/t31.0-8/327288_10150308930996931_1663697171_o.jpg?oh=d7a43806a94a874204683bcfbdf2ea13&oe=599F9CF8

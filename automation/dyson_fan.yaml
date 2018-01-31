@@ -1,0 +1,72 @@
+- alias: "Dyson Fan Speed"
+  trigger:
+    - platform: state
+      entity_id: input_select.nursery_fan_speed
+  action:
+      service: fan.set_speed
+      data_template:
+        entity_id: fan.nursery
+        speed: '{{ trigger.to_state.state | int }}'
+
+- alias: "Dyson Oscillate on"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dyson_oscillate
+      to: 'on'
+  action:
+      service: fan.oscillate
+      data_template:
+        entity_id: fan.nursery
+        oscillating: true
+- alias: "Dyson Oscillate off"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dyson_oscillate
+      to: 'off'
+  action:
+      service: fan.oscillate
+      data_template:
+        entity_id: fan.nursery
+        oscillating: false
+
+- alias: "Dyson Night Mode on"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dyson_night_mode
+      to: 'on'
+  action:
+      service: fan.dyson_set_night_mode
+      data_template:
+        entity_id: fan.nursery
+        night_mode: true
+- alias: "Dyson Night Mode off"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dyson_night_mode
+      to: 'off'
+  action:
+      service: fan.dyson_set_night_mode
+      data_template:
+        entity_id: fan.nursery
+        night_mode: false
+
+
+##{{ states('input_select.nursery_fan_speed') }}
+
+#- alias: "Dyson Oscillate on"
+#  trigger:
+#    - platform: state
+#      entity_id: input_boolean.fan.oscillate
+#      to: on
+#  action:
+#      service: homeassistant.turn_on
+#      entity_id: fan.nursery
+#
+#- alias: "Dyson Oscillate off"
+#  trigger:
+#    - platform: state
+#      entity_id: input_boolean.fan.oscillate
+#      to: off
+#  action:
+#      service: homeassistant.turn_off
+#      entity_id: fan.nursery

@@ -1,0 +1,82 @@
+
+### known_devices.yaml
+reynolds_darren:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Darren
+  picture:
+  track: true
+  vendor:
+
+reynolds_blythe:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Blythe
+  picture:
+  track: true
+  vendor:
+
+#darren:
+#  hide_if_away: false
+#  icon:
+#  mac:
+#  name: Darren
+#  picture:
+#  track: true
+#  vendor:
+
+#kitchen:
+#  hide_if_away: false
+#  icon:
+#  mac:
+#  name: Kitchen
+#  picture:
+#  track: true
+#  vendor:
+
+#beacon_masterbedroom:
+#  hide_if_away: false
+#  icon:
+#  mac:
+#  name: MasterBedroom
+#  picture:
+#  track: true
+#  vendor:
+
+#beacon_frontdoor:
+#  hide_if_away: false
+#  icon:
+#  mac:
+#  name: FrontDoor
+#  picture:
+#  track: true
+#  vendor:
+
+#darren_darren:
+#  hide_if_away: false
+#  icon:
+#  mac:
+#  name: darren
+#  picture:
+#  track: true
+#  vendor:
+
+darren:
+  hide_if_away: false
+  icon:
+  mac:
+  name: darren
+  picture:
+  track: true
+  vendor:
+
+blythe:
+  hide_if_away: false
+  icon:
+  mac:
+  name: blythe
+  picture:
+  track: true
+  vendor:

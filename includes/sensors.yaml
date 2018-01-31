@@ -1,0 +1,63 @@
+### sensors.yaml
+- platform: version
+- platform: mqtt
+  name: "Darren's Mood"
+  state_topic: "home/darren/mood"
+  payload_on: "good"
+  payload_off: "bad"
+  device_class: heat
+- platform: plex
+  host: !secret plexserver_ip
+  username: !secret plexserver_uname
+  password: !secret plexserver_pass
+- platform: qnap
+  host: !secret qnap_ip
+  username: !secret qnap_uname
+  password: !secret qnap_pass
+  monitored_conditions:
+    - status
+    - cpu_usage
+    - memory_percent_used
+    - network_tx
+    - volume_percentage_used
+- platform: speedtest
+  server_id: 2629
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  minute: 30
+  hour:
+    - 0
+    - 4
+    - 8
+    - 12
+    - 16
+    - 20
+- platform: template
+  sensors:
+    template_nursery_air_quality:
+      friendly_name: "Air Quality"
+      unit_of_measurement: "State"
+#      entity_id: sensor.nursery_air_quality
+      value_template: "{%if states.sensor.nursery_air_quality.state == '1' %}Good{% elif states.sensor.nursery_air_quality.state == '2' %}Fair{% elif states.sensor.nursery_air_quality.state == '3' %}Poor{% elif states.sensor.nursery_air_quality.state == '4' %}Very Poor{% endif %}"
+    template_calendar_family:
+      value_template: >
+        {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A at %H:%M") }}:
+        {{ states.calendar.family.attributes.message }}
+      friendly_name: 'Family'
+      unit_of_measurement: ''
+## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+
+- platform: apcupsd
+  resources:
+    - bcharge
+    - linev
+    - loadpct
+    - nominv
+    - nompower
+    - numxfers
+    - outputv
+    - status
+    - timeleft
+    - tonbatt

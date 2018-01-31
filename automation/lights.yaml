@@ -1,0 +1,61 @@
+## Hall Night Motion
+- alias: "Hall motion sensor ON"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_sensor_50
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Night'
+  action:
+      service: light.turn_on
+      entity_id: light.tv_4
+#      data:
+#        brightness_pct: 30
+
+#Turn off Hall light 2 minutes after last movement
+- alias: "Hall motion sensor OFF"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_sensor_50
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+    condition: state
+    entity_id: input_select.house_mode
+    state: 'Night'
+  action:
+      service: light.turn_off
+      entity_id: light.tv_4
+
+## Kitchen Night Motion
+- alias: "Kitchen motion sensor ON"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_sensor_46
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Night'
+  action:
+      service: light.turn_on
+      entity_id: light.kitchen_bench_7
+
+- alias: "Kitchen motion sensor OFF"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_sensor_46
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Night'
+  action:
+      service: light.turn_off
+      entity_id: light.kitchen_bench_7

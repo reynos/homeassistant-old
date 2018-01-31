@@ -1,0 +1,78 @@
+
+## Automated Select Scenes - House modes
+- alias: Set Evening mode at Sunset
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: scene.turn_on
+      entity_id: scene.evening
+    - service: notify.ios_Darren
+      data:
+        message: "Evening lights auto on"
+        data:
+          push:
+            badge: 5
+          subtitle: "Sunset"
+
+- alias: Set Night mode
+  trigger:
+    platform: time
+    at: '22:30:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.night
+
+- alias: Set Day mode
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.day
+
+## Input Select Scene sets - House modes
+- alias: "House Mode Evening"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: Evening
+  action:
+      service: scene.turn_on
+      entity_id: scene.evening
+
+- alias: "House Mode Day"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: "Day"
+  action:
+      service: scene.turn_on
+      entity_id: scene.day
+
+#- alias: "House Mode Bedtime"
+#  trigger:
+#    - platform: state
+#      entity_id: input_select.house_mode
+#      to: "Bedtime"
+#  action:
+#      service: scene.turn_on
+#      entity_id: scene.bedtime
+
+- alias: "House Mode Night"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: "Night"
+  action:
+      service: scene.turn_on
+      entity_id: scene.night
+
+- alias: "House Mode SydneyFC"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Sydney FC Game'
+  action:
+      service: scene.turn_on
+      entity_id: scene.sydneyfc

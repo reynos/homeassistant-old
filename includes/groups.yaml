@@ -1,0 +1,269 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+#      - sun.sun
+      - sensor.temperature_9
+      - sensor.high_temperature_11
+      - sensor.nursery_temperature
+#      - sensor.low_temperature_10
+      - sensor.humidity_12
+#      - sensor.template_calendar_family
+#      - sensor.darrens_mood
+      - group.qhouse
+      - group.qkitchen
+      - group.qlounge
+      - group.qother
+      - device_tracker.darren
+      - device_tracker.blythe
+#      - script.goodnight
+#      - script.peanut
+      - group.kitchen
+      - group.lounge
+      - group.hall
+      - group.bedrooms
+      - group.nursery
+      - group.study
+      - group.outside
+      - group.camera
+  qhouse:
+    name: House
+    view: no
+    control: hidden
+    entities:
+      - input_select.house_mode
+      - script.bedtime
+      - fan.nursery
+      - input_number.nursery_fan_speed_s
+      - input_boolean.dyson_night_mode
+      - sensor.template_calendar_family
+  qkitchen:
+    name: Kitchen Lights
+    view: no
+    entities:
+      - light.kitchen_high_15
+      - light.kitchen_low_13
+  qlounge:
+    name: Lounge Lights
+    view: no
+    entities:
+      - light.lounge_6
+      - light.tv_4
+  qother:
+    name: Other Lights
+    view: no
+    control: hidden
+    entities:
+      - light.nursery_lamp_19
+      - light.front_porch_21
+      - light.master_bedroom_23
+      - light.study_31
+      - light.bedside_blythe_18
+      - light.bedside_darren_17
+  camera:
+    name: Cameras
+    view: yes
+    icon: mdi:video
+    entities:
+      - camera.nurserycam
+      - camera.doorbird_live
+      - camera.doorbird_last_ring
+#      - binary_sensor.doorbell_ringing
+  kitchen:
+    name: Kitchen
+    view: yes
+    icon: mdi:stove
+    entities:
+      - binary_sensor.kitchen_sensor_46
+      - switch.kitchen_sensor_46
+      - sensor.temperature_sensor_47
+      - sensor.humidity_sensor_49
+      - sensor.light_sensor_48
+      - light.kitchen_high_15
+      - light.kitchen_low_13
+      - light.kitchen_bench_7
+      - media_player.kitchen
+  lounge:
+    view: yes
+    icon: mdi:sofa
+    name: Lounge Room
+    entities:
+      - light.lounge_lamp_3
+      - light.lounge_6
+      - light.tv_4
+      - media_player.lounge
+      - media_player.tv_ua65js8000
+  nursery_fan:
+    name: Fan
+    view: no
+    control: hidden
+    entities:
+      - fan.nursery
+      - input_select.nursery_fan_speed
+#      - fan.dyson_set_night_mode
+#      - fan.nursery_2
+      - input_boolean.dyson_night_mode
+      - input_boolean.dyson_oscillate
+  nursery_other:
+    name: Media
+    view: no
+    control: hidden
+    entities:
+      - media_player.nursery
+  nursery:
+    name: Nursery
+    view: yes
+    control: hidden
+    icon: mdi:baby-buggy
+    entities:
+      - sensor.nursery_temperature
+      - sensor.nursery_humidity
+      - sensor.template_nursery_air_quality
+      - sensor.nursery_dust
+      - sensor.nursery_filter_life
+      - group.nursery_fan
+      - group.nursery_other
+  bathroom:
+    name: Bathroom
+    view: yes
+    icon: mdi:duck
+    entities:
+      - media_player.bathroom
+  bedrooms:
+    view: yes
+    icon: mdi:hotel
+    name: Bedrooms
+    control: hidden
+    entities:
+      - light.master_bedroom_23
+      - light.bedside_blythe_18
+      - light.bedside_darren_17
+      - light.front_bedroom_30
+      - media_player.tv_ua60h7000
+      - media_player.master_bedroom
+  study:
+    name: Study
+    view: yes
+    icon: mdi:lamp
+    entities:
+      - light.study_31
+      - media_player.study
+  hall:
+    name: Hallways
+    view: yes
+    icon: mdi:stairs
+    control: hidden
+    entities:
+      - binary_sensor.hall_sensor_50
+      - switch.hall_sensor_50
+      - sensor._temperature_sensor_51
+      - sensor._humidity_sensor_53
+      - sensor._light_sensor_52
+      - light.stairs_16
+      - light.hall_33
+  outside:
+    name: Outside
+    view: yes
+    icon: mdi:tree
+    control: hidden
+    entities:
+      - light.front_porch_21
+      - light.front_garden_28
+      - light.front_garden2_29
+      - light.backyard_24
+      - light.backyard_fairy_light_22
+      - switch.greenwall_19
+      - media_player.front_garden
+      - switch.water_back_deck
+      - switch.bedroom_switch1
+      - switch.open_door
+      - switch.light_on
+  scenes:
+    name: Scenes
+    view: yes
+    icon: mdi:vector-square
+    entities:
+      - scene.evening
+      - scene.bedtime
+      - scene.night
+      - scene.day
+      - scene.holiday
+      - scene.sydneyfc
+      - input_boolean.sydneyfc_game
+  climate:
+    name: Climate
+    view: yes
+    icon: mdi:white-balance-sunny
+    entities:
+      - sensor.temperature_9
+      - sensor.high_temperature_11
+      - sensor.low_temperature_10
+      - sensor.humidity_12
+      - sun.sun
+
+  devices_list:
+    name: Devices
+    view: no
+    entities:
+      - sensor.ups_status
+      - sensor.qnap_status
+  devices:
+    name: Device Status
+    view: yes
+    icon: mdi:desktop-classic
+    entities:
+      - sensor.plex
+      - sensor.current_version
+      - sensor.qnap_cpu_usage
+      - sensor.qnap_memory_usage
+      - sensor.qnap_volumne_used_volumne_1
+      - sensor.qnap_network_up_eth0
+      - sensor.qnap_network_up_eth1
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
+      - sensor.ups_battery
+      - sensor.ups_input_voltage
+      - sensor.ups_load
+      - sensor.ups_output_voltage
+      - group.devices_list
+
+  evening:
+    name: Evening Lights
+    view: no
+    entities:
+      - light.kitchen_bench_7
+      - light.lounge_lamp_3
+      - light.stairs_16
+      - light.backyard_24
+      - light.backyard_fairy_light_22
+      - light.front_garden_28
+  all_lights_not_beds:
+    name: All lights not beds
+    view: no
+    entities:
+      - light.kitchen_high_15
+      - light.kitchen_low_13
+      - light.kitchen_bench_7
+      - light.lounge_6
+      - light.tv_4
+      - light.stairs_16
+      - light.hallway_5
+      - light.front_porch_21
+      - light.backyard_24
+      - light.backyard_fairy_light_22
+      - light.study_lamp_22
+      - light.nursery_lamp_19
+      - light.study_31
+#      - light.lounge_lamp_3
+# not - light.front_garden_28
+
+  peanut_lights:
+    name: Peanut Nightlight
+    view: no
+    entities:
+      - light.stairs_16
+      - light.kitchen_bench_7
+      - light.backyard_24
+
+#      - light.front_garden2_29

@@ -1,0 +1,11 @@
+- alias: Enter Kitchen
+  trigger:
+    platform: zone
+    entity_id: device_tracker.reynolds_darren
+    zone: zone.KitchenBeacon
+    # Event is either enter or leave
+    event: enter
+  action:
+    service: light.turn_on
+    entity_id: light.kitchen_bench_7
+

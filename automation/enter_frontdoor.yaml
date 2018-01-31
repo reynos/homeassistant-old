@@ -1,0 +1,10 @@
+- alias: Enter Front Door
+  trigger:
+    platform: zone
+    entity_id: device_tracker.reynolds_darren
+    zone: zone.FrontDoorBeacon
+    # Event is either enter or leave
+    event: enter
+  action:
+    service: light.turn_on
+    entity_id: light.hallway_5

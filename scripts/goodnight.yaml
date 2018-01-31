@@ -1,0 +1,6 @@
+goodnight:
+  alias: Goodnight!
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights_not_beds

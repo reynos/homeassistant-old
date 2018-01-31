@@ -1,0 +1,37 @@
+## Bedroom
+- alias: Doorbell
+  trigger:
+  - platform: event
+    event_type: doorbird_doorbell
+  action:
+    service: notify.ios_Darren
+    data:
+      message: "Doorbell state changed"
+      data:
+        push:
+          badge: 5
+          subtitle: "Doorbell"
+
+#- alias: "Doorbird doorbell"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.doorbell_ringing
+#  action:
+#      service: notify.ios_Darren
+#      data:
+#        message: "Doorbell state changed"
+#        data:
+#          push:
+#            badge: 5
+#          subtitle: "Doorbell"
+- alias: "Test Notifiction"
+  trigger:
+    - platform: state
+      entity_id: switch.bedroom_switch1
+  action:
+      service: notify.ios_Darren
+      data:
+        message: "Test Notification"
+        data:
+          push:
+            badge: 5

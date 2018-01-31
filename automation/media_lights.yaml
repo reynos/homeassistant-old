@@ -1,0 +1,57 @@
+## Bedroom
+- alias: "Bedroom Media player paused"
+  trigger:
+    - platform: state
+      entity_id: media_player.tv_ua60h7000
+      from: 'playing'
+      to: 'paused'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: light.turn_on
+      entity_id: light.bedside_darren_17
+
+- alias: "Bedroom Media player playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.tv_ua60h7000
+      to: 'playing'
+  action:
+      service: light.turn_off
+      entity_id:
+        - light.master_bedroom_23
+        - light.bedside_blythe_18
+        - light.bedside_darren_17
+
+## Lounge room
+- alias: "Lounge Room Media player paused"
+  trigger:
+    - platform: state
+      entity_id: media_player.tv_ua65js8000
+      from: 'playing'
+      to: 'paused'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: light.turn_on
+      data:
+        entity_id: light.tv_4
+        data:
+          brightness_pct: 20
+
+- alias: "Lounge Room Media player playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.tv_ua65js8000
+      to: 'playing'
+  action:
+      service: light.turn_off
+      entity_id:
+        - light.kitchen_high_15
+        - light.kitchen_low_13
+        - light.lounge_6
+        - light.tv_4

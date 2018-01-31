@@ -1,0 +1,212 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+#  latitude: 30.31
+#  longitude: 180.00
+  elevation: 75
+  unit_system: metric
+  time_zone: Australia/Sydney
+  customize: !include includes/customize.yaml
+
+##logger:
+
+http:
+  api_password: !secret http_api_password
+
+#climate:
+#  platform: fan
+fan:
+  platform: dyson
+
+vera:
+  vera_controller_url: !secret vera_url
+  lights: [2, 3, 4, 6, 7, 8, 9, 13, 15, 16, 17, 18, 21, 24, 25, 26, 28, 29, 30, 31, 33]
+
+#cloud:
+#config:
+
+media_player:
+  - platform: sonos
+  - platform: plex
+  - platform: cast
+  - platform: samsungtv
+    host: 10.0.26.27
+    port: 8001
+    name: LoungeTV
+
+mqtt:
+  broker: !secret mqtt_ip
+  port: !secret mqtt_port
+  username: !secret mqtt_uname
+  password: !secret mqtt_pass
+  discovery: true
+  discovery_prefix: home
+
+switch:
+  - platform: mqtt
+    name: "Bedroom Switch1"
+    state_topic: "home/bedroom/switch"
+    command_topic: "home/bedroom/switch/set"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: true
+
+  - platform: mqtt
+    name: "Water Green Wall"
+    state_topic: "home/backdeck/watering/greenwall"
+    command_topic: "home/backdeck/watering/greenwall/set"
+    payload_on: "ON"
+    payload_off: "OFF"
+    qos: 1
+    retain: true
+    optimistic: false
+
+  - platform: doorbird
+    switches:
+      - light_on
+      - open_door
+
+##binary_sensor:
+##depricated - relpaced with Doorbird door_bell = true
+##  - platform: doorbird
+
+input_select:
+  house_mode:
+    name: House Mode
+    options:
+      - "Day"
+      - "Evening"
+      - "Night"
+      - "Holiday"
+      - "Sydney FC Game"
+    initial: Day
+    icon: mdi:target
+
+  nursery_fan_speed:
+    name: Speed
+    options:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+#      - 'Auto' this does not work?
+    icon: mdi:speedometer
+
+input_number:
+  nursery_fan_speed_s:
+    name: Speed
+    initial: 1
+    min: 1
+    max: 10
+    step: 1
+
+input_boolean:
+  sydneyfc_game:
+    name: Sydney FC Game Scene
+    initial: off
+    icon: mdi:soccer
+
+  dyson_oscillate:
+    name: Oscillate
+    initial: off
+    icon: mdi:code-tags
+
+  dyson_night_mode:
+    name: Night Mode
+    initial: off
+    icon: mdi:weather-night
+
+#  away_mode:
+#    name: Away Mode
+#    icon: mdi:home
+#  holiday_mode:
+#    name: Holiday Mode
+#    icon: mdi:account
+
+## emulated_hue:
+##  type: alexa
+##  listen_port: 8300
+##  exposed domains:
+##    - light
+##    - switch
+##    - script
+
+camera:
+  - platform: mjpeg
+    name: nurserycam
+    mjpeg_url: !secret nurserycam_url
+    username: !secret nurserycam_uname
+    password: !secret nurserycam_pass
+
+  - platform: doorbird
+    last_visitor: true
+
+doorbird:
+  host: !secret doorbird_url
+  username: !secret doorbird_uname
+  password: !secret doorbird_pass
+  doorbell_events: true
+
+dyson:
+  username: !secret dyson_uname
+  password: !secret dyson_pass
+  language: AU
+  devices:
+    - device_id: !secret dyson_dev_id1
+      device_ip: !secret dyson_ip1
+
+notify:
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api_key
+
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+
+device_tracker:
+  - platform: owntracks
+
+  - platform: tile
+    username: tile_uname
+    password: tile_pass
+
+#ifttt:
+#  key: xxxxx-x-xxxxxxxxxxxxx
+
+## Includes
+group: !include includes/groups.yaml
+scene: !include includes/scenes.yaml
+sensor: !include includes/sensors.yaml
+zone: !include includes/zones.yaml
+##devices: !include devices.yaml
+
+## Dir Includes
+automation: !include_dir_merge_list automation
+script: !include_dir_merge_named scripts
+#
+
+## Activations
+updater:
+discovery:
+apcupsd:
+conversation:
+sun:
+tts:
+  platform: google
+ios:
+frontend:
+history:
+logbook:
+# Weather Prediction
+#sensor:
+#  platform: yr
+####################

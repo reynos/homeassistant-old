@@ -1,0 +1,56 @@
+  - name: Evening
+    entities:
+      group.evening: on
+      light.lounge_lamp_3:
+        state: on
+        rgb_color: [255, 64, 0]
+        brightness_pct: 10
+#        brightness_pct: 50
+#        rgb_color: [255, 147, 41]
+#        kelvin: 1900
+
+  - name: Night
+    entities:
+# add turn on light sensors here
+      group.all_lights_not_beds: off
+      light.lounge_lamp_3: off
+      light.front_garden_28: off
+      input_select.house_mode:
+        option: "Night"
+
+#now a script
+#  - name: Bedtime
+#    entities:
+#      group.all_lights_not_beds: off
+#      light.lounge_lamp_3: off
+#      light.stairs_16: on
+#      input_select.house_mode:
+#        option: "Bedtime"
+
+  - name: Day
+    entities:
+#      group.all_lights_not_beds: off
+#      light.lounge_lamp_3: off
+# add turn off light sensors here
+# just to have something here:
+      light.front_garden_28: off
+      input_select.house_mode:
+        option: "Day"
+
+  - name: Holiday
+    entities:
+# when on holidays only turn on selected lights
+      light.front_garden_28: on
+      light.kitchen_bench_7: on
+      input_select.house_mode:
+        option: "Holiday"
+
+  - name: SydneyFC
+    entities:
+      light.lounge_lamp_3:
+        state: on
+        brightness_pct: 90
+        rgb_color: [0, 191, 255]
+#        color_name: skyblue
+#      input_select.house_mode:
+#        option: "Sydney FC Game"
