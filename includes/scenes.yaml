@@ -1,3 +1,4 @@
+## scenes.yaml
   - name: Evening
     entities:
       group.evening: on
