@@ -1,5 +1,4 @@
 ### zones.yaml
-
 ## Places
 - name: Home
   latitude: !secret home_lat
@@ -38,21 +37,43 @@
   icon: mdi:home
 
 ## Beacons
-- name: kitchen
+#  passive: true
+- name: frontgate
   latitude: !secret home_lat
   longitude: !secret home_lon
-  radius: 10
   passive: true
-  icon: mdi:home-circle
-
-- name: frontdoor
-  latitude: !secret home_lat
-  longitude: !secret home_lon
+#  track_ios: false
+#  hidden: false
   radius: 10
-  icon: mdi:home-circle
-
-- name: masterbedroom
+  icon: mdi:gate
+  beacon:
+    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+    major: 3601
+    minor: 25847
+#- name: frontdoor
+#  latitude: !secret home_lat
+#  longitude: !secret home_lon
+#  radius: 10
+#  icon: mdi:home-circle
+#  beacon:
+#    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#    major: 27974
+#    minor: 11445
+- name: masterbed
   latitude: !secret home_lat
   longitude: !secret home_lon
+  passive: true
+#  track_ios: false
   radius: 10
   icon: mdi:bed
+  beacon:
+    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+    major: 48427
+    minor: 769
+#- name: kitchen
+#  latitude: !secret home_lat
+#  longitude: !secret home_lon
+#  radius: 10
+#  passive: true
+#  icon: mdi:home-circle
+#

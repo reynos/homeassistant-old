@@ -1,4 +1,26 @@
 ### customize.yaml
+  zone.frontgate:
+    beacon:
+#      track_ios: false
+      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+      major: 3601
+      minor: 25847
+#  zone.frontdoor:
+#    beacon:
+#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#      major: 27974
+#      minor: 11445
+  zone.masterbed:
+    beacon:
+#      track_ios: false
+      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+      major: 48427
+      minor: 769
+#doorbird
+  switch.open_door:
+    friendly_name: Front Gate
+  switch.light_on:
+    friendly_name: Doorbird IR
 #z-wave
   switch.greenwall_19:
     friendly_name: Back Deck Watering
@@ -8,6 +30,25 @@
     entity_picture: !secret picture_url_darren
   device_tracker.blythe:
     entity_picture: !secret picture_url_blythe
+#google_travel_time
+  sensor.gtdarren_home:
+    friendly_name: Darren
+    entity_picture: !secret picture_url_darren
+  sensor.gtblythe_home:
+    friendly_name: Blythe
+    entity_picture: !secret picture_url_blythe
+  sensor.gthome_city:
+    friendly_name: City
+    icon: mdi:city
+  sensor.gthome_work:
+    friendly_name: Work
+    icon: mdi:briefcase
+  sensor.template_gthome_thornton:
+    friendly_name: Thornton
+    icon: mdi:home
+  sensor.template_gthome_wangi:
+    friendly_name: Wangi
+    icon: mdi:home
 #temps
   sensor.nursery_temperature:
     friendly_name: Nursery Temp

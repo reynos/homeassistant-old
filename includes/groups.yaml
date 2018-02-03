@@ -61,6 +61,7 @@
       - light.study_31
       - light.bedside_blythe_18
       - light.bedside_darren_17
+      - sensor.GT
   camera:
     name: Cameras
     view: yes
@@ -179,6 +180,27 @@
       - switch.bedroom_switch1
       - switch.open_door
       - switch.light_on
+  travel_to_home:
+    name: To Home -
+    view: no
+    entities:
+      - sensor.gtdarren_home
+      - sensor.gtblythe_home
+  travel_home_to:
+    name: Home to -
+    view: no
+    entities:
+      - sensor.gthome_city
+      - sensor.gthome_work
+      - sensor.template_gthome_thornton
+      - sensor.template_gthome_wangi
+  travel:
+    name: Travel times
+    view: yes
+    icon: mdi:car-side
+    entities:
+      - group.travel_to_home
+      - group.travel_home_to
   scenes:
     name: Scenes
     view: yes
@@ -201,14 +223,12 @@
       - sensor.low_temperature_10
       - sensor.humidity_12
       - sun.sun
-
   devices_list:
     name: Devices
     view: no
     entities:
       - sensor.ups_status
       - sensor.qnap_status
-      - sensor.home_to_work
   devices:
     name: Device Status
     view: yes
@@ -228,6 +248,7 @@
       - sensor.ups_input_voltage
       - sensor.ups_load
       - sensor.ups_output_voltage
+      - sensor.ups_time_left
       - group.devices_list
 
   evening:

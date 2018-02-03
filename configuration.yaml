@@ -3,8 +3,6 @@ homeassistant:
   name: Home
   latitude: !secret home_lat
   longitude: !secret home_lon
-#  latitude: 30.31
-#  longitude: 180.00
   elevation: 75
   unit_system: metric
   time_zone: Australia/Sydney
@@ -98,7 +96,7 @@ input_select:
       - 8
       - 9
       - 10
-#      - 'Auto' this does not work?
+      - AUTO # does this work?
     icon: mdi:speedometer
 
 input_number:
@@ -174,11 +172,10 @@ google:
   client_secret: !secret google_secret
 
 device_tracker:
-  - platform: owntracks
-
-  - platform: tile
-    username: tile_uname
-    password: tile_pass
+#  - platform: owntracks
+#  - platform: tile
+#    username: tile_uname
+#    password: tile_pass
 
 #ifttt:
 #  key: xxxxx-x-xxxxxxxxxxxxx

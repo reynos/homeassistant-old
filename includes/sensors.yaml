@@ -35,10 +35,35 @@
     - 16
     - 20
 - platform: google_travel_time
-  name: Home to Work
+  name: GTHome_Work
   api_key: !secret google_maps_api_key
   origin: zone.home
   destination: zone.work
+- platform: google_travel_time
+  name: GTHome_City
+  api_key: !secret google_maps_api_key
+  origin: zone.home
+  destination: zone.city
+- platform: google_travel_time
+  name: GTHome_Thornton
+  api_key: !secret google_maps_api_key
+  origin: zone.home
+  destination: zone.mdn
+- platform: google_travel_time
+  name: GTHome_Wangi
+  api_key: !secret google_maps_api_key
+  origin: zone.home
+  destination: zone.mdr
+- platform: google_travel_time
+  name: GTDarren_Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.darren
+  destination: zone.home
+- platform: google_travel_time
+  name: GTBlythe_Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.blythe
+  destination: zone.home
 
 ## templates
 - platform: template
@@ -46,16 +71,22 @@
     template_nursery_air_quality:
       friendly_name: "Air Quality"
       unit_of_measurement: "State"
-#      entity_id: sensor.nursery_air_quality
       value_template: "{%if states.sensor.nursery_air_quality.state == '1' %}Good{% elif states.sensor.nursery_air_quality.state == '2' %}Fair{% elif states.sensor.nursery_air_quality.state == '3' %}Poor{% elif states.sensor.nursery_air_quality.state == '4' %}Very Poor{% endif %}"
     template_calendar_family:
       value_template: >
-        {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A at %H:%M") }}:
+        {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%a %I:%M%p") }}:
         {{ states.calendar.family.attributes.message }}
       friendly_name: 'Family'
       unit_of_measurement: ''
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
-
+    template_gthome_thornton:
+      value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
+      friendly_name: 'Thornton'
+      unit_of_measurement: ''
+    template_gthome_wangi:
+      value_template: "{{ states.sensor.gthome_wangi.attributes.duration_in_traffic }}"
+      friendly_name: 'Wangi Wangi'
+      unit_of_measurement: ''
 - platform: apcupsd
   resources:
     - bcharge
