@@ -68,6 +68,7 @@
     icon: mdi:video
     entities:
       - camera.nurserycam
+      - camera.frontcam
       - camera.doorbird_live
       - camera.doorbird_last_ring
 #      - binary_sensor.doorbell_ringing
@@ -194,6 +195,8 @@
       - sensor.gthome_work
       - sensor.template_gthome_thornton
       - sensor.template_gthome_wangi
+      - sensor.GTDom_Airport
+      - sensor.GTInt_Airport
   travel:
     name: Travel times
     view: yes

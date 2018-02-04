@@ -1,21 +1,22 @@
 ### customize.yaml
-  zone.frontgate:
-    beacon:
-#      track_ios: false
-      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-      major: 3601
-      minor: 25847
+#  zone.frontgate:
+#    beacon:
+##      track_ios: false
+#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#      major: 3601
+#      minor: 25847
 #  zone.frontdoor:
 #    beacon:
 #      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
 #      major: 27974
 #      minor: 11445
-  zone.masterbed:
-    beacon:
-#      track_ios: false
-      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-      major: 48427
-      minor: 769
+#  zone.masterbed:
+#    beacon:
+##      track_ios: false
+#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#      major: 48427
+#      minor: 769
+
 #doorbird
   switch.open_door:
     friendly_name: Front Gate
@@ -49,6 +50,12 @@
   sensor.template_gthome_wangi:
     friendly_name: Wangi
     icon: mdi:home
+  sensor.GTInt_Airport:
+    friendly_name: International Airport
+    icon: mdi:earth
+  sensor.GTDom_Airport:
+    friendly_name: Domestic Airport
+    icon: mdi:airplane
 #temps
   sensor.nursery_temperature:
     friendly_name: Nursery Temp
@@ -58,6 +65,11 @@
     friendly_name: Bondi Maximum
   sensor.humidity_12:
     friendly_name: Bondi Humidity
+#cameras
+  nurserycam:
+    friendly_name: Nursery
+  frontcam:
+    friendly_name: Front Garden
 #Sonos
   media_player.kitchen:
     friendly_name: Kitchen Sonos

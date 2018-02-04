@@ -67,9 +67,13 @@ switch:
       - light_on
       - open_door
 
-##binary_sensor:
-##depricated - relpaced with Doorbird door_bell = true
-##  - platform: doorbird
+binary_sensor:
+  name: Front Garden Movement
+  platform: hikvision
+  host: frontcam_ip
+  username: !secret frontcam_uname
+  password: !secret frontcam_pass
+##  - platform: doorbird --depricated, relpaced with Doorbird door_bell = true
 
 input_select:
   house_mode:
@@ -144,6 +148,12 @@ camera:
     mjpeg_url: !secret nurserycam_url
     username: !secret nurserycam_uname
     password: !secret nurserycam_pass
+
+  - platform: mjpeg
+    name: frontcam
+    mjpeg_url: !secret frontcam_url
+    username: !secret frontcam_uname
+    password: !secret frontcam_pass
 
   - platform: doorbird
     last_visitor: true

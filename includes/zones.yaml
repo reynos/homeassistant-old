@@ -36,6 +36,18 @@
   radius: 200
   icon: mdi:home
 
+- name: DomAirport
+  latitude: !secret zone7_lat
+  longitude: !secret zone7_lon
+  radius: 200
+  icon: mdi:home
+
+- name: IntAirport
+  latitude: !secret zone8_lat
+  longitude: !secret zone8_lon
+  radius: 200
+  icon: mdi:home
+
 ## Beacons
 #  passive: true
 - name: frontgate
