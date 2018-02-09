@@ -6,9 +6,9 @@ bedtime:
       entity_id:
         - group.all_lights_not_beds
         - light.lounge_lamp_3
-    - service: light.turn_on
+    - service: light.turn_on  
       entity_id: light.stairs_16
     - delay:
         minutes: 2
-    - service: light.turn_off
-      entity_id: light.stairs_16
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.bed_time # automatically call Bedtime Off switch turns off the hall light

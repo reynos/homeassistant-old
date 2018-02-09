@@ -41,34 +41,34 @@
         option: Day
 
 ## Input Select Scene sets - House modes
-- alias: Set Bedtime # need to add trigger the input selct also
+- alias: Set Bedtime switch
   trigger:
     platform: state
     entity_id: input_boolean.bed_time
     to: 'on'
   action:
-    - service: input_select.select_option
+    - service: input_select.select_option ## move all this to a scirpt and it might work
       data:
         entity_id: input_select.house_mode
         option: Bedtime
-    - service: light.turn_on
-      entity_id: light.stairs_16
-    - delay:
-        minutes: 2
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bed_time # automatically call Bedtime Off witch turns off the hall light
+    - service: script.turn_on
+      data:
+        entity_id: script.bedtime
 
 - alias: "House Mode Bedtime"
   trigger:
     - platform: state
       entity_id: input_select.house_mode
-      to: "Bedtime"
+      to: Bedtime
   action:
-      service: input_boolean.turn_on
+    - service: input_boolean.turn_on
       data:
-        entity_id: input_boolean.bed_time
+        entity_id: input_boolean.bed_time # calls Set Bedtime automation
+    - service: script.turn_on
+      data:
+        entity_id: scritp.bedtime
 
-- alias: Bedtime off # if triggered manully while the timer is running will turn the stairs light off early
+- alias: Bedtime off # if triggered manually while the timer is running will turn the stairs light off early
   trigger:
     platform: state
     entity_id: input_boolean.bed_time
@@ -90,7 +90,7 @@
   trigger:
     - platform: state
       entity_id: input_select.house_mode
-      to: "Day"
+      to: Day
   action:
       service: scene.turn_on
       entity_id: scene.day
@@ -99,7 +99,7 @@
   trigger:
     - platform: state
       entity_id: input_select.house_mode
-      to: "Night"
+      to: Night
   action:
       service: scene.turn_on
       entity_id: scene.night
@@ -108,7 +108,7 @@
   trigger:
     - platform: state
       entity_id: input_select.house_mode
-      to: "Holiday"
+      to: Holiday
   action:
       service: scene.turn_on
       entity_id: scene.night
