@@ -216,6 +216,17 @@ script: !include_dir_merge_named scripts
 #
 
 ## Activations
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5
+exclude:
+    domains:
+      - automation
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
 updater:
 discovery:
 apcupsd:
