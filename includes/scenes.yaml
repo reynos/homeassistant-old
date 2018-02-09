@@ -5,10 +5,11 @@
       light.lounge_lamp_3:
         state: on
         rgb_color: [255, 64, 0]
-        brightness: 30
+        brightness: 30 # brightness not working??
 #        brightness_pct: 50
 #        rgb_color: [255, 147, 41]
 #        kelvin: 1900
+
 # triggered at 10:30 every night
   - name: Night
     entities:
@@ -39,13 +40,11 @@
         option: "Day"
 
 # tiggered at Sunset only if Holiday switch is ON
-  - name: Holiday
+  - name: Holiday Evening
     entities:
 # when on holidays only turn on selected lights
       light.front_garden_28: on
       light.kitchen_bench_7: on
-      input_select.house_mode:
-        option: "Holiday"
 
   - name: SydneyFC
     entities:
