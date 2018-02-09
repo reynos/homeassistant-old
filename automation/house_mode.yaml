@@ -1,36 +1,46 @@
 
-## Automated Select Scenes - House modes
+## Automated Select Scenes - House modes Evening, Night and Day (Bedtime and Holiday only called manually)
 - alias: Set Evening mode at Sunset
   trigger:
     platform: sun
     event: sunset
   action:
-    - service: scene.turn_on
-      entity_id: scene.evening
-    - service: notify.ios_Darren
-      data:
-        message: "Evening lights auto on"
-        data:
-          push:
-            badge: 5
-          subtitle: "Sunset"
+    - service: script.turn_on
+      data_template:
+#      service_template:
+        entity_id: >
+          {% if states.input_select.house_mode.state == 'Holiday' %}
+            script.evening_holiday
+          {% else %}
+            script.evening
+          {% endif %}
 
 - alias: Set Night mode
   trigger:
     platform: time
     at: '22:30:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.night
+    - service: script.turn_on
+      data_template:
+#      service_template:
+        entity_id: >
+          {% if states.input_select.house_mode.state == 'Holiday' %}
+            script.night_holiday
+          {% else %}
+            script.night
+          {% endif %}
 
 - alias: Set Day mode
   trigger:
     platform: time
     at: '06:00:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.day
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Day
 
+## Input Select Scene sets - House modes
 - alias: Set Bedtime
   trigger:
     platform: state
@@ -48,7 +58,7 @@
     - delay:
         minutes: 2
     - service: input_boolean.turn_off
-      entity_id: input_boolean.bed_time # automaticallt call Bedtime Off witch turns off the hall light
+      entity_id: input_boolean.bed_time # automatically call Bedtime Off witch turns off the hall light
 
 - alias: Bedtime off # if triggered manully while the timer is running will turn the stairs light off earl
   trigger:
@@ -59,18 +69,6 @@
     - service: light.turn_off
       entity_id: light.stairs_16
 
-#  - platform: template
-#    switches:
-#      goodnight:
-#        value_template: "{{ is_state('switch.goodnight', 'on') }}"
-#        turn_on:
-#          service: scene.turn_on
-#          data:
-#            entity_id: scene.bedtime
-#         service: switch.turn_off
-#         entity_id: switch.goodnight
-
-## Input Select Scene sets - House modes
 - alias: "House Mode Evening"
   trigger:
     - platform: state
@@ -89,15 +87,6 @@
       service: scene.turn_on
       entity_id: scene.day
 
-#- alias: "House Mode Bedtime"
-#  trigger:
-#    - platform: state
-#      entity_id: input_select.house_mode
-#      to: "Bedtime"
-#  action:
-#      service: scene.turn_on
-#      entity_id: scene.bedtime
-
 - alias: "House Mode Night"
   trigger:
     - platform: state
@@ -107,6 +96,14 @@
       service: scene.turn_on
       entity_id: scene.night
 
+- alias: "House Mode Holiday"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: "Holiday"
+  action:
+      service: scene.turn_on
+      entity_id: scene.night
 - alias: "House Mode SydneyFC"
   trigger:
     - platform: state

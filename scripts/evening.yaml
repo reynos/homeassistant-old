@@ -1,0 +1,14 @@
+evening:
+  alias: "Evening lights on"
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Evening
+    - service: notify.ios_Darren
+      data:
+        message: "Evening lights auto on"
+        data:
+          push:
+            badge: 5
+          subtitle: "Sunset"
