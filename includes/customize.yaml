@@ -16,7 +16,8 @@
 #      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
 #      major: 48427
 #      minor: 769
-
+  binary_sensor.front_garden_movement_motion:
+    friendly_name: Front Garden Camera Movement
 #doorbird
   switch.open_door:
     friendly_name: Front Gate
@@ -26,6 +27,8 @@
   switch.greenwall_19:
     friendly_name: Back Deck Watering
     icon: mdi:water
+  binary_sensor.kitchen_sensor_46:
+    friendly_name: Kitchen Motion
 #trackers
   device_tracker.darren:
     entity_picture: !secret picture_url_darren
@@ -66,9 +69,9 @@
   sensor.humidity_12:
     friendly_name: Bondi Humidity
 #cameras
-  nurserycam:
+  camera.nurserycam:
     friendly_name: Nursery
-  frontcam:
+  camera.frontcam:
     friendly_name: Front Garden
 #Sonos
   media_player.kitchen:

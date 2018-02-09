@@ -54,7 +54,7 @@
   latitude: !secret home_lat
   longitude: !secret home_lon
   passive: true
-#  track_ios: false
+  track_ios: false
 #  hidden: false
   radius: 10
   icon: mdi:gate
@@ -75,7 +75,7 @@
   latitude: !secret home_lat
   longitude: !secret home_lon
   passive: true
-#  track_ios: false
+  track_ios: false
   radius: 10
   icon: mdi:bed
   beacon:

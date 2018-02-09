@@ -9,8 +9,6 @@
       - sensor.nursery_temperature
 #      - sensor.low_temperature_10
       - sensor.humidity_12
-#      - sensor.template_calendar_family
-#      - sensor.darrens_mood
       - group.qhouse
       - group.qkitchen
       - group.qlounge
@@ -33,9 +31,11 @@
     control: hidden
     entities:
       - input_select.house_mode
-      - script.bedtime
+#      - script.bedtime now input_boolean to easily trigger scene Bedtime
+      - input_boolean.bed_time
       - fan.nursery
-      - input_number.nursery_fan_speed_s
+      - input_select.nursery_fan_speed
+#      - input_number.nursery_fan_speed_s
       - input_boolean.dyson_night_mode
       - sensor.template_calendar_family
   qkitchen:
@@ -170,6 +170,7 @@
     icon: mdi:tree
     control: hidden
     entities:
+      - binary_sensor.front_garden_movement_motion
       - light.front_porch_21
       - light.front_garden_28
       - light.front_garden2_29

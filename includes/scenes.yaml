@@ -9,7 +9,7 @@
 #        brightness_pct: 50
 #        rgb_color: [255, 147, 41]
 #        kelvin: 1900
-
+# triggered at 10:30 every night
   - name: Night
     entities:
 # add turn on light sensors here
@@ -19,15 +19,15 @@
       input_select.house_mode:
         option: "Night"
 
-#now a script
-#  - name: Bedtime
-#    entities:
-#      group.all_lights_not_beds: off
-#      light.lounge_lamp_3: off
-#      light.stairs_16: on
-#      input_select.house_mode:
-#        option: "Bedtime"
-
+# tiggered only if Goodnight switch is activated
+  - name: Bedtime
+    entities:
+      group.all_lights_not_beds: off
+      light.lounge_lamp_3: off
+      light.stairs_16: on
+      input_select.house_mode:
+        option: "Bedtime"
+# triggered at 6am every morning
   - name: Day
     entities:
 #      group.all_lights_not_beds: off
@@ -38,6 +38,7 @@
       input_select.house_mode:
         option: "Day"
 
+# tiggered at Sunset only if Holiday switch is ON
   - name: Holiday
     entities:
 # when on holidays only turn on selected lights

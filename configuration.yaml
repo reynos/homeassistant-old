@@ -70,7 +70,7 @@ switch:
 binary_sensor:
   name: Front Garden Movement
   platform: hikvision
-  host: frontcam_ip
+  host: !secret frontcam_ip
   username: !secret frontcam_uname
   password: !secret frontcam_pass
 ##  - platform: doorbird --depricated, relpaced with Doorbird door_bell = true
@@ -123,9 +123,21 @@ input_boolean:
     icon: mdi:code-tags
 
   dyson_night_mode:
-    name: Night Mode
+    name: 'Night Mode'
     initial: off
     icon: mdi:weather-night
+
+## makes it easy to select Bedtime mode - set Bedtime scene
+  bed_time:
+    name: "Goodnight - Lights off"
+    initial: off
+    icon: mdi:sleep
+
+## not needed, is selected via the input_select
+#  holiday:
+#    name: 'Holiday Mode'
+#    initial: off
+#    icon: mdi:beach
 
 #  away_mode:
 #    name: Away Mode
