@@ -37,12 +37,27 @@
     entity_id: input_boolean.bed_time
     to: 'on'
   action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Bedtime
     - service: scene.turn_on
       entity_id: scene.bedtime
+    - service: light.turn_on
+      entity_id: light.stairs_16
     - delay:
-        seconds: 1
+        minutes: 2
     - service: input_boolean.turn_off
-      entity_id: input_boolean.bed_time
+      entity_id: input_boolean.bed_time # automaticallt call Bedtime Off witch turns off the hall light
+
+- alias: Bedtime off # if triggered manully while the timer is running will turn the stairs light off earl
+  trigger:
+    platform: state
+    entity_id: input_boolean.bed_time
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.stairs_16
 
 #  - platform: template
 #    switches:

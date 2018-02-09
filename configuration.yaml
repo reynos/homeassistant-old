@@ -81,6 +81,7 @@ input_select:
     options:
       - "Day"
       - "Evening"
+      - "Bedtime"
       - "Night"
       - "Holiday"
       - "Sydney FC Game"
