@@ -1,0 +1,25 @@
+## switch.yaml
+
+- platform: mqtt
+  name: "Bedroom Switch1"
+  state_topic: "home/bedroom/switch"
+  command_topic: "home/bedroom/switch/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  optimistic: true
+
+- platform: mqtt
+  name: "Water Green Wall"
+  state_topic: "home/backdeck/watering/greenwall"
+  command_topic: "home/backdeck/watering/greenwall/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+  retain: true
+  optimistic: false
+
+- platform: doorbird
+  switches:
+    - light_on
+    - open_door

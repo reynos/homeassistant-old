@@ -1,0 +1,8 @@
+## binary_sensor.yaml
+
+name: Front Garden Movement
+platform: hikvision
+host: !secret frontcam_ip
+username: !secret frontcam_uname
+password: !secret frontcam_pass
+##  - platform: doorbird --depricated, relpaced with Doorbird door_bell = true

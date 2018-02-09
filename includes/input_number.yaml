@@ -1,0 +1,7 @@
+## input_number.yaml
+nursery_fan_speed_s:
+  name: Speed
+  initial: 1
+  min: 1
+  max: 10
+  step: 1
