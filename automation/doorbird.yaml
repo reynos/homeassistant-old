@@ -1,30 +1,16 @@
 ## Doorbird
-- alias: Doorbell
+- alias: Doorbird ring
   trigger:
   - platform: event
     event_type: doorbird_doorbell
   action:
     - service: script.turn_on
-      data:
-        entity_id: script.doorbell
-#    - service: notify.ios_Darren
-#      data:
-#        message: "Doorbell ringing!"
-#        data:
-#          push:
-#            badge: 5
-#            subtitle: "Doorbell"
-
-
-
-- alias: "Test Notifiction"
-  trigger:
-    - platform: state
-      entity_id: switch.bedroom_switch1
-  action:
-      service: notify.ios_Darren
-      data:
-        message: "Test Notification"
-        data:
-          push:
-            badge: 5
+      data_template:
+        entity_id: >
+          {% if states.input_select.house_mode.state == 'Bedtime' %}
+            script.doorbell_night
+          {% elif states.input_select.house_mode.state == 'Night' %}
+            script.doorbell_night
+          {% else %}
+            script.doorbell
+          {% endif %}
