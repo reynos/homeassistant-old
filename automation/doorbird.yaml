@@ -1,29 +1,22 @@
-## Bedroom
+## Doorbird
 - alias: Doorbell
   trigger:
   - platform: event
     event_type: doorbird_doorbell
   action:
-    service: notify.ios_Darren
-    data:
-      message: "Doorbell state changed"
+    - service: script.turn_on
       data:
-        push:
-          badge: 5
-          subtitle: "Doorbell"
-
-#- alias: "Doorbird doorbell"
-#  trigger:
-#    - platform: state
-#      entity_id: binary_sensor.doorbell_ringing
-#  action:
-#      service: notify.ios_Darren
+        entity_id: script.doorbell
+#    - service: notify.ios_Darren
 #      data:
-#        message: "Doorbell state changed"
+#        message: "Doorbell ringing!"
 #        data:
 #          push:
 #            badge: 5
-#          subtitle: "Doorbell"
+#            subtitle: "Doorbell"
+
+
+
 - alias: "Test Notifiction"
   trigger:
     - platform: state
