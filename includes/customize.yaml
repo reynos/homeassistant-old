@@ -1,21 +1,4 @@
 ### customize.yaml
-#  zone.frontgate:
-#    beacon:
-##      track_ios: false
-#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-#      major: 3601
-#      minor: 25847
-#  zone.frontdoor:
-#    beacon:
-#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-#      major: 27974
-#      minor: 11445
-#  zone.masterbed:
-#    beacon:
-##      track_ios: false
-#      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-#      major: 48427
-#      minor: 769
   binary_sensor.front_garden_movement_motion:
     friendly_name: Front Garden Camera Movement
 #doorbird
@@ -113,6 +96,23 @@
   sensor.template_calendar_family:
     friendly_name: 'Upcoming:'
     icon: mdi:calendar-clock
-
-#  entity_picture: https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/11667519_10153599056036617_7838571209201168609_n.jpg?oh=b2885213f7b6071f47fde11d5fba0a44&oe=59E70E47
-#  entity_picture: https://scontent-syd2-1.xx.fbcdn.net/v/t31.0-8/327288_10150308930996931_1663697171_o.jpg?oh=d7a43806a94a874204683bcfbdf2ea13&oe=599F9CF8
+  sensor.ups_output_voltage:
+    friendly_name: 'UPS Output'
+  sensor.qnap_volume_used_volume_1:
+    friendly_name: 'QNAP Disk Used'
+  sensor.qnap_memory_usage:
+    friendly_name: 'QNAP Mem Used'
+  sensor.disk_use_percent_home:
+    friendly_name: 'HA Disk use'
+  sensor.memory_use_percent:
+    friendly_name: 'HA Mem use'
+  sensor.swap_use_percent:
+    friendly_name: 'HA Swap use'
+  sensor.network_in_eno1:
+    friendly_name: 'HA eth in'
+  sensor.network_out_eno1:
+    friendly_name: 'HA eth out'
+  sensor.qnap_network_up_eth0:
+    friendly_name: 'QNAP eth0'
+  sensor.qnap_network_up_eth1:
+    friendly_name: 'QNAP eth1'

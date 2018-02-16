@@ -4,17 +4,18 @@
     icon: mdi:home
     entities:
 #      - sun.sun
+      - device_tracker.darren
+      - device_tracker.blythe
       - sensor.temperature_9
       - sensor.high_temperature_11
+      - sensor.humidity_12
       - sensor.nursery_temperature
 #      - sensor.low_temperature_10
-      - sensor.humidity_12
       - group.qhouse
       - group.qkitchen
       - group.qlounge
       - group.qother
-      - device_tracker.darren
-      - device_tracker.blythe
+
 #      - script.goodnight
 #      - script.peanut
       - group.kitchen
@@ -55,13 +56,12 @@
     view: no
     control: hidden
     entities:
+      - light.bedside_darren_17
+      - light.bedside_blythe_18
       - light.nursery_lamp_19
       - light.front_porch_21
       - light.master_bedroom_23
       - light.study_31
-      - light.bedside_blythe_18
-      - light.bedside_darren_17
-      - sensor.GT
   camera:
     name: Cameras
     view: yes
@@ -231,6 +231,8 @@
     name: Devices
     view: no
     entities:
+      - sensor.current_version
+      - sensor.since_last_boot
       - sensor.ups_status
       - sensor.qnap_status
   devices:
@@ -239,10 +241,9 @@
     icon: mdi:desktop-classic
     entities:
       - sensor.plex
-      - sensor.current_version
       - sensor.qnap_cpu_usage
       - sensor.qnap_memory_usage
-      - sensor.qnap_volumne_used_volumne_1
+      - sensor.qnap_volume_used_volume_1
       - sensor.qnap_network_up_eth0
       - sensor.qnap_network_up_eth1
       - sensor.speedtest_download
@@ -253,6 +254,17 @@
       - sensor.ups_load
       - sensor.ups_output_voltage
       - sensor.ups_time_left
+      - sensor.network_in_eno1
+      - sensor.network_out_eno1
+      - sensor.disk_free_home
+      - sensor.disk_use_home
+      - sensor.disk_use_percent_home
+      - sensor.memory_free
+      - sensor.memory_use
+      - sensor.memory_use_percent
+      - sensor.swap_free
+      - sensor.swap_use
+      - sensor.swap_use_percent
       - group.devices_list
 
   evening:

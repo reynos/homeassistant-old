@@ -22,10 +22,13 @@
     - volume_percentage_used
 - platform: systemmonitor
   resources:
-    - type: disk_use_percent
-      arg: /home
     - type: disk_free
       arg: /home
+    - type: disk_use
+      arg: /home
+    - type: disk_use_percent
+      arg: /home
+    - type: processor_use
     - type: memory_free
     - type: processor_use
     - type: last_boot
@@ -37,9 +40,9 @@
     - type: swap_use
     - type: swap_free
     - type: network_in
-      arg: eth0
+      arg: eno1 # not eth0
     - type: network_out
-      arg: eth0
+      arg: eno1
 - platform: speedtest
   server_id: 2629
   monitored_conditions:
