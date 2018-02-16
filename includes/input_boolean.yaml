@@ -20,3 +20,7 @@ bed_time:
   name: "Goodnight - Lights off"
   initial: off
   icon: mdi:sleep
+
+sonos_test:
+  name: "Sonos test"
+  initial: off
