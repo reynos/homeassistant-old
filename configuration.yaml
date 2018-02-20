@@ -12,9 +12,10 @@ homeassistant:
 
 http:
   api_password: !secret http_api_password
+  ssl_certificate: !secret ssl_certificate_loc
+  ssl_key: !secret ssl_key_loc
+  base_url: !secret base_url
 
-#climate:
-#  platform: fan
 fan:
   platform: dyson
 
@@ -102,6 +103,9 @@ logbook:
 
 #cloud:
 #config:
+
+#climate:
+#  platform: fan
 
 ## emulated_hue:
 ##  type: alexa
