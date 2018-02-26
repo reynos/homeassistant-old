@@ -16,11 +16,13 @@ blythe:
   picture:
   track: true
   vendor:
+
+# from Owntracks
 #reynolds_darren:
-#  hide_if_away: false
+#  hide_if_away: true
 #  icon:
 #  mac:
-#  name: Darren
+#  name: OTDarren
 #  picture:
 #  track: true
 #  vendor:

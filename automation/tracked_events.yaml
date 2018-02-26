@@ -1,14 +1,55 @@
 ### tracked events
-- alias: Frontgate
+- alias: Frontgate Darren
   trigger:
-    platform: zone
+    platform: state
     entity_id: device_tracker.reynolds_darren
-    zone: zone.frontgate
-    # Event is either enter or leave
-    event: enter
+    to: frontgate
   action:
-    service: switch.turn_on
-    entity_id: switch.open_door
+    service: script.turn_on
+    data:
+      entity_id: script.open_front_gate
+
+- alias: Frontgate Blythe
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_blythe
+    to: frontgate
+  action:
+    service: script.turn_on
+    data:
+      entity_id: script.open_front_gate
+
+- alias: Masterbed Beacon Goodnight
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_darren
+    to: masterbed
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Evening'
+  action: # in future make this an actionable nofication to turn off lights
+    - service: script.turn_on
+      data:
+        entity_id: script.bedtime
+
+#- alias: Masterbed on
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_darren
+#    to: masterbed
+#  action:
+#    service: light.turn_on
+#    entity_id: light.study_31
+
+#- alias: Masterbed off
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_darren
+#    from: masterbed
+#  action:
+#    service: light.turn_off
+#    entity_id: light.study_31
 
 #- alias: Enter Front Door
 #  trigger:

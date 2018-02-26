@@ -1,4 +1,4 @@
-### configuration.yaml
+### configuration.yaml #
 homeassistant:
   name: Home
   latitude: !secret home_lat
@@ -55,7 +55,12 @@ google:
   client_secret: !secret google_secret
 
 device_tracker:
-#  - platform: owntracks
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: False
+    events_only: True
+    mqtt_topic: "owntracks/#"
+
 #  - platform: tile
 #    username: tile_uname
 #    password: tile_pass

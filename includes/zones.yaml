@@ -49,19 +49,18 @@
   icon: mdi:home
 
 ## Beacons
-#  passive: true
 - name: frontgate
   latitude: !secret home_lat
   longitude: !secret home_lon
-  passive: true
-  track_ios: false
+#  passive: true
+#  track_ios: false
 #  hidden: false
-  radius: 10
+#  radius: 10
   icon: mdi:gate
-  beacon:
-    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-    major: 3601
-    minor: 25847
+#  beacon:
+#    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#    major: 3601
+#    minor: 25847
 #- name: frontdoor
 #  latitude: !secret home_lat
 #  longitude: !secret home_lon
@@ -74,14 +73,14 @@
 - name: masterbed
   latitude: !secret home_lat
   longitude: !secret home_lon
-  passive: true
-  track_ios: false
-  radius: 10
   icon: mdi:bed
-  beacon:
-    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-    major: 48427
-    minor: 769
+#  passive: True
+#  track_ios: false
+#  radius: 10
+#  beacon:
+#    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+#    major: 48427
+#    minor: 769
 #- name: kitchen
 #  latitude: !secret home_lat
 #  longitude: !secret home_lon

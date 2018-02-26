@@ -6,6 +6,7 @@
 #      - sun.sun
       - device_tracker.darren
       - device_tracker.blythe
+      - device_tracker.reynolds_darren
       - sensor.temperature_9
       - sensor.high_temperature_11
       - sensor.humidity_12

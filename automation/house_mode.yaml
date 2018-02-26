@@ -47,13 +47,13 @@
     entity_id: input_boolean.bed_time
     to: 'on'
   action:
-    - service: input_select.select_option ## move all this to a scirpt and it might work
+    - service: input_select.select_option
       data:
         entity_id: input_select.house_mode
         option: Bedtime
-    - service: script.turn_on
-      data:
-        entity_id: script.bedtime
+#    - service: script.turn_on
+#      data:
+#        entity_id: script.bedtime
 
 - alias: "House Mode Bedtime"
   trigger:
@@ -61,12 +61,9 @@
       entity_id: input_select.house_mode
       to: Bedtime
   action:
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.bed_time # calls Set Bedtime automation
     - service: script.turn_on
       data:
-        entity_id: scritp.bedtime
+        entity_id: script.bedtime
 
 - alias: Bedtime off # if triggered manually while the timer is running will turn the stairs light off early
   trigger:
