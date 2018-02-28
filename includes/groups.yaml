@@ -184,6 +184,13 @@
       - switch.bedroom_switch1
       - switch.open_door
       - switch.light_on
+  bmw_x5:
+    name: BMW X5 xDrive30d
+    view: no
+    entities:
+      - sensor.x5_xdrive30d_mileage
+      - sensor.x5_xdrive30d_remaining_fuel
+      - sensor.x5_xdrive30d_remaining_range_fuel
   travel_to_home:
     name: To Home -
     view: no
@@ -201,10 +208,11 @@
       - sensor.GTDom_Airport
       - sensor.GTInt_Airport
   travel:
-    name: Travel times
+    name: Travel
     view: yes
     icon: mdi:car-side
     entities:
+      - group.bmw_x5
       - group.travel_to_home
       - group.travel_home_to
   scenes:

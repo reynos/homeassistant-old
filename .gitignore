@@ -48,3 +48,5 @@ Thumbs.db
 *.yamltext
 
 .ftpconfig
+
+includes/known_devices.yaml
