@@ -98,9 +98,30 @@
   origin: zone.home
   destination: zone.intairport
 
-## templates
+# templates
 - platform: template
   sensors:
+    template_x5_xdrive30d_remaining_fuel:
+      friendly_name: "Fuel remaining"
+      unit_of_measurement: "L"
+      value_template: >
+        {{"{:,}".format(states('sensor.x5_xdrive30d_remaining_fuel')|int)}}
+#      icon_template: >-
+#          {% if is_state('sun.sun', 'above_horizon') %}
+#            mdi:weather-sunny
+#          {% else %}
+#            mdi:weather-night
+#          {% endif %}
+    template_x5_xdrive30d_mileage:
+      friendly_name: "Odometer"
+      unit_of_measurement: "kms"
+      value_template: >
+        {{"{:,}".format(states('sensor.x5_xdrive30d_mileage')|int)}}
+    template_x5_xdrive30d_remaining_range_fuel:
+      friendly_name: "Odometer"
+      unit_of_measurement: "kms"
+      value_template: >
+        {{"{:,}".format(states('sensor.x5_xdrive30d_remaining_range_fuel')|int)}}
     template_nursery_air_quality:
       friendly_name: "Air Quality"
       unit_of_measurement: "State"

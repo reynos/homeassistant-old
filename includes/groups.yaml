@@ -188,9 +188,9 @@
     name: BMW X5 xDrive30d
     view: no
     entities:
-      - sensor.x5_xdrive30d_mileage
-      - sensor.x5_xdrive30d_remaining_fuel
-      - sensor.x5_xdrive30d_remaining_range_fuel
+      - sensor.template_x5_xdrive30d_mileage
+      - sensor.template_x5_xdrive30d_remaining_fuel
+      - sensor.template_x5_xdrive30d_remaining_range_fuel
   travel_to_home:
     name: To Home -
     view: no

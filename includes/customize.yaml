@@ -7,15 +7,15 @@
   switch.light_on:
     friendly_name: Doorbird IR
 #bmw_x5
-  sensor.x5_xdrive30d_mileage:
-    friendly_name: Odometer
+  sensor.template_x5_xdrive30d_mileage:
+#    friendly_name: Odometer
     icon: mdi:speedometer
-  sensor.x5_xdrive30d_remaining_fuel:
-    friendly_name: Fuel remaining
+  sensor.template_x5_xdrive30d_remaining_fuel:
     icon: mdi:fuel
-  sensor.x5_xdrive30d_remaining_range_fuel:
-    friendly_name: Fuel range
+#    friendly_name: Fuel remaining
+  sensor.template_x5_xdrive30d_remaining_range_fuel:
     icon: mdi:road-variant
+#    friendly_name: Fuel range
 #z-wave
   switch.greenwall_19:
     friendly_name: Back Deck Watering
