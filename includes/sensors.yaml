@@ -132,6 +132,14 @@
         {{ states.calendar.family.attributes.message }}
       friendly_name: 'Family'
       unit_of_measurement: ''
+    template_calendar_bin_nights:
+      unit_of_measurement: 'Bin Wed'
+      value_template: >
+        {{ states.calendar.bin_nights.attributes.message }}
+      entity_picture_template: >-
+
+#      friendly_name: 'Wednesday Bin Night:'
+      unit_of_measurement: ''
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
@@ -141,6 +149,11 @@
       value_template: "{{ states.sensor.gthome_wangi.attributes.duration_in_traffic }}"
       friendly_name: 'Wangi Wangi'
       unit_of_measurement: ''
+    template_solar_angle:
+      friendly_name: "Sun Angle"
+      unit_of_measurement: '°'
+      value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
+
 - platform: apcupsd
   resources:
     - bcharge

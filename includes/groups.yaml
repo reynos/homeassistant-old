@@ -6,7 +6,8 @@
 #      - sun.sun
       - device_tracker.darren
       - device_tracker.blythe
-      - device_tracker.reynolds_darren
+#      - device_tracker.reynolds_darren
+      - sensor.template_calendar_bin_nights
       - sensor.temperature_9
       - sensor.high_temperature_11
       - sensor.humidity_12
@@ -236,6 +237,7 @@
       - sensor.high_temperature_11
       - sensor.low_temperature_10
       - sensor.humidity_12
+      - template_solar_angle
       - sun.sun
   devices_list:
     name: Devices
