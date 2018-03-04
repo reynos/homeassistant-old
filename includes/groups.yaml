@@ -237,7 +237,7 @@
       - sensor.high_temperature_11
       - sensor.low_temperature_10
       - sensor.humidity_12
-      - template_solar_angle
+      - sensor.template_solar_angle
       - sun.sun
   devices_list:
     name: Devices

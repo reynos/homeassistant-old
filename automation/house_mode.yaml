@@ -107,8 +107,29 @@
       entity_id: input_select.house_mode
       to: Holiday
   action:
-      service: scene.turn_on
-      entity_id: scene.night
+    - service: notify.ios_Darren
+      data:
+        message: "Holiday mode set"
+        data:
+          push:
+            badge: 5
+          subtitle: "Mode"
+- alias: "House Mode Holiday Off"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      from: Holiday
+  action:
+    - service: notify.ios_Darren
+      data:
+        message: "Holiday mode OFF"
+        data:
+          push:
+            badge: 5
+          subtitle: "Mode"
+
+#      service: scene.turn_on
+#      entity_id: scene.night
 - alias: "House Mode SydneyFC"
   trigger:
     - platform: state

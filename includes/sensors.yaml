@@ -118,7 +118,7 @@
       value_template: >
         {{"{:,}".format(states('sensor.x5_xdrive30d_mileage')|int)}}
     template_x5_xdrive30d_remaining_range_fuel:
-      friendly_name: "Odometer"
+      friendly_name: "Fuel Range"
       unit_of_measurement: "kms"
       value_template: >
         {{"{:,}".format(states('sensor.x5_xdrive30d_remaining_range_fuel')|int)}}
@@ -139,7 +139,7 @@
       entity_picture_template: >-
 
 #      friendly_name: 'Wednesday Bin Night:'
-      unit_of_measurement: ''
+#      unit_of_measurement: ''
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
