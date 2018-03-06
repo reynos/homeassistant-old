@@ -24,6 +24,9 @@
     entity_picture: !secret picture_url_darren
   device_tracker.blythe:
     entity_picture: !secret picture_url_blythe
+#google calendars
+#  sensor.template_calendar_bin_nights:
+#    friendly_name: Bin Night
 #google_travel_time
   sensor.gtdarren_home:
     friendly_name: Darren

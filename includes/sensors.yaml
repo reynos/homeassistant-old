@@ -98,6 +98,19 @@
   origin: zone.home
   destination: zone.intairport
 
+- platform: apcupsd
+  resources:
+    - bcharge
+    - linev
+    - loadpct
+    - nominv
+    - nompower
+    - numxfers
+    - outputv
+    - status
+    - timeleft
+    - tonbatt
+
 # templates
 - platform: template
   sensors:
@@ -133,13 +146,22 @@
       friendly_name: 'Family'
       unit_of_measurement: ''
     template_calendar_bin_nights:
-      unit_of_measurement: 'Bin Wed'
+      unit_of_measurement: 'Bins'
       value_template: >
         {{ states.calendar.bin_nights.attributes.message }}
-      entity_picture_template: >-
+      entity_picture_template: >
+        {% if states.calendar.bin_nights.attributes.message == 'Yellow' %}
+          /local/images/yellowgreen.png
+        {% elif states.calendar.bin_nights.attributes.message == 'Blue' %}
+          /local/images/blue.jpg
+        {% endif %}
+      friendly_name_template: >
+        {% if states.calendar.bin_nights.attributes.message == 'Yellow' %}
+          Yellow Green
+        {% elif states.calendar.bin_nights.attributes.message == 'Blue' %}
+          Blue
+        {% endif %}
 
-#      friendly_name: 'Wednesday Bin Night:'
-#      unit_of_measurement: ''
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
@@ -154,15 +176,12 @@
       unit_of_measurement: '°'
       value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
 
-- platform: apcupsd
-  resources:
-    - bcharge
-    - linev
-    - loadpct
-    - nominv
-    - nompower
-    - numxfers
-    - outputv
-    - status
-    - timeleft
-    - tonbatt
+#    net_power:
+#      friendly_name_template: >-
+#        {% if states('sensor.power_consumption')|float < 0 %}
+#          Power Consumption
+#        {% else %}
+#          Power Production
+#        {% end %}
+#      value_template: "{{ states('sensor.power_consumption') }}"
+#      unit_of_measurement: 'kW'
