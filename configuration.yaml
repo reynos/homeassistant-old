@@ -6,6 +6,8 @@ homeassistant:
   elevation: 75
   unit_system: metric
   time_zone: Australia/Sydney
+  whitelist_external_dirs:
+    - /home/homeassistant/.homeassistant/
   customize: !include includes/customize.yaml
 
 ##logger:

@@ -244,6 +244,7 @@
     view: no
     entities:
       - sensor.current_version
+      - sensor.template_homeassistant_db
       - sensor.since_last_boot
       - sensor.ups_status
       - sensor.qnap_status
