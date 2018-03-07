@@ -146,21 +146,22 @@
       friendly_name: 'Family'
       unit_of_measurement: ''
     template_calendar_bin_nights:
-      unit_of_measurement: 'Bins'
+      unit_of_measurement: 'Wed'
+      friendly_name: 'Bin night'
       value_template: >
         {{ states.calendar.bin_nights.attributes.message }}
       entity_picture_template: >
-        {% if states.calendar.bin_nights.attributes.message == 'Yellow' %}
-          /local/images/yellowgreen.png
-        {% elif states.calendar.bin_nights.attributes.message == 'Blue' %}
-          /local/images/blue.jpg
+        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Green Bins' %}
+          /local/images/ryg.jpg
+        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Bins' %}
+          /local/images/rb.jpg
         {% endif %}
-      friendly_name_template: >
-        {% if states.calendar.bin_nights.attributes.message == 'Yellow' %}
-          Yellow Green
-        {% elif states.calendar.bin_nights.attributes.message == 'Blue' %}
-          Blue
-        {% endif %}
+#      friendly_name_template: >
+#        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Green Bins' %}
+#          Red Yellow Green
+#        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Bins' %}
+#          Red Blue
+#        {% endif %}
 
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
     template_gthome_thornton:
