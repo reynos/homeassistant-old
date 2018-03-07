@@ -102,7 +102,14 @@
   sun.sun:
     entity_picture: http://images.all-free-download.com/images/graphiclarge/smiling_sun_312442.jpg
   sensor.current_version:
-    friendly_name: HA Version
+    friendly_name: HA installed version
+    icon: mdi:home-assistant
+  sensor.release:
+    friendly_name: HA latest version
+    icon: mdi:home-assistant
+  sensor.template_homeassistant_db:
+    friendly_name: "HA Database Size"
+    icon: mdi:file
   sensor.template_calendar_family:
     friendly_name: 'Upcoming:'
     icon: mdi:calendar-clock

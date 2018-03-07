@@ -47,6 +47,12 @@ dyson:
     - device_id: !secret dyson_dev_id1
       device_ip: !secret dyson_ip1
 
+bmw_connected_drive:
+  bmw_x5:
+    username: !secret USERNAME_BMW_CONNECTED_DRIVE
+    password: !secret PASSWORD_BMW_CONNECTED_DRIVE
+    country: Australia
+
 notify:
   - name: pushbullet
     platform: pushbullet

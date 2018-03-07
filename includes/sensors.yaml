@@ -100,6 +100,12 @@
 - platform: filesize
   file_paths:
     - /home/homeassistant/.homeassistant/home-assistant_v2.db
+- platform: scrape
+  resource: https://home-assistant.io
+  name: Release
+  select: ".current-version h1"
+  value_template: '{{ value.split(":")[1] }}'
+
 - platform: apcupsd
   resources:
     - bcharge
@@ -178,9 +184,8 @@
       friendly_name: "Sun Angle"
       unit_of_measurement: '°'
       value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
-#templates for device sensors
     template_homeassistant_db:
-      friendly_name: "HA Database Size"
+      friendly_name: "HA database size"
       unit_of_measurement: 'MB'
       value_template: >
         {{"{:,}".format(states('sensor.homeassistant_v2db')|int)}}
