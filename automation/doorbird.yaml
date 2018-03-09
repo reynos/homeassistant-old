@@ -14,7 +14,12 @@
           {% else %}
             script.doorbell
           {% endif %}
-
+#for testing
+#    - service: media_player.play_media
+#      data:
+#        entity_id: media_player.front_garden # the group master
+#        media_content_id: http://10.0.26.20/sounds/doorbell.mp3
+#        media_content_type: music
 - alias: Sonos Test
   trigger:
   - platform: state

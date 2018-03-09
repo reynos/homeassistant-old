@@ -159,10 +159,10 @@
       value_template: >
         {{ states.calendar.bin_nights.attributes.message }}
       entity_picture_template: >
-        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Green Bins' %}
-          /local/images/ryg.jpg
-        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Bins' %}
-          /local/images/rb.jpg
+        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Bins' %}
+          /local/images/ry.jpg
+        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Green Bins' %}
+          /local/images/rbg.jpg
         {% endif %}
 #      friendly_name_template: >
 #        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Green Bins' %}

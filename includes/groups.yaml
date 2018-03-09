@@ -146,6 +146,12 @@
       - light.front_bedroom_30
       - media_player.tv_ua60h7000
       - media_player.master_bedroom
+  ensuite:
+    name: Ensuite
+    view: yes
+    icon: mdi:human-male-female
+    entities:
+      - media_player.ensuite
   study:
     name: Study
     view: yes
