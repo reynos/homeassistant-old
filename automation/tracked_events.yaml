@@ -5,9 +5,13 @@
     entity_id: device_tracker.reynolds_darren
     to: frontgate
   action:
-    service: script.turn_on
+    service: switch.turn_on
     data:
-      entity_id: script.open_front_gate
+      entity_id: switch.open_door
+
+#    service: script.turn_on
+#    data:
+#      entity_id: script.open_front_gate
 
 - alias: Frontgate Blythe
   trigger:
@@ -15,9 +19,9 @@
     entity_id: device_tracker.reynolds_blythe
     to: frontgate
   action:
-    service: script.turn_on
+    service: switch.turn_on
     data:
-      entity_id: script.open_front_gate
+      entity_id: switch.open_door
 
 - alias: Masterbed Beacon Goodnight
   trigger:

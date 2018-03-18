@@ -13,6 +13,7 @@
       - sensor.humidity_12
       - sensor.nursery_temperature
 #      - sensor.low_temperature_10
+#      - script.bedtime
       - group.qhouse
       - group.qkitchen
       - group.qlounge
@@ -144,8 +145,8 @@
       - light.bedside_blythe_18
       - light.bedside_darren_17
       - light.front_bedroom_30
-      - media_player.tv_ua60h7000
       - media_player.master_bedroom
+      - media_player.tv_ua60h7000
   ensuite:
     name: Ensuite
     view: yes
