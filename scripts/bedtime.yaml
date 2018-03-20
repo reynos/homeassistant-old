@@ -6,9 +6,15 @@ bedtime:
       entity_id:
         - group.all_lights_not_beds
         - light.lounge_lamp_3
-    - service: light.turn_on  
+    - service: light.turn_on
       entity_id: light.stairs_16
-    - delay:
-        minutes: 2
+    - delay: '00:{{ states.input_number.stairs_light_timer.state | int }}:00'
     - service: input_boolean.turn_off
       entity_id: input_boolean.bed_time # automatically call Bedtime Off switch turns off the hall light
+#hall_light_timer:
+#  alias: "Hall Light Timer"
+#  sequence:
+#    - delay: '00:{{ states.input_number.stairs_light_timer.state | int }}:00'
+#    - service: homeassistant.turn_off
+#      data:
+#        entity_id: light.stairs_16

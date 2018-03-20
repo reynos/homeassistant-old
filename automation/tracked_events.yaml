@@ -37,6 +37,19 @@
       data:
         entity_id: script.bedtime
 
+- alias: Morning Lights
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_darren
+    to: kitchen
+#  condition:
+#    - condition: state
+#      entity_id: morning_lights_trigger
+#      state: 'off'
+  action: # in future make this an actionable nofication to turn off lights
+    - service: homeassistant.turn_on
+      entity_id: group.morning_lights
+
 #- alias: Masterbed on
 #  trigger:
 #    platform: state

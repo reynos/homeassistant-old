@@ -21,6 +21,9 @@ bed_time:
   initial: off
   icon: mdi:sleep
 
+morning_lights_trigger:
+  initial: on
+
 sonos_test:
   name: "Sonos test"
   initial: off

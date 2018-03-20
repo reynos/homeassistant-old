@@ -1,3 +1,5 @@
+## lights.yaml automation
+
 ## Hall Night Motion
 - alias: "Hall motion sensor ON"
   trigger:
@@ -14,7 +16,6 @@
       entity_id: light.tv_4
       data:
         brightness: 30
-
 #Turn off Hall light 2 minutes after last movement
 #- alias: "Hall motion sensor OFF"
 #  trigger:

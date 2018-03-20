@@ -1,7 +1,19 @@
 ## input_number.yaml
-nursery_fan_speed_s:
-  name: Speed
-  initial: 1
-  min: 1
-  max: 10
-  step: 1
+stairs_light_timer:
+    name: Stair Light Timer
+    initial: 2
+    min: 0
+    max: 5
+    step: 1
+backdeck_watering_timer:
+    name: Back Deck Watering Timer
+    initial: 2
+    min: 0
+    max: 5
+    step: 1
+#nursery_fan_speed_s:
+#  name: Speed
+#  initial: 1
+#  min: 1
+#  max: 10
+#  step: 1

@@ -167,32 +167,46 @@
     control: hidden
     entities:
       - binary_sensor.hall_sensor_50
-      - switch.hall_sensor_50
       - sensor._temperature_sensor_51
       - sensor._humidity_sensor_53
       - sensor._light_sensor_52
-      - light.stairs_16
       - light.hall_33
+      - light.stairs_16
+      - input_number.stairs_light_timer
+      - switch.hall_sensor_50
+  outside_backyard:
+    name: Backyard
+    view: no
+    control: hidden
+    entities:
+#      - switch.water_back_deck
+      - switch.greenwall_19
+      - input_number.backdeck_watering_timer
+      - light.backyard_24
+      - light.backyard_fairy_light_22
+  outside_frontyard:
+    name: Frontyard
+    view: no
+    control: hidden
+    entities:
+      - light.front_porch_21
+      - light.front_garden_28
+      - light.front_garden2_29
+      - switch.open_door
+      - switch.light_on
+      - media_player.front_garden
+      - binary_sensor.front_garden_movement_motion
   outside:
     name: Outside
     view: yes
     icon: mdi:tree
     control: hidden
     entities:
-      - binary_sensor.front_garden_movement_motion
-      - light.front_porch_21
-      - light.front_garden_28
-      - light.front_garden2_29
+      - group.outside_backyard
+      - group.outside_frontyard
       - input_boolean.sonos_test
-      - light.backyard_24
-      - light.backyard_fairy_light_22
-      - switch.greenwall_19
-      - media_player.front_garden
-      - switch.water_back_deck
       - switch.bedroom_switch1
-      - switch.open_door
-      - switch.light_on
-  bmw_x5:
+  travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
     entities:
@@ -220,7 +234,7 @@
     view: yes
     icon: mdi:car-side
     entities:
-      - group.bmw_x5
+      - group.travel_bmw_x5
       - group.travel_to_home
       - group.travel_home_to
   scenes:
@@ -298,6 +312,7 @@
       - light.backyard_24
       - light.backyard_fairy_light_22
       - light.front_garden_28
+      - input_boolean.morning_lights_trigger
   all_lights_not_beds:
     name: All lights not beds
     view: no
@@ -325,5 +340,12 @@
       - light.stairs_16
       - light.kitchen_bench_7
       - light.backyard_24
+
+  morning_lights:
+    view: no
+    control: hidden
+    entities:
+      - light.kitchen_bench_7
+      - light.nursery_lamp_19
 
 #      - light.front_garden2_29

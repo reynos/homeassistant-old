@@ -1,3 +1,5 @@
+## general.yaml script
+
 - alias: HA Update notification
   trigger:
     - platform: state
@@ -7,3 +9,13 @@
     data_template:
       title: 'New Home Assistant Release'
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+- alias: "Back Deck Watering Timer"
+  trigger:
+    - platform: state
+      entity_id: switch.greenwall_19
+      to: 'on'
+  action:
+    - delay: '00:{{ states.input_number.backdeck_watering_timer.state | int }}:00'
+    - service: homeassistant.turn_off
+      data:
+        entity_id: switch.greenwall_19

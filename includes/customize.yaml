@@ -14,9 +14,6 @@
   sensor.template_x5_xdrive30d_remaining_range_fuel:
     icon: mdi:road-variant
 #z-wave
-  switch.greenwall_19:
-    friendly_name: Back Deck Watering
-    icon: mdi:water
   binary_sensor.kitchen_sensor_46:
     friendly_name: Kitchen Motion
 #trackers
@@ -98,6 +95,13 @@
       friendly_name: Internet Up
     sensor.speedtest_ping:
       friendly_name: Internet Ping
+#outside
+  switch.greenwall_19:
+    friendly_name: Back Deck Watering
+    icon: mdi:water
+  input_number.backdeck_watering_timer:
+    friendly_name: Timer
+    icon: mdi:timer
 #other
   sun.sun:
     entity_picture: http://images.all-free-download.com/images/graphiclarge/smiling_sun_312442.jpg
