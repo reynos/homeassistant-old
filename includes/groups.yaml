@@ -206,6 +206,7 @@
       - group.outside_backyard
       - group.outside_frontyard
       - input_boolean.sonos_test
+      - input_boolean.morning_lights_trigger
       - switch.bedroom_switch1
   travel_bmw_x5:
     name: BMW X5 xDrive30d

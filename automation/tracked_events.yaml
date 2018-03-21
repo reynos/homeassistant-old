@@ -42,14 +42,17 @@
     platform: state
     entity_id: device_tracker.reynolds_darren
     to: kitchen
-#  condition:
-#    - condition: state
-#      entity_id: morning_lights_trigger
-#      state: 'off'
-  action: # in future make this an actionable nofication to turn off lights
-    - service: script.turn_on
-      entity_id: script.morning_lights
-
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: morning_lights_trigger
+        state: 'off' #so this only happerns once in the morning
+      - condition: time
+        before: '07:30:00'
+    action: # in future make this an actionable nofication to turn off lights
+      - service: script.turn_on
+        entity_id: script.morning_lights
 #- alias: Masterbed on
 #  trigger:
 #    platform: state
