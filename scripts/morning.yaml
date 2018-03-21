@@ -1,0 +1,9 @@
+### morning.yaml scripts
+
+morning_lights:
+  alias: Morning Lights
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id:
+        - input_boolean.morning_lights_trigger
+        - input_boolean.morning_lights

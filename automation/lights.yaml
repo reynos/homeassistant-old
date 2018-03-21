@@ -67,3 +67,21 @@
   action:
       service: light.turn_off
       entity_id: light.kitchen_bench_7
+
+- alias: "Morning Lights ON"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.morning_lights
+      to: 'on'
+  action:
+      service: homeassistant.turn_on
+      entity_id: group.morning_lights
+
+- alias: "Morning Lights OFF"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.morning_lights
+      to: 'off'
+  action:
+      service: homeassistant.turn_off
+      entity_id: group.morning_lights

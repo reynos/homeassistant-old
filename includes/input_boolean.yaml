@@ -21,6 +21,10 @@ bed_time:
   initial: off
   icon: mdi:sleep
 
+morning_lights:
+  name: "Morning Lights"
+  icon: mdi:weather-sunny
+
 morning_lights_trigger:
   initial: on
 

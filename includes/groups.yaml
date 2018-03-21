@@ -37,6 +37,7 @@
       - input_select.house_mode
 #      - script.bedtime now input_boolean to easily trigger scene Bedtime
       - input_boolean.bed_time
+      - input_boolean.morning_lights
       - fan.nursery
       - input_select.nursery_fan_speed
 #      - input_number.nursery_fan_speed_s
@@ -346,6 +347,6 @@
     control: hidden
     entities:
       - light.kitchen_bench_7
-      - light.nursery_lamp_19
+      - light.lounge_lamp_3
 
 #      - light.front_garden2_29

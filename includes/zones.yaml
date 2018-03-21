@@ -87,4 +87,7 @@
 #  radius: 10
 #  passive: true
 #  icon: mdi:home-circle
-#
+- name: kitchen
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  icon: mdi:stove

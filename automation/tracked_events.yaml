@@ -47,8 +47,8 @@
 #      entity_id: morning_lights_trigger
 #      state: 'off'
   action: # in future make this an actionable nofication to turn off lights
-    - service: homeassistant.turn_on
-      entity_id: group.morning_lights
+    - service: script.turn_on
+      entity_id: script.morning_lights
 
 #- alias: Masterbed on
 #  trigger:

@@ -5,3 +5,6 @@ goodnight:
     - service: light.turn_off
       data:
         entity_id: group.all_lights_not_beds
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
