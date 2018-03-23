@@ -13,9 +13,11 @@
     icon: mdi:fuel
   sensor.template_x5_xdrive30d_remaining_range_fuel:
     icon: mdi:road-variant
-#z-wave
+#sensors
   binary_sensor.kitchen_sensor_46:
     friendly_name: Kitchen Motion
+  sensor.temperature_sensor_60:
+    friendly_name: Kitchen Temp
 #trackers
   device_tracker.darren:
     entity_picture: !secret picture_url_darren

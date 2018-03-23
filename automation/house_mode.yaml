@@ -1,19 +1,38 @@
+### house_mode.yaml automation
 
 ## Automated Select Scenes - House modes Evening, Night and Day (Bedtime and Holiday only called manually)
-- alias: Set Evening mode at Sunset
+
+- alias: Set Evening mode at Dusk
   trigger:
-    platform: sun
-    event: sunset
+    platform: numeric_state
+    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+    below: 20
+#    for:
+#      minutes: 1
+#  condition:
   action:
     - service: script.turn_on
       data_template:
-#      service_template:
         entity_id: >
           {% if states.input_select.house_mode.state == 'Holiday' %}
             script.evening_holiday
           {% else %}
             script.evening
           {% endif %}
+## working sun based evening setting
+##- alias: Set Evening mode at Sunset
+##  trigger:
+##    platform: sun
+##    event: sunset
+##  action:
+##    - service: script.turn_on
+##      data_template:
+##        entity_id: >
+##          {% if states.input_select.house_mode.state == 'Holiday' %}
+##            script.evening_holiday
+##          {% else %}
+##            script.evening
+##          {% endif %}
 
 - alias: Set Night mode
   trigger:
@@ -33,7 +52,7 @@
 - alias: Set Day mode
   trigger:
     platform: time
-    at: '06:00:00'
+    at: '05:30:00'
   action:
     - service: input_select.select_option
       data:

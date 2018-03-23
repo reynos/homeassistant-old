@@ -8,9 +8,12 @@
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
       - sensor.template_calendar_bin_nights
-      - sensor.temperature_9
-      - sensor.high_temperature_11
-      - sensor.humidity_12
+      - sensor.light_sensor_61
+      - binary_sensor.kitchen_sensor_46
+      - sensor.temperature_sensor_60
+#      - sensor.temperature_9
+##      - sensor.high_temperature_11
+##      - sensor.humidity_12
       - sensor.nursery_temperature
 #      - sensor.low_temperature_10
 #      - script.bedtime
