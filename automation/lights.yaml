@@ -1,21 +1,68 @@
 ## lights.yaml automation
 
-## Hall Night Motion
-- alias: "Hall motion sensor ON"
+## Kitchen Night Motion
+- alias: "Kitchen Morning Lights sensor ON"
   trigger:
     - platform: state
-      entity_id: binary_sensor.hall_sensor_50
-      from: 'off'
-      to: 'on'
+      entity_id: binary_sensor.kitchen_sensor_46
+      from: 'OFF'
+      to: 'ON'
   condition:
     - condition: state
       entity_id: input_select.house_mode
-      state: 'Night'
+      state: 'Day'
+#    - condition: numeric_state
+#      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+#      below: 20
   action:
-      service: light.turn_on
-      entity_id: light.tv_4
-      data:
-        brightness: 30
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.morning_lights
+
+- alias: "Kitchen motion sensor OFF"
+  trigger:
+    - condition: numeric_state
+      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+      above: 20
+      for:
+        minutes: 5
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.morning_lights
+
+- alias: "Morning Lights manual ON"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.morning_lights
+      to: 'ON'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.morning_lights
+
+- alias: "Morning Lights manual OFF"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.morning_lights
+      to: 'OFF'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.morning_lights
+
+## Hall Night Motion
+#- alias: "Hall motion sensor ON"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.hall_sensor_50
+#      from: 'off'
+#      to: 'on'
+#  condition:
+#    - condition: state
+#      entity_id: input_select.house_mode
+#      state: 'Night'
+#  action:
+#    - service: light.turn_on
+#      entity_id: light.tv_4
+#      data:
+#        brightness: 30
 #Turn off Hall light 2 minutes after last movement
 #- alias: "Hall motion sensor OFF"
 #  trigger:
@@ -31,57 +78,3 @@
 #  action:
 #      service: light.turn_off
 #      entity_id: light.tv_4
-
-## Kitchen Night Motion
-- alias: "Kitchen motion sensor ON"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_sensor_46
-      from: 'off'
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Night'
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Bedtime'
-  action:
-      service: light.turn_on
-      entity_id: light.kitchen_bench_7
-
-- alias: "Kitchen motion sensor OFF"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_sensor_46
-      to: 'off'
-      for:
-        minutes: 5
-  condition:
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Night'
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Bedtime'
-  action:
-      service: light.turn_off
-      entity_id: light.kitchen_bench_7
-
-- alias: "Morning Lights ON"
-  trigger:
-    - platform: state
-      entity_id: input_boolean.morning_lights
-      to: 'on'
-  action:
-      service: homeassistant.turn_on
-      entity_id: group.morning_lights
-
-- alias: "Morning Lights OFF"
-  trigger:
-    - platform: state
-      entity_id: input_boolean.morning_lights
-      to: 'off'
-  action:
-      service: homeassistant.turn_off
-      entity_id: group.morning_lights

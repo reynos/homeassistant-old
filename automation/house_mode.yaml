@@ -11,14 +11,14 @@
 #      minutes: 1
 #  condition:
   action:
-    - service: script.turn_on
-      data_template:
-        entity_id: >
-          {% if states.input_select.house_mode.state == 'Holiday' %}
-            script.evening_holiday
-          {% else %}
-            script.evening
-          {% endif %}
+    service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if states.input_select.house_mode.state == 'Holiday' %}
+          script.evening_holiday
+        {% else %}
+          script.evening
+        {% endif %}
 ## working sun based evening setting
 ##- alias: Set Evening mode at Sunset
 ##  trigger:
@@ -39,92 +39,91 @@
     platform: time
     at: '22:30:00'
   action:
-    - service: script.turn_on
-      data_template:
-#      service_template:
-        entity_id: >
-          {% if states.input_select.house_mode.state == 'Holiday' %}
-            script.night_holiday
-          {% else %}
-            script.night
-          {% endif %}
+    service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if states.input_select.house_mode.state == 'Holiday' %}
+          script.night_holiday
+        {% else %}
+          script.night
+        {% endif %}
 
 - alias: Set Day mode
   trigger:
     platform: time
     at: '05:30:00'
   action:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.house_mode
-        option: Day
+    service: input_select.select_option
+    data:
+      entity_id: input_select.house_mode
+      option: 'Day'
 
 ## Input Select Scene sets - House modes
 - alias: Set Bedtime switch
   trigger:
     platform: state
     entity_id: input_boolean.bed_time
-    to: 'on'
+    to: 'ON'
   action:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.house_mode
-        option: Bedtime
+    service: input_select.select_option
+    data:
+      entity_id: input_select.house_mode
+      option: 'Bedtime'
 #    - service: script.turn_on
 #      data:
 #        entity_id: script.bedtime
 
 - alias: "House Mode Bedtime"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: Bedtime
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Bedtime'
   action:
-    - service: script.turn_on
-      data:
-        entity_id: script.bedtime
+    service: script.turn_on
+    data:
+      entity_id: script.bedtime
 
 - alias: Bedtime off # if triggered manually while the timer is running will turn the stairs light off early
   trigger:
     platform: state
     entity_id: input_boolean.bed_time
-    to: 'off'
+    to: 'OFF'
   action:
-    - service: light.turn_off
-      entity_id: light.stairs_16
+    service: light.turn_off
+    entity_id: light.stairs_16
 
 - alias: "House Mode Evening"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: Evening
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Evening'
   action:
-      service: scene.turn_on
-      entity_id: scene.evening
+    service: scene.turn_on
+    entity_id: scene.evening
 
 - alias: "House Mode Day"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: Day
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Day'
   action:
-      service: scene.turn_on
-      entity_id: scene.day
+    service: scene.turn_on
+    entity_id: scene.day
 
 - alias: "House Mode Night"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: Night
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Night'
   action:
-      service: scene.turn_on
-      entity_id: scene.night
+    service: scene.turn_on
+    entity_id: scene.night
 
 - alias: "House Mode Holiday"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: Holiday
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Holiday'
   action:
     - service: notify.ios_Darren
       data:
@@ -136,33 +135,31 @@
 # this section in case morning lights had been triggered that day,
 # the tigger and switch would never be reset, this does the ontime reset
     - service: homeassistant.turn_off
-      data:
-        entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
-    - service: homeassistant.turn_off
-      data:
-        entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
+      entity_id:
+        - input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
+        - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
 
 - alias: "House Mode Holiday Off"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      from: Holiday
+    platform: state
+    entity_id: input_select.house_mode
+    from: 'Holiday'
   action:
-    - service: notify.ios_Darren
+    service: notify.ios_Darren
+    data:
+      message: "Holiday mode OFF"
       data:
-        message: "Holiday mode OFF"
-        data:
-          push:
-            badge: 5
-          subtitle: "Mode"
+        push:
+          badge: 5
+        subtitle: "Mode"
 
 #      service: scene.turn_on
 #      entity_id: scene.night
 - alias: "House Mode SydneyFC"
   trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: 'Sydney FC Game'
+    platform: state
+    entity_id: input_select.house_mode
+    to: 'Sydney FC Game'
   action:
-      service: scene.turn_on
-      entity_id: scene.sydneyfc
+    service: scene.turn_on
+    entity_id: scene.sydneyfc
