@@ -114,6 +114,15 @@
           push:
             badge: 5
           subtitle: "Mode"
+# this section in case morning lights had been triggered that day,
+# the tigger and switch would never be reset, this does the ontime reset
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
+
 - alias: "House Mode Holiday Off"
   trigger:
     - platform: state

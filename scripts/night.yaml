@@ -5,3 +5,12 @@ night:
       data:
         entity_id: input_select.house_mode
         option: Night
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
+#    - service: homeassistant.turn_off
+#      data:
+#        entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually

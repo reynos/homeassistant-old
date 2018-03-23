@@ -1,11 +1,7 @@
-### goodnight.yaml
+### goodnight.yaml script
 goodnight:
   alias: Goodnight!
   sequence:
     - service: light.turn_off
       data:
         entity_id: group.all_lights_not_beds
-    - service: homeassistant.turn_off
-        entity_id:
-        - input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
-        - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
