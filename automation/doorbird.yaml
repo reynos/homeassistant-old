@@ -1,19 +1,19 @@
-## Doorbird
+## Doorbird.yaml automation
 - alias: Doorbird ring
   trigger:
-  - platform: event
+    platform: event
     event_type: doorbird_doorbell
   action:
-    - service: script.turn_on
-      data_template:
-        entity_id: >
-          {% if states.input_select.house_mode.state == 'Bedtime' %}
-            script.doorbell_night
-          {% elif states.input_select.house_mode.state == 'Night' %}
-            script.doorbell_night
-          {% else %}
-            script.doorbell
-          {% endif %}
+    service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if states.input_select.house_mode.state == 'Bedtime' %}
+          script.doorbell_night
+        {% elif states.input_select.house_mode.state == 'Night' %}
+          script.doorbell_night
+        {% else %}
+          script.doorbell
+        {% endif %}
 #for testing
 #    - service: media_player.play_media
 #      data:
@@ -22,10 +22,10 @@
 #        media_content_type: music
 - alias: Sonos Test
   trigger:
-  - platform: state
+    platform: state
     entity_id: input_boolean.sonos_test
     to: 'on'
   action:
-    - service: script.turn_on
-      data:
-        entity_id: script.sonos_goup_test
+    service: script.turn_on
+    data:
+      entity_id: script.sonos_goup_test

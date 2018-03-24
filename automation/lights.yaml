@@ -3,10 +3,9 @@
 ## Kitchen Night Motion
 - alias: "Kitchen Morning Lights sensor ON"
   trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_sensor_46
-      from: 'OFF'
-      to: 'ON'
+    platform: state
+    entity_id: binary_sensor.kitchen_sensor_46
+    to: 'on'
   condition:
     - condition: state
       entity_id: input_select.house_mode
@@ -18,22 +17,22 @@
     - service: homeassistant.turn_on
       entity_id: input_boolean.morning_lights
 
-- alias: "Kitchen motion sensor OFF"
+- alias: "Morning lights sensor OFF"
   trigger:
-    - condition: numeric_state
-      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-      above: 20
-      for:
-        minutes: 5
+    platform: numeric_state
+    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+    above: 20
+    for:
+      minutes: 5
   action:
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       entity_id: input_boolean.morning_lights
 
 - alias: "Morning Lights manual ON"
   trigger:
     - platform: state
       entity_id: input_boolean.morning_lights
-      to: 'ON'
+      to: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: group.morning_lights
@@ -42,7 +41,7 @@
   trigger:
     - platform: state
       entity_id: input_boolean.morning_lights
-      to: 'OFF'
+      to: 'on'
   action:
     - service: homeassistant.turn_off
       entity_id: group.morning_lights

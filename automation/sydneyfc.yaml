@@ -1,18 +1,17 @@
 - alias: "Sydney FC Game Start"
   trigger:
-    - platform: state
-      entity_id: input_boolean.sydneyfc_game
-      to: 'on'
+    platform: state
+    entity_id: input_boolean.sydneyfc_game
+    to: 'on'
   action:
-      service: scene.turn_on
-      entity_id: scene.sydneyfc
+    service: scene.turn_on
+    entity_id: scene.sydneyfc
 
 - alias: "Sydney FC Game End"
   trigger:
-    - platform: state
-      entity_id: input_boolean.sydneyfc_game
-      to: 'off'
+    platform: state
+    entity_id: input_boolean.sydneyfc_game
+    to: 'off'
   action:
-      service: light.turn_off
-      entity_id: light.lounge_lamp_3
-
+    service: light.turn_off
+    entity_id: light.lounge_lamp_3
