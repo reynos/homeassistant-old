@@ -1,0 +1,12 @@
+## day.yaml script
+## run at the start of the day called from house_mode.yaml "House Mode Day"
+
+day:
+  alias: Day
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.day
+    - service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.morning_lights_flag #re-sets the morning lights flag for the next day
+        - input_boolean.bedtime_beacon_flag #re-sets the bedtime flag for the next day

@@ -208,7 +208,8 @@
       - group.outside_backyard
       - group.outside_frontyard
       - input_boolean.sonos_test
-      - input_boolean.morning_lights_trigger
+      - input_boolean.morning_lights_flag
+      - input_boolean.bedtime_beacon_flag
       - switch.bedroom_switch1
   travel_bmw_x5:
     name: BMW X5 xDrive30d
@@ -337,19 +338,19 @@
 #      - light.lounge_lamp_3
 # not - light.front_garden_28
 
-  peanut_lights:
-    name: Peanut Nightlight
-    view: no
-    entities:
-      - light.stairs_16
-      - light.kitchen_bench_7
-      - light.backyard_24
+#  peanut_lights:
+#    name: Peanut Nightlight
+#    view: no
+#    entities:
+#      - light.stairs_16
+#      - light.kitchen_bench_7
+#      - light.backyard_24
 
-  morning_lights:
-    view: no
-    control: hidden
-    entities:
-      - light.kitchen_bench_7
-      - light.lounge_lamp_3
+#  morning_lights:
+#    view: no
+#    control: hidden
+#    entities:
+#      - light.kitchen_bench_7
+#      - light.lounge_lamp_3
 
 #      - light.front_garden2_29

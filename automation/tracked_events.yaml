@@ -1,4 +1,5 @@
-### tracked events
+### tracked events automation - things happengin with beacons
+
 - alias: Frontgate Darren
   trigger:
     platform: state
@@ -44,11 +45,11 @@
     to: kitchen
   condition:
     - condition: state
-      entity_id: input_boolean.morning_lights_trigger
+      entity_id: input_boolean.morning_lights_flag
       state: 'off' #so this only happerns once in the morning
     - condition: time
       before: '07:30:00'
-  action: # in future make this an actionable nofication to turn off lights
+  action: # in future make this an actionable nofication?
     - service: script.turn_on
       entity_id: script.morning_lights
 #- alias: Masterbed on

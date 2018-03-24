@@ -92,14 +92,23 @@ script: !include_dir_merge_named scripts
 ## Activations
 recorder:
   purge_interval: 2
-  purge_keep_days: 5
+  purge_keep_days: 7
+  include:
+    domains:
+      - input_boolean
+      - input_number
+      - input_select
+      - binarty_sensor
+      - sensor
+      - switch
+      - media_player
   exclude:
     domains:
-      - automation
+#      - automation
       - updater
     entities:
       - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+#      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 
 updater:

@@ -15,36 +15,53 @@
 #      below: 20
   action:
     - service: homeassistant.turn_on
-      entity_id: input_boolean.morning_lights
+      entity_id:
+        - input_boolean.morning_lights
+        - input_boolean.morning_lights_flag
 
-- alias: "Morning lights sensor OFF"
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-    above: 20
-    for:
-      minutes: 5
-  action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.morning_lights
+#- alias: "Morning lights sensor OFF"
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+#    above: 20
+#    for:
+#      minutes: 5
+#  action:
+#    - service: homeassistant.turn_off
+#      entity_id:
+#        - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
 
 - alias: "Morning Lights manual ON"
   trigger:
-    - platform: state
-      entity_id: input_boolean.morning_lights
-      to: 'on'
+    platform: state
+    entity_id: input_boolean.morning_lights
+    to: 'on'
   action:
-    - service: homeassistant.turn_on
-      entity_id: group.morning_lights
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: Morning Lights
+        message: turned on
+        entity_id: light.kitchen_bench_7
+        domain: light
+    - service: light.turn_off
+      entity_id:
+        - light.kitchen_bench_7
+        - light.lounge_lamp_3
+#    - service: homeassistant.turn_on
+#      entity_id: group.morning_lights
 
 - alias: "Morning Lights manual OFF"
   trigger:
-    - platform: state
-      entity_id: input_boolean.morning_lights
-      to: 'on'
+    platform: state
+    entity_id: input_boolean.morning_lights
+    to: 'on'
   action:
-    - service: homeassistant.turn_off
-      entity_id: group.morning_lights
+    service: light.turn_off
+    entity_id:
+      - light.kitchen_bench_7
+      - light.lounge_lamp_3
+#    service: homeassistant.turn_off
+#    entity_id: group.morning_lights
 
 ## Hall Night Motion
 #- alias: "Hall motion sensor ON"

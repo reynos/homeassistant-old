@@ -112,8 +112,8 @@
     entity_id: input_select.house_mode
     to: 'Day'
   action:
-    service: scene.turn_on
-    entity_id: scene.day
+    service: script.turn_on
+    entity_id: script.day
 
 - alias: "House Mode Night"
   trigger:
@@ -138,10 +138,10 @@
             badge: 5
           subtitle: "Mode"
 # this section in case morning lights had been triggered that day,
-# the tigger and switch would never be reset, this does the ontime reset
+# the tigger and switch would never be reset, this does the onetime reset
     - service: homeassistant.turn_off
       entity_id:
-        - input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
+        - input_boolean.morning_lights_flag #re-sets the morning lights flag for the next day
         - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
 
 - alias: "House Mode Holiday Off"
