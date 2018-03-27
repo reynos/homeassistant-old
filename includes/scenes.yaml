@@ -1,4 +1,15 @@
 ### scenes.yaml
+
+  - name: Morning
+    entities:
+      light.kitchen_bench_7: on
+      light.lounge_lamp_3: on
+
+  - name: Morning off
+    entities:
+      light.kitchen_bench_7: off
+      light.lounge_lamp_3: off
+
   - name: Evening
     entities:
       group.evening: on

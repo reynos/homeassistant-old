@@ -63,21 +63,6 @@
       entity_id: input_select.house_mode
       option: 'Day'
 
-## Input Select Scene sets - House modes
-- alias: Set Bedtime switch
-  trigger:
-    platform: state
-    entity_id: input_boolean.bed_time
-    to: 'on'
-  action:
-    service: input_select.select_option
-    data:
-      entity_id: input_select.house_mode
-      option: 'Bedtime'
-#    - service: script.turn_on
-#      data:
-#        entity_id: script.bedtime
-
 - alias: "House Mode Bedtime"
   trigger:
     platform: state
@@ -87,15 +72,6 @@
     service: script.turn_on
     data:
       entity_id: script.bedtime
-
-- alias: Bedtime off # if triggered manually while the timer is running will turn the stairs light off early
-  trigger:
-    platform: state
-    entity_id: input_boolean.bed_time
-    to: 'off'
-  action:
-    service: light.turn_off
-    entity_id: light.stairs_16
 
 - alias: "House Mode Evening"
   trigger:

@@ -2,22 +2,23 @@
 bedtime:
   alias: Goodnight - Lights off
   sequence:
-    - condition: state
-      entity_id: input_boolean.bedtime_beacon_trigger
-      state: 'off'
+# condition moced to tracked events
+#    - condition: state
+#      entity_id: input_boolean.bedtime_beacon_flag
+#      state: 'off'
     - service: light.turn_off
       entity_id:
         - group.all_lights_not_beds
         - light.lounge_lamp_3
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.bedtime_beacon_trigger # so this only happerns once
     - service: light.turn_on
       entity_id: light.stairs_16
-    - delay: '00:{{ states.input_number.stairs_light_timer.state | int }}:00'
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bed_time # automatically call Bedtime Off switch turns off the hall light
     - service: input_boolean.turn_on
       entity_id: input_boolean.bedtime_beacon_flag
+    - delay: '00:{{ states.input_number.stairs_light_timer.state | int }}:00'
+    - service: light.turn_off
+      entity_id: light.stairs_16
+#    - service: input_boolean.turn_off
+#      entity_id: input_boolean.bed_time # automatically call Bedtime Off switch turns off the hall light
 
 #hall_light_timer:
 #  alias: "Hall Light Timer"

@@ -1,6 +1,6 @@
 ## lights.yaml automation
 
-## Kitchen Night Motion
+## Kitchen Morning Motion light on
 - alias: "Kitchen Morning Lights sensor ON"
   trigger:
     platform: state
@@ -10,26 +10,33 @@
     - condition: state
       entity_id: input_select.house_mode
       state: 'Day'
-#    - condition: numeric_state
-#      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-#      below: 20
+    - condition: state
+      entity_id: input_boolean.morning_lights_flag
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+      below: 20
   action:
-    - service: homeassistant.turn_on
-      entity_id:
-        - input_boolean.morning_lights
-        - input_boolean.morning_lights_flag
+    - service: script.turn_on
+      entity_id: script.morning_lights_on
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: Morning Lights
+        message: Sensor turned on
+        entity_id: light.kitchen_bench_7
+        domain: light
 
-#- alias: "Morning lights sensor OFF"
-#  trigger:
-#    platform: numeric_state
-#    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-#    above: 20
+## Kitchen Morning Light sensor lights off
+- alias: "Morning lights sensor OFF"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+    above: 20
 #    for:
-#      minutes: 5
-#  action:
-#    - service: homeassistant.turn_off
-#      entity_id:
-#        - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
+#      minutes: 10
+  action:
+    - service: script.turn_on
+      entity_id: script.morning_off
 
 - alias: "Morning Lights manual ON"
   trigger:
@@ -37,31 +44,40 @@
     entity_id: input_boolean.morning_lights
     to: 'on'
   action:
-    - event: LOGBOOK_ENTRY
-      event_data:
-        name: Morning Lights
-        message: turned on
-        entity_id: light.kitchen_bench_7
-        domain: light
-    - service: light.turn_off
-      entity_id:
-        - light.kitchen_bench_7
-        - light.lounge_lamp_3
-#    - service: homeassistant.turn_on
-#      entity_id: group.morning_lights
+    - service: scene.turn_on
+      entity_id: scene.morning
 
 - alias: "Morning Lights manual OFF"
   trigger:
     platform: state
     entity_id: input_boolean.morning_lights
+    to: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.morning_off
+
+- alias: Bedtime switch on
+  trigger:
+    platform: state
+    entity_id: input_boolean.bed_time
     to: 'on'
   action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.house_mode
+      option: 'Bedtime'
+#    - service: script.turn_on
+#      data:
+#        entity_id: script.bedtime
+
+- alias: Bedtime switch off # if triggered manually while the timer is running will turn the stairs light off early
+  trigger:
+    platform: state
+    entity_id: input_boolean.bed_time
+    to: 'off'
+  action:
     service: light.turn_off
-    entity_id:
-      - light.kitchen_bench_7
-      - light.lounge_lamp_3
-#    service: homeassistant.turn_off
-#    entity_id: group.morning_lights
+    entity_id: light.stairs_16
 
 ## Hall Night Motion
 #- alias: "Hall motion sensor ON"

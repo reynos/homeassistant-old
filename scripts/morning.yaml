@@ -1,9 +1,15 @@
 ### morning.yaml scripts
-
-morning_lights:
-  alias: Morning Lights
+## no currently used - using a scene instead
+morning_lights_on:
+  alias: Morning Lights On
   sequence:
-    - service: homeassistant.turn_on
+    - service: input_boolean.turn_on
       entity_id:
-        - input_boolean.morning_lights_trigger
-        - input_boolean.morning_lights
+        - input_boolean.morning_lights_flag
+        - input_boolean.morning_lights #this calls scene.morning
+
+morning_lights_off:
+  alias: Morning Lights Off
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.morning_lights #this calls scene.morning_off

@@ -33,6 +33,9 @@
     - condition: state
       entity_id: input_select.house_mode
       state: 'Evening'
+    - condition: state
+      entity_id: input_boolean.bedtime_beacon_flag
+      state: 'off'
   action: # in future make this an actionable nofication to turn off lights
     - service: script.turn_on
       data:
