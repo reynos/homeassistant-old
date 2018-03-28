@@ -170,8 +170,13 @@
 #        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Bins' %}
 #          Red Blue
 #        {% endif %}
-
 ## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
+
+    template_kitchen_temp:
+      friendly_name: "Kitchen Temp"
+      unit_of_measurement: "C"
+      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}"
+
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
       friendly_name: 'Thornton'

@@ -18,6 +18,9 @@
     friendly_name: Kitchen Motion
   sensor.temperature_sensor_60:
     friendly_name: Kitchen Temp
+  sensor.humidity_sensor_62:
+    friendly_name: Kitchen Humidity
+
 #trackers
   device_tracker.darren:
     entity_picture: !secret picture_url_darren

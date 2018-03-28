@@ -8,8 +8,9 @@
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
       - sensor.template_calendar_bin_nights
-      - sensor.light_sensor_61
-      - sensor.temperature_sensor_60
+      - sensor.template_kitchen_temp
+#      - sensor.temperature_sensor_60
+      - sensor.humidity_sensor_62
 #      - sensor.temperature_9
       - sensor.high_temperature_11
 ##      - sensor.humidity_12
@@ -84,13 +85,14 @@
     icon: mdi:stove
     entities:
       - binary_sensor.kitchen_sensor_46
-      - switch.kitchen_sensor_46
-      - sensor.temperature_sensor_47
-      - sensor.humidity_sensor_49
+      - sensor.light_sensor_61
+      - sensor.temperature_sensor_60
+      - sensor.humidity_sensor_62
       - sensor.light_sensor_48
       - light.kitchen_high_15
       - light.kitchen_low_13
       - light.kitchen_bench_7
+      - switch.kitchen_sensor_46
       - media_player.kitchen
   lounge:
     view: yes
