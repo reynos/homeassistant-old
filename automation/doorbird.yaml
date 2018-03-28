@@ -28,4 +28,4 @@
   action:
     service: script.turn_on
     data:
-      entity_id: script.sonos_goup_test
+      entity_id: script.sonos_group_test

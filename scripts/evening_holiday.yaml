@@ -1,5 +1,0 @@
-evening_holiday:
-  alias: "Evening Holiday lights on"
-  sequence:
-    service: scene.turn_on
-    entity_id: scene.holiday_evening
