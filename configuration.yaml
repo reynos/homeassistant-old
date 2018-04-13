@@ -90,6 +90,9 @@ automation: !include_dir_merge_list automation
 script: !include_dir_merge_named scripts
 
 ## Activations
+frontend:
+  themes: !include_dir_merge_named themes/
+
 recorder:
   purge_interval: 2
   purge_keep_days: 7
@@ -119,7 +122,6 @@ sun:
 tts:
   platform: google
 ios:
-frontend:
 history:
 logbook:
 

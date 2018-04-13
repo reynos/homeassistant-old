@@ -1,5 +1,20 @@
 ### sensors.yaml
+- platform: rest
+  resource: !secret solaredge_resource
+  value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
+  name: 'Solar Today'
+  unit_of_measurement: 'kWh'
+  scan_interval: 900
+
+- platform: rest
+  resource: !secret solaredge_resource
+  value_template: '{{ (value_json.overview.currentPower.power | float / 1000) | round(2) }}'
+  name: 'Solar Production'
+  unit_of_measurement: 'kW'
+  scan_interval: 900
+
 - platform: version
+
 - platform: mqtt
   name: "Darren's Mood"
   state_topic: "home/darren/mood"
@@ -20,6 +35,7 @@
     - memory_percent_used
     - network_tx
     - volume_percentage_used
+
 - platform: systemmonitor
   resources:
     - type: disk_free
@@ -43,6 +59,7 @@
       arg: eno1 # not eth0
     - type: network_out
       arg: eno1
+
 - platform: speedtest
   server_id: 2629
   monitored_conditions:
@@ -57,6 +74,7 @@
     - 12
     - 16
     - 20
+
 - platform: google_travel_time
   name: GTDarren_Home
   api_key: !secret google_maps_api_key
@@ -97,9 +115,11 @@
   api_key: !secret google_maps_api_key
   origin: zone.home
   destination: zone.intairport
+
 - platform: filesize
   file_paths:
     - /home/homeassistant/.homeassistant/home-assistant_v2.db
+
 - platform: scrape
   resource: https://home-assistant.io
   name: Release
@@ -122,6 +142,30 @@
 # templates
 - platform: template
   sensors:
+    template_binary_sensor_x5_xdrive30d_windows_front:
+      friendly_name: "Front Windows"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.window_driver_front }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.window_passenger_front }}
+    template_binary_sensor_x5_xdrive30d_windows_rear:
+      friendly_name: "Rear Windows"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.window_driver_rear }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.window_passenger_rear }}
+    template_binary_sensor_x5_xdrive30d_sunroof:
+      friendly_name: "Sunroof"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.sunroof_state }}
+    template_binary_sensor_x5_xdrive30d_front_doors:
+      friendly_name: "Front Doors"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.door_driver_front }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.door_passenger_front }}
+    template_binary_sensor_x5_xdrive30d_rear_doors:
+      friendly_name: "Rear Doors"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.door_driver_rear }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.door_passenger_rear }}
+    template_binary_sensor_x5_xdrive30d_bonnet_rear:
+      friendly_name: "Bonnet/Rear Hatch"
+      value_template: >
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.hood_state }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.trunk_state }}
     template_x5_xdrive30d_remaining_fuel:
       friendly_name: "Fuel remaining"
       unit_of_measurement: "L"
@@ -143,6 +187,14 @@
       unit_of_measurement: "kms"
       value_template: >
         {{"{:,}".format(states('sensor.x5_xdrive30d_remaining_range_fuel')|int)}}
+    template_gtdarren_home:
+      friendly_name: "Darren"
+      value_template: >
+        {{ states.sensor.gtdarren_home.attributes.distance }} ({{states.sensor.gtdarren_home.attributes.duration_in_traffic }})
+    template_gtblythe_home:
+      friendly_name: "Blythe"
+      value_template: >
+        {{ states.sensor.gtblythe_home.attributes.distance }} ({{states.sensor.gtblythe_home.attributes.duration_in_traffic }})
     template_nursery_air_quality:
       friendly_name: "Air Quality"
       unit_of_measurement: "State"
@@ -175,8 +227,8 @@
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
       unit_of_measurement: "C"
-      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}"
-
+      value_template: "{{ states.sensor.temperature_sensor_60.state|round(1) }}"
+#      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
       friendly_name: 'Thornton'

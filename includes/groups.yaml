@@ -3,27 +3,25 @@
     view: yes
     icon: mdi:home
     entities:
-#      - sun.sun
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
       - sensor.template_calendar_bin_nights
       - sensor.template_kitchen_temp
 #      - sensor.temperature_sensor_60
-      - sensor.humidity_sensor_62
+##      - sensor.humidity_sensor_62
 #      - sensor.temperature_9
-      - sensor.high_temperature_11
 ##      - sensor.humidity_12
       - sensor.nursery_temperature
+      - sensor.high_temperature_11
 #      - sensor.low_temperature_10
-#      - script.bedtime
+      - sensor.solar_production
       - group.qhouse
       - group.qkitchen
       - group.qlounge
+      - group.qnursery
       - group.qother
 
-#      - script.goodnight
-#      - script.peanut
       - group.kitchen
       - group.lounge
       - group.hall
@@ -38,26 +36,33 @@
     control: hidden
     entities:
       - input_select.house_mode
-#      - script.bedtime now input_boolean to easily trigger scene Bedtime
       - input_boolean.bed_time
       - input_boolean.morning_lights
-      - fan.nursery
-      - input_select.nursery_fan_speed
-#      - input_number.nursery_fan_speed_s
-      - input_boolean.dyson_night_mode
       - sensor.template_calendar_family
   qkitchen:
     name: Kitchen Lights
     view: no
     entities:
       - light.kitchen_high_15
+      - input_number.kitchen_high_dimmer
       - light.kitchen_low_13
+      - input_number.kitchen_low_dimmer
   qlounge:
     name: Lounge Lights
     view: no
     entities:
       - light.lounge_6
+      - input_number.lounge_dimmer
       - light.tv_4
+      - input_number.tv_dimmer
+  qnursery:
+    name: Nursery
+    view: no
+    control: hidden
+    entities:
+      - fan.nursery
+      - input_select.nursery_fan_speed
+      - input_boolean.dyson_night_mode
   qother:
     name: Other Lights
     view: no
@@ -69,6 +74,7 @@
       - light.front_porch_21
       - light.master_bedroom_23
       - light.study_31
+      - input_select.hass_theme
   camera:
     name: Cameras
     view: yes
@@ -111,8 +117,6 @@
     entities:
       - fan.nursery
       - input_select.nursery_fan_speed
-#      - fan.dyson_set_night_mode
-#      - fan.nursery_2
       - input_boolean.dyson_night_mode
       - input_boolean.dyson_oscillate
   nursery_other:
@@ -217,15 +221,23 @@
     name: BMW X5 xDrive30d
     view: no
     entities:
+      - device_tracker.x5_xdrive30d
       - sensor.template_x5_xdrive30d_mileage
       - sensor.template_x5_xdrive30d_remaining_fuel
       - sensor.template_x5_xdrive30d_remaining_range_fuel
+      - binary_sensor.x5_xdrive30d_door_lock_state
+      - sensor.template_binary_sensor_x5_xdrive30d_windows_front
+      - sensor.template_binary_sensor_x5_xdrive30d_windows_rear
+      - sensor.template_binary_sensor_x5_xdrive30d_sunroof
+      - sensor.template_binary_sensor_x5_xdrive30d_front_doors
+      - sensor.template_binary_sensor_x5_xdrive30d_rear_doors
+      - sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear
   travel_to_home:
     name: To Home -
     view: no
     entities:
-      - sensor.gtdarren_home
-      - sensor.gtblythe_home
+      - sensor.template_gtdarren_home
+      - sensor.template_gtblythe_home
   travel_home_to:
     name: Home to -
     view: no
@@ -267,6 +279,8 @@
       - sensor.humidity_12
       - sensor.template_solar_angle
       - sun.sun
+      - sensor.solar_production
+      - sensor.solar_today
   devices_list:
     name: Devices
     view: no

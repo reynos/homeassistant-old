@@ -27,3 +27,14 @@ nursery_fan_speed:
     - 10
     - AUTO # does this work?
   icon: mdi:speedometer
+
+hass_theme:
+  name: HASS Themes
+  options:
+    - default
+    - midnight
+    - night
+    - dark_red
+    - dark_cyan
+  initial: default
+  icon: mdi:theme-light-dark

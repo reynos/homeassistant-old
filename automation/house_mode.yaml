@@ -2,19 +2,13 @@
 
 ## Automated Select Scenes - House modes Evening, Night and Day (Bedtime and Holiday only called manually)
 
-- alias: Set Evening mode at Dusk
+- alias: Set Evening mode at Sunset
   trigger:
     platform: numeric_state
-    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-    below: 20
-#    for:
-#      minutes: 1
-##  condition:
-##    platform: numeric_state
-##    entity_id: sun.sun
-##    value_template: "{{ state.attributes.elevation }}"
-##    # Can be a positive or negative number
-##    below: 5.0
+    entity_id: sun.sun
+    value_template: "{{ state.attributes.elevation }}"
+    # Can be a positive or negative number
+    below: 2.0
   action:
     service: script.turn_on
     data_template:
@@ -24,20 +18,16 @@
         {% else %}
           script.evening
         {% endif %}
-## working sun based evening setting
-##- alias: Set Evening mode at Sunset
-##  trigger:
-##    platform: sun
-##    event: sunset
-##  action:
-##    - service: script.turn_on
-##      data_template:
-##        entity_id: >
-##          {% if states.input_select.house_mode.state == 'Holiday' %}
-##            script.evening_holiday
-##          {% else %}
-##            script.evening
-##          {% endif %}
+- alias: Set Inside Lights at Dusk
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+    below: 150
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.kitchen_bench_7
+      - light.lounge_lamp_3
 
 - alias: Set Night mode
   trigger:
@@ -48,9 +38,9 @@
     data_template:
       entity_id: >
         {% if states.input_select.house_mode.state == 'Holiday' %}
-          script.night_holiday
+          scene.night_holiday
         {% else %}
-          script.night
+          scene.night
         {% endif %}
 
 - alias: Set Day mode
@@ -58,10 +48,18 @@
     platform: time
     at: '05:30:00'
   action:
-    service: input_select.select_option
-    data:
-      entity_id: input_select.house_mode
-      option: 'Day'
+    service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if states.input_select.house_mode.state == 'Holiday' %}
+          script.day_holiday
+        {% else %}
+          script.day
+        {% endif %}
+#    service: input_select.select_option
+#    data:
+#      entity_id: input_select.house_mode
+#      option: 'Day'
 
 - alias: "House Mode Bedtime"
   trigger:
@@ -79,8 +77,11 @@
     entity_id: input_select.house_mode
     to: 'Evening'
   action:
-    service: scene.turn_on
-    entity_id: scene.evening
+    - service: frontend.set_theme
+      data:
+        name: night
+    - service: scene.turn_on
+      entity_id: scene.evening
 
 - alias: "House Mode Day"
   trigger:
@@ -97,8 +98,8 @@
     entity_id: input_select.house_mode
     to: 'Night'
   action:
-    service: scene.turn_on
-    entity_id: scene.night
+    service: script.turn_on
+    entity_id: script.night
 
 - alias: "House Mode Holiday"
   trigger:
@@ -113,12 +114,6 @@
           push:
             badge: 5
           subtitle: "Mode"
-# this section in case morning lights had been triggered that day,
-# the tigger and switch would never be reset, this does the onetime reset
-    - service: homeassistant.turn_off
-      entity_id:
-        - input_boolean.morning_lights_flag #re-sets the morning lights flag for the next day
-        - input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
 
 - alias: "House Mode Holiday Off"
   trigger:

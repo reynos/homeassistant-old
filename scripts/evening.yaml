@@ -7,11 +7,10 @@ evening:
         option: Evening
     - service: notify.ios_Darren
       data:
-        message: "Evening lights auto on"
-        data:
-          push:
-            badge: 5
-          subtitle: "Sunset"
+        message: "Evening lights on"
+    - service: frontend.set_theme
+      data:
+        name: night
 
 evening_holiday:
   alias: "Evening Holiday lights on"

@@ -7,12 +7,29 @@
   switch.light_on:
     friendly_name: Doorbird IR
 #bmw_x5
+  device_tracker.x5_xdrive30d:
+    friendly_name: Car Location
+    icon: mdi:car-connected
+  binary_sensor.x5_xdrive30d_door_lock_state:
+    friendly_name: Secured state
   sensor.template_x5_xdrive30d_mileage:
     icon: mdi:speedometer
   sensor.template_x5_xdrive30d_remaining_fuel:
     icon: mdi:fuel
   sensor.template_x5_xdrive30d_remaining_range_fuel:
     icon: mdi:road-variant
+  sensor.template_binary_sensor_x5_xdrive30d_windows_front:
+    icon: mdi:car-side
+  sensor.template_binary_sensor_x5_xdrive30d_windows_rear:
+    icon: mdi:car-side
+  sensor.template_binary_sensor_x5_xdrive30d_sunroof:
+    icon: mdi:car-pickup
+  sensor.template_binary_sensor_x5_xdrive30d_front_doors:
+    icon: mdi:car-side
+  sensor.template_binary_sensor_x5_xdrive30d_rear_doors:
+    icon: mdi:car-side
+  sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear:
+    icon: mdi:car
 #sensors
   binary_sensor.kitchen_sensor_46:
     friendly_name: Kitchen Motion
@@ -23,17 +40,19 @@
 
 #trackers
   device_tracker.darren:
+    friendly_name: Darren
     entity_picture: !secret picture_url_darren
   device_tracker.blythe:
+    friendly_name: Blythe
     entity_picture: !secret picture_url_blythe
 #google calendars
 #  sensor.template_calendar_bin_nights:
 #    friendly_name: Bin Night
 #google_travel_time
-  sensor.gtdarren_home:
+  sensor.template_gtdarren_home:
     friendly_name: Darren
     entity_picture: !secret picture_url_darren
-  sensor.gtblythe_home:
+  sensor.template_gtblythe_home:
     friendly_name: Blythe
     entity_picture: !secret picture_url_blythe
   sensor.gthome_city:
@@ -60,7 +79,7 @@
   sensor.temperature_9:
     friendly_name: Bondi Temp
   sensor.high_temperature_11:
-    friendly_name: Bondi Maximum
+    friendly_name: Bondi Max Temp
   sensor.humidity_12:
     friendly_name: Bondi Humidity
 #cameras

@@ -11,9 +11,23 @@ backdeck_watering_timer:
     min: 0
     max: 5
     step: 1
-#nursery_fan_speed_s:
-#  name: Speed
-#  initial: 1
-#  min: 1
-#  max: 10
-#  step: 1
+kitchen_high_dimmer:
+    name: Dimmer
+    min: 0
+    max: 100
+    step: 10
+kitchen_low_dimmer:
+    name: Dimmer
+    min: 0
+    max: 100
+    step: 10
+lounge_dimmer:
+    name: Dimmer
+    min: 0
+    max: 100
+    step: 10
+tv_dimmer:
+    name: Dimmer
+    min: 0
+    max: 100
+    step: 10

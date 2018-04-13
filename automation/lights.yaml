@@ -1,5 +1,22 @@
 ## lights.yaml automation
 
+## Kitchen motion
+#- alias: "Kitchen Motion ON"
+#  trigger:
+#    platform: state
+#    entity_id: binary_sensor.kitchen_sensor_46
+#    to: 'on'
+## this should work to replace the motion detection logic, but will runn every single time motion is triggered 24x7
+#  action:
+#    service: script.turn_on
+#    data_template:
+#      entity_id: >
+#        {% if states.input_select.house_mode.state == 'Day' and states.sensor.light_sensor_61.state > '20' and states.input_boolean.morning_lights_flag.state == 'off' %}
+#          script.morning_lights_on
+#        {% elif states.input_select.house_mode.state == 'Holiday' %}
+#          script.alarm
+#        {% endif %}
+
 ## Kitchen Morning Motion light on
 - alias: "Kitchen Morning Lights sensor ON"
   trigger:
@@ -7,6 +24,7 @@
     entity_id: binary_sensor.kitchen_sensor_46
     to: 'on'
   condition:
+# add or condition - if Holiday - send notify to mobile otherwise do below
     - condition: state
       entity_id: input_select.house_mode
       state: 'Day'
@@ -78,6 +96,15 @@
   action:
     service: light.turn_off
     entity_id: light.stairs_16
+
+## Dimmers
+#- alias: Kitchen High Dimmer
+#  trigger:
+#    platform: state
+#    entity_id: input_number.kitchen_high_dimmer
+#  action:
+#    service: light.turn_off
+#    entity_id: light.stairs_16
 
 ## Hall Night Motion
 #- alias: "Hall motion sensor ON"

@@ -6,7 +6,17 @@ day:
   sequence:
     - service: scene.turn_on
       entity_id: scene.day
+    - service: frontend.set_theme
+      data:
+        name: default
     - service: input_boolean.turn_off
       entity_id:
         - input_boolean.morning_lights_flag #re-sets the morning lights flag for the next day
         - input_boolean.bedtime_beacon_flag #re-sets the bedtime flag for the next day
+day_holiday:
+  alias: "Day Holiday"
+  sequence:
+    service: input_boolean.turn_off
+    entity_id:
+      - input_boolean.morning_lights_flag #for something to do!
+      - input_boolean.bedtime_beacon_flag
