@@ -33,7 +33,7 @@
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
-      below: 20
+      below: 50
   action:
     - service: script.turn_on
       entity_id: script.morning_lights_on
@@ -49,7 +49,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
-    above: 20
+    above: 50
 #    for:
 #      minutes: 10
   action:

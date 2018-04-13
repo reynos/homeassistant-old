@@ -1,0 +1,25 @@
+## Back Deck watering
+
+- alias: Back Deck Watering
+  trigger:
+    platform: time
+    at: '07:30:00'
+  condition:
+    - condition: time
+      weekday:
+        - tue
+        - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.greenwall_19
+
+- alias: "Back Deck Watering Timer"
+  trigger:
+    platform: state
+    entity_id: switch.greenwall_19
+    to: 'on'
+  action:
+    - delay: '00:{{ states.input_number.backdeck_watering_timer.state | int }}:00'
+    - service: homeassistant.turn_off
+      data:
+        entity_id: switch.greenwall_19
