@@ -28,6 +28,7 @@
     entity_id:
       - light.kitchen_bench_7
       - light.lounge_lamp_3
+      - light.stairs_16
 
 - alias: Set Night mode
   trigger:
