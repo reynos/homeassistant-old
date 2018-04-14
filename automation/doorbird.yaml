@@ -14,13 +14,38 @@
         {% else %}
           script.doorbell
         {% endif %}
-#for testing
-#    - service: media_player.play_media
-#      data:
-#        entity_id: media_player.front_garden # the group master
-#        media_content_id: http://10.0.26.20/sounds/doorbell.mp3
-#        media_content_type: music
-- alias: Sonos Test
+
+- alias: Doorbird ring lights
+  trigger:
+    platform: event
+    event_type: doorbird_doorbell
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'Evening'
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'Night'
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'Holiday'
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'Bedtime'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.front_porch_21
+        - light.front_garden_28
+    - service: script.turn_off #turn off any currently running timers
+      entity_id: script.doorbell_lights_off
+    - delay: '00:03:00'
+    - service: script.turn_on
+      entity_id: script.doorbell_lights_off # start a new timer
+
+- alias: Sonos Doorbell Test
   trigger:
     platform: state
     entity_id: input_boolean.sonos_test

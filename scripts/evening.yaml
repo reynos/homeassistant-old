@@ -1,3 +1,5 @@
+## Evening lights script
+
 evening:
   alias: "Evening lights on"
   sequence:
@@ -15,5 +17,5 @@ evening:
 evening_holiday:
   alias: "Evening Holiday lights on"
   sequence:
-    service: scene.turn_on
-    entity_id: scene.holiday_evening
+    service: input_boolean.turn_on
+    entity_id: input_boolean.evening_holiday

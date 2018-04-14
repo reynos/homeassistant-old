@@ -30,7 +30,7 @@
       - light.lounge_lamp_3
       - light.stairs_16
 
-- alias: Set Night mode
+- alias: Auto Set Night mode
   trigger:
     platform: time
     at: '22:30:00'
@@ -39,9 +39,9 @@
     data_template:
       entity_id: >
         {% if states.input_select.house_mode.state == 'Holiday' %}
-          scene.night_holiday
+          script.night_holiday
         {% else %}
-          scene.night
+          script.night
         {% endif %}
 
 - alias: Set Day mode
@@ -99,8 +99,8 @@
     entity_id: input_select.house_mode
     to: 'Night'
   action:
-    service: script.turn_on
-    entity_id: script.night
+    - service: script.turn_on
+      entity_id: script.night
 
 - alias: "House Mode Holiday"
   trigger:
@@ -122,16 +122,16 @@
     entity_id: input_select.house_mode
     from: 'Holiday'
   action:
-    service: notify.ios_Darren
-    data:
-      message: "Holiday mode OFF"
+    - service: notify.ios_Darren
       data:
-        push:
-          badge: 5
-        subtitle: "Mode"
+        message: "Holiday mode OFF"
+        data:
+          push:
+            badge: 5
+          subtitle: "Mode"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.evening_holiday
 
-#      service: scene.turn_on
-#      entity_id: scene.night
 - alias: "House Mode SydneyFC"
   trigger:
     platform: state

@@ -19,6 +19,7 @@ doorbell:
       data:
         entity_id: media_player.study # the group master
         media_content_id: http://10.0.26.20/sounds/doorbell.mp3
+#        media_content_id: http://10.0.26.20/sounds/silence.mp3  #silence for testing
         media_content_type: music
     - service: media_player.volume_set
       data:
@@ -62,6 +63,34 @@ doorbell_night:
     - service: media_player.sonos_restore
       data:
         entity_id: media_player.master_bedroom
+
+doorbell_lights_off:
+  alias: Turn off lights after Doorbell
+  sequence:
+    service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if states.input_select.house_mode.state == 'Evening' %}
+          script.doorbell_lights_off_evening
+        {% elif states.input_boolean.evening_holiday.state == 'on' %}
+          script.doorbell_lights_off_evening
+        {% elif states.input_select.house_mode.state == 'Bedtime' %}
+          script.doorbell_lights_off_evening
+        {% elif states.input_select.house_mode.state == 'Night' %}
+          script.doorbell_lights_off_night
+        {% elif states.input_select.house_mode.state == 'Holiday' %}
+          script.doorbell_lights_off_night
+        {% endif %}
+doorbell_lights_off_evening:
+  sequence:
+    - service: light.turn_off
+      entity_id: light.front_porch_21
+doorbell_lights_off_night:
+  sequence:
+    - service: light.turn_off
+      entity_id:
+        - light.front_porch_21
+        - light.front_garden_28
 
 ## only required to simulate the action the doorbell being pushed - via input_boolean.sonos_goup_test
 sonos_group_test:

@@ -97,6 +97,15 @@
     service: light.turn_off
     entity_id: light.stairs_16
 
+- alias: "Holiday Evening Light"
+  trigger:
+    platform: state
+    entity_id: input_boolean.evening_holiday
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.front_garden_28
+
 ## Dimmers
 #- alias: Kitchen High Dimmer
 #  trigger:
