@@ -34,10 +34,11 @@ mqtt:
   discovery_prefix: home
 
 doorbird:
-  host: !secret doorbird_url
+  host: !secret doorbird_host
   username: !secret doorbird_uname
   password: !secret doorbird_pass
   doorbell_events: true
+  hass_url_override: !secret doorbird_hass_url_override
 
 dyson:
   username: !secret dyson_uname
@@ -51,7 +52,8 @@ bmw_connected_drive:
   bmw_x5:
     username: !secret USERNAME_BMW_CONNECTED_DRIVE
     password: !secret PASSWORD_BMW_CONNECTED_DRIVE
-    country: Australia
+    region: rest_of_world
+#    country: Australia
 
 notify:
   - name: pushbullet

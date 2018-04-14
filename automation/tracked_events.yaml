@@ -30,6 +30,8 @@
     entity_id: device_tracker.reynolds_darren
     to: masterbed
   condition:
+    - condition: time
+      after: '20:30:00'
     - condition: state
       entity_id: input_select.house_mode
       state: 'Evening'
