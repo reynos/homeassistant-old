@@ -167,6 +167,7 @@
     view: yes
     icon: mdi:lamp
     entities:
+      - light.study_lamp_18
       - light.study_31
       - media_player.study
   hall:
