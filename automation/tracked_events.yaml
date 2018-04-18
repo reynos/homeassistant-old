@@ -29,17 +29,35 @@
     platform: state
     entity_id: device_tracker.reynolds_darren
     to: masterbed
-  condition:
-    - condition: time
-      after: '20:30:00'
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Evening'
-    - condition: state
-      entity_id: input_boolean.bedtime_beacon_flag
-      state: 'off'
+#  condition:
+#    - condition: time
+#      after: '20:30:00'
+#    - condition: state
+#      entity_id: input_select.house_mode
+#      state: 'Evening'
+#    - condition: state
+#      entity_id: input_boolean.bedtime_beacon_flag
+#      state: 'off'
   action: # in future make this an actionable nofication to turn off lights
-    - service: script.turn_on
+    service: notify.ios_Darren
+    data:
+      message: "Going to Bed? What do do with the lights?"
+      data:
+        push:
+          badge: 5
+          category: "bedtime_lights" # Needs to match the top level identifier you used in the ios configuration
+#    - service: script.turn_on
+#      data:
+#        entity_id: script.bedtime
+
+- alias: Bedtime Now
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: BEDTIME_NOW
+  action:
+      service: script.turn_on
       data:
         entity_id: script.bedtime
 

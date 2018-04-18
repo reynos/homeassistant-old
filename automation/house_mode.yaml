@@ -18,6 +18,7 @@
         {% else %}
           script.evening
         {% endif %}
+## below needs to cater for holiday mode! maybe for simplicity just mrege back with the one above 
 - alias: Set Inside Lights at Dusk
   trigger:
     platform: numeric_state

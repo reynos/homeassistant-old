@@ -86,6 +86,7 @@ input_select: !include includes/input_select.yaml
 input_number: !include includes/input_number.yaml
 input_boolean: !include includes/input_boolean.yaml
 camera: !include includes/camera.yaml
+ios: !include includes/ios.yaml
 
 ## Dir Includes
 automation: !include_dir_merge_list automation
@@ -123,7 +124,6 @@ conversation:
 sun:
 tts:
   platform: google
-ios:
 history:
 logbook:
 
