@@ -125,10 +125,11 @@ logbook:
       - switch
       - device_tracker
       - light
-      - sun
       - input_number
       - input_select
       - script
+    entities:
+      - sun.sun
   exclude:
     domains:
       - sensor
