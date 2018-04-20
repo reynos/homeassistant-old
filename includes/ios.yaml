@@ -1,0 +1,25 @@
+### ios.yaml
+
+push:
+  categories:
+    - name: Bedtime Lights
+      identifier: 'bedtime_lights'
+      actions:
+        - identifier: 'BEDTIME_NOW'
+          title: 'Bedtime Now'
+          activationMode: 'foreground'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'BEDTIME_DELAY'
+          title: 'Bedtime Delay'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'NIGHT'
+          title: 'Night Mode'
+          activationMode: 'foreground'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
