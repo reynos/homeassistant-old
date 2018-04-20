@@ -8,7 +8,7 @@
     entity_id: sun.sun
     value_template: "{{ state.attributes.elevation }}"
     # Can be a positive or negative number
-    below: 2.0
+    below: 0.5
   action:
     service: script.turn_on
     data_template:
@@ -18,7 +18,7 @@
         {% else %}
           script.evening
         {% endif %}
-## below needs to cater for holiday mode! maybe for simplicity just mrege back with the one above 
+## below needs to cater for holiday mode! maybe for simplicity just mrege back with the one above
 - alias: Set Inside Lights at Dusk
   trigger:
     platform: numeric_state

@@ -101,42 +101,38 @@ recorder:
   purge_keep_days: 7
   include:
     domains:
+      - switch
+      - device_tracker
+      - light
+      - sun
       - input_boolean
       - input_number
       - input_select
-      - binarty_sensor
+      - binary_sensor
       - sensor
       - switch
       - media_player
   exclude:
     domains:
-#      - automation
       - updater
     entities:
       - sun.sun # Don't record sun data
-#      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 
 logbook:
-    exclude:
-    entities:
-      - sensor.last_boot
-      - sensor.gtblythe_home
-      - sensor.gtdarren_home
-      - sensor.gthome_thornton
-      - sensor.gthome_wangi
-      - sensor.gthome_work
-      - sensor.gthome_city
-      - sensor.gtdom_airport
-      - sensor.gtint_airport
   include:
     domains:
-      - sensor
       - switch
-      - media_player
       - device_tracker
       - light
-      - 
+      - sun
+      - input_number
+      - input_select
+      - script
+  exclude:
+    domains:
+      - sensor
+      - media_player
 
 updater:
 discovery:

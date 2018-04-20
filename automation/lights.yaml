@@ -37,12 +37,6 @@
   action:
     - service: script.turn_on
       entity_id: script.morning_lights_on
-    - event: LOGBOOK_ENTRY
-      event_data:
-        name: Morning Lights
-        message: Sensor turned on
-        entity_id: light.kitchen_bench_7
-        domain: light
 
 ## Kitchen Morning Light sensor lights off
 - alias: "Morning lights sensor OFF"

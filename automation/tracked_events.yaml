@@ -57,9 +57,42 @@
     event_data:
       actionName: BEDTIME_NOW
   action:
-      service: script.turn_on
+    - service: script.turn_on
+      data:
+        entity_id: script.bedtime_now
+    - service: logbook.log
+      data_template:
+        name: Bedtime NOW
+        message: action selected
+
+- alias: Bedtime Delay
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: BEDTIME_DELAY
+  action:
+    - service: script.turn_on
       data:
         entity_id: script.bedtime
+    - service: logbook.log
+      data_template:
+        name: Bedtime DELAY
+        message: action selected
+- alias: Bedtime Set Night
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: NIGHT
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.night
+    - service: logbook.log
+      data_template:
+        name: Bedtime NIGHT
+        message: action selected
 
 - alias: Morning Lights
   trigger:
@@ -75,6 +108,7 @@
   action: # in future make this an actionable nofication?
     - service: script.turn_on
       entity_id: script.morning_lights
+
 #- alias: Masterbed on
 #  trigger:
 #    platform: state

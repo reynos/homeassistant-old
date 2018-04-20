@@ -69,7 +69,7 @@ doorbell_night:
         entity_id: media_player.master_bedroom
     - service: logbook.log
       data_template:
-        name: Doorbell (day)
+        name: Doorbell (night)
         message: has rung
 
 doorbell_lights_off:
@@ -91,10 +91,18 @@ doorbell_lights_off:
         {% endif %}
 doorbell_lights_off_evening:
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Doorbell Evening lights
+        message: turned OFF
     - service: light.turn_off
       entity_id: light.front_porch_21
 doorbell_lights_off_night:
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Doorbell Night lights
+        message: turned OFF
     - service: light.turn_off
       entity_id:
         - light.front_porch_21

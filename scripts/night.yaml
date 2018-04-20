@@ -1,6 +1,10 @@
 night:
-  alias: "Evening lights off"
+  alias: "Night lights off"
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Night lights
+        message: turned OFF
     - service: input_select.select_option
       data:
         entity_id: input_select.house_mode
@@ -15,6 +19,10 @@ night:
 night_holiday:
   alias: "Evening Holiday lights off"
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Holiday Night lights
+        message: turned OFF
     - service: scene.turn_on
       entity_id: scene.night
     - service: input_boolean.turn_off

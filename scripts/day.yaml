@@ -4,6 +4,10 @@
 day:
   alias: Day
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Day
+        message: script run
     - service: scene.turn_on
       entity_id: scene.day
     - service: frontend.set_theme
@@ -16,7 +20,11 @@ day:
 day_holiday:
   alias: "Day Holiday"
   sequence:
-    service: input_boolean.turn_off
-    entity_id:
-      - input_boolean.morning_lights_flag #for something to do!
-      - input_boolean.bedtime_beacon_flag
+    - service: logbook.log
+      data_template:
+        name: Holiday Day
+        message: script run
+    - service: input_boolean.turn_off
+      entity_id:
+        - input_boolean.morning_lights_flag #for something to do!
+        - input_boolean.bedtime_beacon_flag

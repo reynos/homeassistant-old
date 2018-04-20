@@ -20,6 +20,16 @@ bedtime:
 #    - service: input_boolean.turn_off
 #      entity_id: input_boolean.bed_time # automatically call Bedtime Off switch turns off the hall light
 
+bedtime_now:
+  alias: Bedtime Now
+  sequence:
+    - service: light.turn_off
+      entity_id:
+        - group.all_lights_not_beds
+        - light.lounge_lamp_3
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.bedtime_beacon_flag
+
 #hall_light_timer:
 #  alias: "Hall Light Timer"
 #  sequence:
