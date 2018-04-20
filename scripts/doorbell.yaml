@@ -42,6 +42,10 @@ doorbell:
           - media_player.kitchen
           - media_player.master_bedroom
           - media_player.study
+    - service: logbook.log
+      data_template:
+        name: Doorbell (day)
+        message: has rung
 
 doorbell_night:
   alias: Ring Doorbell in Master Bedroom
@@ -63,6 +67,10 @@ doorbell_night:
     - service: media_player.sonos_restore
       data:
         entity_id: media_player.master_bedroom
+    - service: logbook.log
+      data_template:
+        name: Doorbell (day)
+        message: has rung
 
 doorbell_lights_off:
   alias: Turn off lights after Doorbell
