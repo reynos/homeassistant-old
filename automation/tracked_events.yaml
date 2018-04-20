@@ -29,15 +29,15 @@
     platform: state
     entity_id: device_tracker.reynolds_darren
     to: masterbed
-#  condition:
-#    - condition: time
-#      after: '20:30:00'
-#    - condition: state
-#      entity_id: input_select.house_mode
-#      state: 'Evening'
-#    - condition: state
-#      entity_id: input_boolean.bedtime_beacon_flag
-#      state: 'off'
+  condition:
+    - condition: time
+      after: '20:30:00'
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Evening'
+    - condition: state
+      entity_id: input_boolean.bedtime_beacon_flag
+      state: 'off'
   action: # in future make this an actionable nofication to turn off lights
     service: notify.ios_Darren
     data:
@@ -60,10 +60,6 @@
     - service: script.turn_on
       data:
         entity_id: script.bedtime_now
-    - service: logbook.log
-      data_template:
-        name: Bedtime NOW
-        message: action selected
 
 - alias: Bedtime Delay
   trigger:

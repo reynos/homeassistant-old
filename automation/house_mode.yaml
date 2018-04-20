@@ -72,6 +72,11 @@
     platform: state
     entity_id: input_select.house_mode
     to: 'Bedtime'
+############
+  condition:
+    condition: state
+    entity_id: input_boolean.bedtime_beacon_flag
+    state: 'off'
   action:
     service: script.turn_on
     data:
