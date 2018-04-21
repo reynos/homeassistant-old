@@ -34,3 +34,7 @@ bedtime_beacon_flag:
 sonos_test:
   name: "Sonos test"
   initial: off
+
+tester:
+  name: "test"
+  initial: off

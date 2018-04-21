@@ -215,6 +215,7 @@
       - group.outside_backyard
       - group.outside_frontyard
       - input_boolean.sonos_test
+      - input_boolean.tester
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
       - switch.bedroom_switch1
@@ -324,6 +325,13 @@
       - sensor.swap_use_percent
       - group.devices_list
 
+  family_devices:
+    name: Family Devices
+    view: no
+    entities:
+      - device_tracker.reynolds_darren
+      - device_tracker.reynolds_blythe
+
   evening:
     name: Evening Lights
     view: no
@@ -349,8 +357,7 @@
       - light.front_porch_21
       - light.backyard_24
       - light.backyard_fairy_light_22
-      - light.study_lamp_22
-      - light.nursery_lamp_19
+      - light.study_lamp_18
       - light.study_31
 #      - light.lounge_lamp_3
 # not - light.front_garden_28
@@ -362,12 +369,3 @@
 #      - light.stairs_16
 #      - light.kitchen_bench_7
 #      - light.backyard_24
-
-#  morning_lights:
-#    view: no
-#    control: hidden
-#    entities:
-#      - light.kitchen_bench_7
-#      - light.lounge_lamp_3
-
-#      - light.front_garden2_29

@@ -38,7 +38,10 @@
     - condition: state
       entity_id: input_boolean.bedtime_beacon_flag
       state: 'off'
-  action: # in future make this an actionable nofication to turn off lights
+##add a wait timer (reset it first) and a wait_template for the actionable notification - wait for 1 2 then bedtime set
+##- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+##  timeout: '00:01:00'
+  action: # actionable notification
     service: notify.ios_Darren
     data:
       message: "Going to Bed? What do do with the lights?"
@@ -60,7 +63,6 @@
     - service: script.turn_on
       data:
         entity_id: script.bedtime_now
-
 - alias: Bedtime Delay
   trigger:
     platform: event
@@ -104,6 +106,39 @@
   action: # in future make this an actionable nofication?
     - service: script.turn_on
       entity_id: script.morning_lights
+
+#study
+- alias: Enter Study
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
+    to: 'study'
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Evening'
+  action:
+    - service: light.turn_on
+      entity_id: light.study_lamp_18
+
+- alias: Leave Study
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
+    from: 'study'
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'Evening'
+    - condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states.device_tracker.reynolds_darren.state != 'study' }}"
+        - condition: template
+          value_template: "{{ states.device_tracker.reynolds_blythe.state != 'study' }}"
+  action:
+    - service: light.turn_off
+      entity_id: light.study_lamp_18
 
 #- alias: Masterbed on
 #  trigger:

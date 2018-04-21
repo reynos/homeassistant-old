@@ -36,37 +36,6 @@
     - network_tx
     - volume_percentage_used
 
-- platform: bom
-  station: !secret BOM_station
-  name: Sydney
-  monitored_conditions:
-    - apparent_t
-    - cloud
-    - cloud_base_m
-    - cloud_oktas
-    - cloud_type_id
-    - cloud_type
-    - delta_t
-    - gust_kmh
-    - gust_kt
-    - air_temp
-    - dewpt
-    - press
-    - press_qnh
-    - press_msl
-    - press_tend
-    - rain_trace
-    - rel_hum
-    - sea_state
-    - swell_dir_worded
-    - swell_height
-    - swell_period
-    - vis_km
-    - weather
-    - wind_dir
-    - wind_spd_kmh
-    - wind_spd_kt
-
 - platform: systemmonitor
   resources:
     - type: disk_free
@@ -241,13 +210,6 @@
         {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Green Bins' %}
           /local/images/rbg.jpg
         {% endif %}
-#      friendly_name_template: >
-#        {% if states.calendar.bin_nights.attributes.message == 'Red Yellow Green Bins' %}
-#          Red Yellow Green
-#        {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Bins' %}
-#          Red Blue
-#        {% endif %}
-## original template for above       {{ strptime(states.calendar.family.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %d of %B, at %H:%M") }}:
 
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
@@ -271,13 +233,3 @@
       unit_of_measurement: 'MB'
       value_template: >
         {{"{:,}".format(states('sensor.homeassistant_v2db')|int)}}
-
-#    net_power:
-#      friendly_name_template: >-
-#        {% if states('sensor.power_consumption')|float < 0 %}
-#          Power Consumption
-#        {% else %}
-#          Power Production
-#        {% end %}
-#      value_template: "{{ states('sensor.power_consumption') }}"
-#      unit_of_measurement: 'kW'

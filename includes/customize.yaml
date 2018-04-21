@@ -45,6 +45,10 @@
   device_tracker.blythe:
     friendly_name: Blythe
     entity_picture: !secret picture_url_blythe
+  device_tracker.reynolds_darren:
+    friendly_name: DarrenOT
+  device_tracker.reynolds_blythe:
+    friendly_name: BlytheOT
 #google calendars
 #  sensor.template_calendar_bin_nights:
 #    friendly_name: Bin Night

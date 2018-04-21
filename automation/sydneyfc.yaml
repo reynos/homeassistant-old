@@ -15,3 +15,23 @@
   action:
     service: light.turn_off
     entity_id: light.lounge_lamp_3
+
+##service template working test
+- alias: "testing"
+  trigger:
+    platform: state
+    entity_id: input_boolean.tester
+    to: 'on'
+  action:
+    - service_template: >
+        {% if states.device_tracker.reynolds_darren.state == 'study' %}
+          light.turn_on
+        {% endif %}
+      entity_id: light.study_lamp_18
+    - service: logbook.log
+      data_template:
+        name: test
+        message: "on"
+#        {% else %}
+#          light.turn_off
+#        entity_id: input_boolean.tester

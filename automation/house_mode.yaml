@@ -34,6 +34,14 @@
         - light.kitchen_bench_7
         - light.lounge_lamp_3
         - light.stairs_16
+# if either in study turn on study lamp
+    - service_template: >
+        {% if states.device_tracker.reynolds_darren.state == 'study' %}
+          light.turn_on
+        {% elif states.device_tracker.reynolds_blythe.state == 'study'%}
+          light.turn_on
+        {% endif %}
+      entity_id: light.study_lamp_18
 
 - alias: Auto Set Night mode
   trigger:

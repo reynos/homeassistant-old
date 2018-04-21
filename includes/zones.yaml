@@ -52,42 +52,25 @@
 - name: frontgate
   latitude: !secret home_lat
   longitude: !secret home_lon
-#  passive: true
-#  track_ios: false
-#  hidden: false
-#  radius: 10
   icon: mdi:gate
-#  beacon:
-#    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-#    major: 3601
-#    minor: 25847
-#- name: frontdoor
-#  latitude: !secret home_lat
-#  longitude: !secret home_lon
-#  radius: 10
-#  icon: mdi:home-circle
-#  beacon:
-#    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
-#    major: 27974
-#    minor: 11445
+  track_ios: false
+  passive: true
+
+- name: study
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  track_ios: false
+  passive: true
+
 - name: masterbed
   latitude: !secret home_lat
   longitude: !secret home_lon
   icon: mdi:bed
-#  passive: True
-#  track_ios: false
+  track_ios: false
+  passive: true
 #  radius: 10
 #  beacon:
 #    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
 #    major: 48427
 #    minor: 769
-#- name: kitchen
-#  latitude: !secret home_lat
-#  longitude: !secret home_lon
-#  radius: 10
-#  passive: true
-#  icon: mdi:home-circle
-- name: kitchen
-  latitude: !secret home_lat
-  longitude: !secret home_lon
-  icon: mdi:stove
+#  hidden: false
