@@ -82,7 +82,7 @@
   end_latitude: !secret zone7_lat
   end_longitude: !secret zone7_lon
   product_ids:
-    - '52bc2818-85d4-4231-be7e-86b8af2c6c2f'
+    - '2d1d002b-d4d0-4411-98e1-673b244878b2'
 
 - platform: google_travel_time
   name: GTDarren_Home
@@ -221,10 +221,12 @@
         {% endif %}
     template_uberx_price:
       friendly_name: "Price estimate"
+      value_template: >-
         {{ states.sensor.uberx_time.attributes["Price estimate"] }}
     template_uberx_trip_distance:
       friendly_name: "Trip distance"
       unit_of_measurement: "km"
+      value_template: >-
         {{ states.sensor.uberx_time.attributes["Trip distance (in kms)"] }}
     template_uberx_pickup_time:
       friendly_name: "Pickup time estimate"

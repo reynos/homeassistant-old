@@ -23,6 +23,7 @@ APC ups
 HASS server HW and version monitoring
 Speedtest - internet speed
 BMW ConnectedDrive
+UberX travel times
 Google maps travel time
 Google Calendar
   - next family appointment
