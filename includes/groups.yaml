@@ -219,21 +219,6 @@
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
       - switch.bedroom_switch1
-  travel_bmw_x5:
-    name: BMW X5 xDrive30d
-    view: no
-    entities:
-      - device_tracker.x5_xdrive30d
-      - sensor.template_x5_xdrive30d_mileage
-      - sensor.template_x5_xdrive30d_remaining_fuel
-      - sensor.template_x5_xdrive30d_remaining_range_fuel
-      - binary_sensor.x5_xdrive30d_door_lock_state
-      - sensor.template_binary_sensor_x5_xdrive30d_windows_front
-      - sensor.template_binary_sensor_x5_xdrive30d_windows_rear
-      - sensor.template_binary_sensor_x5_xdrive30d_sunroof
-      - sensor.template_binary_sensor_x5_xdrive30d_front_doors
-      - sensor.template_binary_sensor_x5_xdrive30d_rear_doors
-      - sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear
   travel_to_home:
     name: To Home -
     view: no
@@ -250,14 +235,29 @@
       - sensor.template_gthome_wangi
       - sensor.GTDom_Airport
       - sensor.GTInt_Airport
+  travel_bmw_x5:
+    name: BMW X5 xDrive30d
+    view: no
+    entities:
+      - device_tracker.x5_xdrive30d
+      - sensor.template_x5_xdrive30d_mileage
+      - sensor.template_x5_xdrive30d_remaining_fuel
+      - sensor.template_x5_xdrive30d_remaining_range_fuel
+      - binary_sensor.x5_xdrive30d_door_lock_state
+      - sensor.template_binary_sensor_x5_xdrive30d_windows_front
+      - sensor.template_binary_sensor_x5_xdrive30d_windows_rear
+      - sensor.template_binary_sensor_x5_xdrive30d_front_doors
+      - sensor.template_binary_sensor_x5_xdrive30d_rear_doors
+      - sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear
+      - sensor.template_binary_sensor_x5_xdrive30d_sunroof
   travel:
     name: Travel
     view: yes
     icon: mdi:car-side
     entities:
-      - group.travel_bmw_x5
       - group.travel_to_home
       - group.travel_home_to
+      - group.travel_bmw_x5
   scenes:
     name: Scenes
     view: yes

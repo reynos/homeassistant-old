@@ -145,27 +145,27 @@
     template_binary_sensor_x5_xdrive30d_windows_front:
       friendly_name: "Front Windows"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_windows.attributes.window_driver_front }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.window_passenger_front }}
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.windowDriverFront }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.windowPassengerFront }}
     template_binary_sensor_x5_xdrive30d_windows_rear:
       friendly_name: "Rear Windows"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_windows.attributes.window_driver_rear }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.window_passenger_rear }}
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.windowDriverRear }}/{{ states.binary_sensor.x5_xdrive30d_windows.attributes.windowPassengerRear }}
     template_binary_sensor_x5_xdrive30d_sunroof:
       friendly_name: "Sunroof"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_windows.attributes.sunroof_state }}
+        {{states.binary_sensor.x5_xdrive30d_windows.attributes.sunroof }}
     template_binary_sensor_x5_xdrive30d_front_doors:
       friendly_name: "Front Doors"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_lids.attributes.door_driver_front }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.door_passenger_front }}
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.doorDriverFront }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.doorPassengerFront }}
     template_binary_sensor_x5_xdrive30d_rear_doors:
       friendly_name: "Rear Doors"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_lids.attributes.door_driver_rear }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.door_passenger_rear }}
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.doorDriverRear }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.doorPassengerRear }}
     template_binary_sensor_x5_xdrive30d_bonnet_rear:
       friendly_name: "Bonnet/Rear Hatch"
       value_template: >
-        {{states.binary_sensor.x5_xdrive30d_lids.attributes.hood_state }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.trunk_state }}
+        {{states.binary_sensor.x5_xdrive30d_lids.attributes.hood }}/{{ states.binary_sensor.x5_xdrive30d_lids.attributes.trunk }}
     template_x5_xdrive30d_remaining_fuel:
       friendly_name: "Fuel remaining"
       unit_of_measurement: "L"
