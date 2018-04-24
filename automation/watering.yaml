@@ -5,13 +5,17 @@
     platform: time
     at: '07:30:00'
   condition:
-    - condition: time
-      weekday:
-        - tue
-        - fri
+    condition: time
+    weekday:
+      - tue
+      - fri
   action:
+    - service: logbook.log
+      data_template:
+        name: 'Watering:'
+        message: Greenwall
     - service: switch.turn_on
-      entity_id: switch.greenwall_19
+     entity_id: switch.greenwall_19
 
 - alias: "Back Deck Watering Timer"
   trigger:
@@ -20,6 +24,5 @@
     to: 'on'
   action:
     - delay: '00:{{ states.input_number.backdeck_watering_timer.state | int }}:00'
-    - service: homeassistant.turn_off
-      data:
-        entity_id: switch.greenwall_19
+    - service: switch.turn_off
+      entity_id: switch.greenwall_19
