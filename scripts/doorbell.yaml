@@ -24,9 +24,9 @@ doorbell:
     - service: media_player.volume_set
       data:
         entity_id:
-          - media_player.study
           - media_player.kitchen
-          - media_player.master_bedrom
+          - media_player.master_bedroom
+          - media_player.study
         volume_level: 0.50
     - delay:
         seconds: 4
