@@ -15,7 +15,7 @@
         name: 'Watering:'
         message: Greenwall
     - service: switch.turn_on
-     entity_id: switch.greenwall_19
+      entity_id: switch.greenwall_19
 
 - alias: "Back Deck Watering Timer"
   trigger:

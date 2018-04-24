@@ -75,6 +75,15 @@
     - 16
     - 20
 
+- platform: uber
+  server_token: !secret uber_server_token
+  start_latitude: !secret home_lat
+  start_longitude: !secret home_lon
+  end_latitude: !secret zone7_lat
+  end_longitude: !secret zone7_lon
+  product_ids:
+    - '52bc2818-85d4-4231-be7e-86b8af2c6c2f'
+
 - platform: google_travel_time
   name: GTDarren_Home
   api_key: !secret google_maps_api_key
@@ -210,6 +219,91 @@
         {% elif states.calendar.bin_nights.attributes.message == 'Red Blue Green Bins' %}
           /local/images/rbg.jpg
         {% endif %}
+    template_uberx_price:
+      friendly_name: "Price estimate"
+        {{ states.sensor.uberx_time.attributes["Price estimate"] }}
+    template_uberx_trip_distance:
+      friendly_name: "Trip distance"
+      unit_of_measurement: "km"
+        {{ states.sensor.uberx_time.attributes["Trip distance (in kms)"] }}
+    template_uberx_pickup_time:
+      friendly_name: "Pickup time estimate"
+      value_template: >-
+        {% set time = states.sensor.uberx_time.attributes["Pickup time estimate (in seconds)"] | int %}
+        {% set minutes = (time / 60) | int%}
+        {% set hours = (time / 3600) | int %}
+        {% set days = (time / 86400) | int %}
+
+        {%- if time < 60 -%}
+          Less than a minute
+        {%- else -%}
+          {%- if days > 0 -%}
+            {%- if days == 1 -%}
+              1 day
+            {%- else -%}
+              {{ days }} days
+            {%- endif -%}
+          {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if days > 0 -%}
+              {{ ', ' }}
+            {%- endif -%}
+            {%- if hours == 1 -%}
+              1 hour
+            {%- else -%}
+              {{ hours }} hours
+            {%- endif -%}
+          {%- endif -%}
+          {%- if minutes > 0 -%}
+            {%- if days > 0 or hours > 0 -%}
+              {{ ', ' }}
+            {%- endif -%}
+            {%- if minutes == 1 -%}
+              1 minute
+            {%- else -%}
+              {{ minutes }} minutes
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+    template_uberx_trip_time:
+      friendly_name: "Trip duration"
+      value_template: >-
+        {% set time = states.sensor.uberx_time.attributes["Trip duration (in seconds)"] | int %}
+        {% set minutes = (time / 60) | int%}
+        {% set hours = (time / 3600) | int %}
+        {% set days = (time / 86400) | int %}
+
+        {%- if time < 60 -%}
+          Less than a minute
+        {%- else -%}
+          {%- if days > 0 -%}
+            {%- if days == 1 -%}
+              1 day
+            {%- else -%}
+              {{ days }} days
+            {%- endif -%}
+          {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if days > 0 -%}
+              {{ ', ' }}
+            {%- endif -%}
+            {%- if hours == 1 -%}
+              1 hour
+            {%- else -%}
+              {{ hours }} hours
+            {%- endif -%}
+          {%- endif -%}
+          {%- if minutes > 0 -%}
+            {%- if days > 0 or hours > 0 -%}
+              {{ ', ' }}
+            {%- endif -%}
+            {%- if minutes == 1 -%}
+              1 minute
+            {%- else -%}
+              {{ minutes }} minutes
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
 
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
