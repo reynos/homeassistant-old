@@ -2,6 +2,10 @@
 goodnight:
   alias: Goodnight!
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Script:
+        message: Goodnight lights ON
     - service: light.turn_off
       data:
         entity_id: group.all_lights_not_beds

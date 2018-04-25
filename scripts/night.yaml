@@ -3,8 +3,8 @@ night:
   sequence:
     - service: logbook.log
       data_template:
-        name: Night lights
-        message: turned OFF
+        name: Script:
+        message: Night lights ON
     - service: input_select.select_option
       data:
         entity_id: input_select.house_mode
@@ -21,8 +21,8 @@ night_holiday:
   sequence:
     - service: logbook.log
       data_template:
-        name: Holiday Night lights
-        message: turned OFF
+        name: Script:
+        message: Night HOLIDAY lights ON
     - service: scene.turn_on
       entity_id: scene.night
     - service: input_boolean.turn_off

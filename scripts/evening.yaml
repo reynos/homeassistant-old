@@ -5,8 +5,8 @@ evening:
   sequence:
     - service: logbook.log
       data_template:
-        name: Evening lights
-        message: turned ON
+        name: Script:
+        message: Evening lights ON
     - service: input_select.select_option
       data:
         entity_id: input_select.house_mode
@@ -23,7 +23,7 @@ evening_holiday:
   sequence:
     - service: logbook.log
       data_template:
-        name: Holiday Evening lights
-        message: turned ON
+        name: Script:
+        message: Evening HOLIDAY lights ON
     - service: input_boolean.turn_on
       entity_id: input_boolean.evening_holiday

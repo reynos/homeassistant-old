@@ -6,8 +6,8 @@ day:
   sequence:
     - service: logbook.log
       data_template:
-        name: Day
-        message: script run
+        name: 'Script:'
+        message: DAY
     - service: scene.turn_on
       entity_id: scene.day
     - service: frontend.set_theme
@@ -22,8 +22,8 @@ day_holiday:
   sequence:
     - service: logbook.log
       data_template:
-        name: Holiday Day
-        message: script run
+        name: 'Script:'
+        message: Day HOLIDAY
     - service: input_boolean.turn_off
       entity_id:
         - input_boolean.morning_lights_flag #for something to do!

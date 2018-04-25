@@ -4,8 +4,8 @@ bedtime:
   sequence:
     - service: logbook.log
       data_template:
-        name: Bedtime DELAY
-        message: action selected
+        name: 'Script:'
+        message: Bedtime DELAY
     - service: light.turn_off
       entity_id:
         - group.all_lights_not_beds
@@ -29,8 +29,8 @@ bedtime_now:
   sequence:
     - service: logbook.log
       data_template:
-        name: Bedtime NOW
-        message: action selected
+        name: 'Script:'
+        message: Bedtime NOW
     - service: light.turn_off
       entity_id:
         - group.all_lights_not_beds

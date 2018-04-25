@@ -13,7 +13,10 @@
     - service: logbook.log
       data_template:
         name: 'Watering:'
-        message: Greenwall
+        message: Back Deck ON
+    - service: notify.ios_Darren
+      data:
+        message: "Back Deck Watering ON"
     - service: switch.turn_on
       entity_id: switch.greenwall_19
 
@@ -26,3 +29,7 @@
     - delay: '00:{{ states.input_number.backdeck_watering_timer.state | int }}:00'
     - service: switch.turn_off
       entity_id: switch.greenwall_19
+    - service: logbook.log
+      data_template:
+        name: 'Watering:'
+        message: Back Deck OFF
