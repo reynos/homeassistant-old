@@ -3,7 +3,7 @@ night:
   sequence:
     - service: logbook.log
       data_template:
-        name: Script:
+        name: "Script:"
         message: Night lights ON
     - service: input_select.select_option
       data:
@@ -21,7 +21,7 @@ night_holiday:
   sequence:
     - service: logbook.log
       data_template:
-        name: Script:
+        name: "Script:"
         message: Night HOLIDAY lights ON
     - service: scene.turn_on
       entity_id: scene.night

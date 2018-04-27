@@ -4,7 +4,7 @@ goodnight:
   sequence:
     - service: logbook.log
       data_template:
-        name: Script:
+        name: "Script:"
         message: Goodnight lights ON
     - service: light.turn_off
       data:

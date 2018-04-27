@@ -5,7 +5,7 @@ morning_lights_on:
   sequence:
     - service: logbook.log
       data_template:
-        name: Script:
+        name: "Script:"
         message: Morning lights ON
     - service: input_boolean.turn_on
       entity_id:
@@ -17,7 +17,7 @@ morning_lights_off:
   sequence:
     - service: logbook.log
       data_template:
-        name: Script:
+        name: "Script:"
         message: Morning lights OFF
     - service: input_boolean.turn_off
       entity_id: input_boolean.morning_lights #this calls scene.morning_off
