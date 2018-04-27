@@ -220,7 +220,7 @@
       - input_boolean.bedtime_beacon_flag
       - switch.bedroom_switch1
   travel_to_home:
-    name: Drive Home from Current -
+    name: Drive to Home -
     view: no
     entities:
       - sensor.template_gtdarren_home

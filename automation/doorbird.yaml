@@ -7,9 +7,9 @@
     service: script.turn_on
     data_template:
       entity_id: >
-        {% if states.input_select.house_mode.state == 'Bedtime' %}
+        {% if is_state('input_select.house_mode', 'Bedtime') or is_state('input_select.house_mode', 'Night') %}
           script.doorbell_night
-        {% elif states.input_select.house_mode.state == 'Night' %}
+        {% elif states.input_boolean.evening_holiday.state == 'on' %}
           script.doorbell_night
         {% else %}
           script.doorbell
