@@ -50,6 +50,10 @@ doorbell:
 doorbell_night:
   alias: Ring Doorbell in Master Bedroom
   sequence:
+    - service: logbook.log
+      data_template:
+        name: Script:
+        message: Doorbell DAY
     - service: media_player.sonos_snapshot
       data:
         entity_id: media_player.master_bedroom
@@ -67,10 +71,6 @@ doorbell_night:
     - service: media_player.sonos_restore
       data:
         entity_id: media_player.master_bedroom
-    - service: logbook.log
-      data_template:
-        name: Doorbell (night)
-        message: has rung
 
 doorbell_lights_off:
   alias: Turn off lights after Doorbell
@@ -93,16 +93,16 @@ doorbell_lights_off_evening:
   sequence:
     - service: logbook.log
       data_template:
-        name: Doorbell Evening lights
-        message: turned OFF
+        name: Doorbell:
+        message: Evening lights turn OFF
     - service: light.turn_off
       entity_id: light.front_porch_21
 doorbell_lights_off_night:
   sequence:
     - service: logbook.log
       data_template:
-        name: Doorbell Night lights
-        message: turned OFF
+        name: Doorbell:
+        message: Night lights turn OFF
     - service: light.turn_off
       entity_id:
         - light.front_porch_21
