@@ -140,8 +140,6 @@
     - bcharge
     - linev
     - loadpct
-    - nominv
-    - nompower
     - numxfers
     - outputv
     - status
