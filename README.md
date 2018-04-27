@@ -1,8 +1,9 @@
 # Home Assistant config files
 
-My Home Assistant configuration. Home Assistant is running in a Python virtual environment Intel NUC running Ubuntu.
+My Home Assistant configuration.
+Home Assistant is running in a Python virtual environment on an Intel NUC running Ubuntu.
 
-## HA intergrations you'll find in my config files:
+## Intergrations you'll find in my config files:
 
 House Mode:
   - basis for all time of day events
