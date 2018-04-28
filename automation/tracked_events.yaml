@@ -1,28 +1,126 @@
 ### tracked events automation - things happengin with beacons
 
+#Darren presence
+- alias: 'Mark Darren Away'
+  condition:
+    condition: state
+    entity_id: input_boolean.darrenhome
+    state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.DarrenIP
+      to: 'not_home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: device_tracker.DarrenIOS
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.reynolds_darren
+      to: 'not_home'
+  action:
+    - service: notify.ios_Darren
+      data:
+        message: "Darren Home"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.darrenhome
+- alias: 'Mark Darren Home'
+  condition:
+    condition: state
+    entity_id: input_boolean.darrenhome
+    state: 'off'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.reynolds_darren
+      to: 'frontgate'
+    - platform: state
+      entity_id: device_tracker.darren_iphone
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.reynolds_darren
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.darren
+      to: 'home'
+  action:
+    - service: notify.ios_Darren
+      data:
+        message: "Darren Away"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.darrenhome
+
+#Blythe presence
+- alias: 'Mark Blythe Away'
+  condition:
+    condition: state
+    entity_id: input_boolean.blythehome
+    state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.blythe_iphone
+      to: 'not_home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: device_tracker.reynolds_blythe
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.blythe
+      to: 'not_home'
+  action:
+    - service: notify.ios_Darren
+      data:
+        message: "Blythe Away"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.darrenhome
+- alias: 'Mark Blythe Home'
+  condition:
+    condition: state
+    entity_id: input_boolean.blythehome
+    state: 'off'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.reynolds_blythe
+      to: 'frontgate'
+    - platform: state
+      entity_id: device_tracker.blythe_iphone
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.reynolds_blythe
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.blythe
+      to: 'home'
+  action:
+    - service: notify.ios_Darren
+      data:
+        message: "Blythe Home"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.darrenhome
+
+
 - alias: Frontgate Darren
   trigger:
     platform: state
     entity_id: device_tracker.reynolds_darren
-    to: frontgate
+    to: 'frontgate'
   action:
-    service: switch.turn_on
-    data:
-      entity_id: switch.open_door
-
-#    service: script.turn_on
-#    data:
-#      entity_id: script.open_front_gate
+    - service: notify.ios_Darren
+      data:
+        message: "at Frontgate"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.open_door
 
 - alias: Frontgate Blythe
   trigger:
     platform: state
     entity_id: device_tracker.reynolds_blythe
-    to: frontgate
+    to: 'frontgate'
   action:
-    service: switch.turn_on
-    data:
-      entity_id: switch.open_door
+    - service: switch.turn_on
+      data:
+        entity_id: switch.open_door
 
 - alias: Masterbed Beacon Goodnight
   trigger:

@@ -65,21 +65,20 @@ google:
   client_secret: !secret google_secret
 
 device_tracker:
+  - platform: asuswrt
+    host: !secret AP_IP
+    username: !secret AP_ADMIN_USERNAME
+    password: !secret AP_ADMIN_PASS
+    mode: ap
+    require_ip: false
+    track_new_devices: false
+    new_device_defaults:
+      track_new_devices: false
   - platform: owntracks
     max_gps_accuracy: 200
     waypoints: False
     events_only: True
     mqtt_topic: "owntracks/#"
-
-#  - platform: asuswrt
-#    host: !secret AP_IP
-#    username: !secret AP_ADMIN_USERNAME
-#    password: !secret AP_ADMIN_PASS
-#    mode: ap
-#    require_ip: false
-#    new_device_defaults:
-#      track_new_devices: false
-#      hide_if_away: false
 
 #  - platform: tile
 #    username: tile_uname

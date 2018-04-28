@@ -1,5 +1,16 @@
 ## input_boolean.yaml
 
+# presence
+darrenhome:
+  name: Darren Home
+  initial: on
+  icon: mdi:cellphone-iphone
+
+blythehome:
+  name: Blythe Home
+  initial: on
+  icon: mdi:cellphone-iphone
+
 sydneyfc_game:
   name: Sydney FC Game Scene
   initial: off
