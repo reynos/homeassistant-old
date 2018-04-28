@@ -371,6 +371,20 @@
 #      - light.lounge_lamp_3
 # not - light.front_garden_28
 
+#presence groups
+  friends_family_presence:
+    name: Friends and Family Presence
+    view: no
+    entities:
+      - device_tracker.niz_iphone
+      - device_tracker.rey_dad_iphone
+      - device_tracker.rey_mum_iphone
+      - device_tracker.bin_iphone
+      - device_tracker.tony_iphone
+      - device_tracker.dani_iphone
+
+
+
 #  peanut_lights:
 #    name: Peanut Nightlight
 #    view: no

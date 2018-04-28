@@ -8,20 +8,20 @@
     state: 'on'
   trigger:
     - platform: state
-      entity_id: device_tracker.DarrenIP
+      entity_id: device_tracker.reynolds_darren
       to: 'not_home'
       for:
         minutes: 10
     - platform: state
-      entity_id: device_tracker.DarrenIOS
+      entity_id: device_tracker.darren_iphone
       to: 'not_home'
     - platform: state
-      entity_id: device_tracker.reynolds_darren
+      entity_id: device_tracker.darren
       to: 'not_home'
   action:
     - service: notify.ios_Darren
       data:
-        message: "Darren Home"
+        message: "Darren Away"
     - service: input_boolean.turn_off
       entity_id: input_boolean.darrenhome
 - alias: 'Mark Darren Home'
@@ -34,10 +34,10 @@
       entity_id: device_tracker.reynolds_darren
       to: 'frontgate'
     - platform: state
-      entity_id: device_tracker.darren_iphone
+      entity_id: device_tracker.reynolds_darren
       to: 'home'
     - platform: state
-      entity_id: device_tracker.reynolds_darren
+      entity_id: device_tracker.darren_iphone
       to: 'home'
     - platform: state
       entity_id: device_tracker.darren
@@ -45,7 +45,7 @@
   action:
     - service: notify.ios_Darren
       data:
-        message: "Darren Away"
+        message: "Darren Home"
     - service: input_boolean.turn_on
       entity_id: input_boolean.darrenhome
 
@@ -72,7 +72,7 @@
       data:
         message: "Blythe Away"
     - service: input_boolean.turn_off
-      entity_id: input_boolean.darrenhome
+      entity_id: input_boolean.blythehome
 - alias: 'Mark Blythe Home'
   condition:
     condition: state
@@ -83,10 +83,10 @@
       entity_id: device_tracker.reynolds_blythe
       to: 'frontgate'
     - platform: state
-      entity_id: device_tracker.blythe_iphone
+      entity_id: device_tracker.reynolds_blythe
       to: 'home'
     - platform: state
-      entity_id: device_tracker.reynolds_blythe
+      entity_id: device_tracker.blythe_iphone
       to: 'home'
     - platform: state
       entity_id: device_tracker.blythe
@@ -96,8 +96,7 @@
       data:
         message: "Blythe Home"
     - service: input_boolean.turn_on
-      entity_id: input_boolean.darrenhome
-
+      entity_id: input_boolean.blythehome
 
 - alias: Frontgate Darren
   trigger:
@@ -107,7 +106,7 @@
   action:
     - service: notify.ios_Darren
       data:
-        message: "at Frontgate"
+        message: "Darren trigger Frontgate"
     - service: switch.turn_on
       data:
         entity_id: switch.open_door
@@ -118,6 +117,9 @@
     entity_id: device_tracker.reynolds_blythe
     to: 'frontgate'
   action:
+    - service: notify.ios_Darren
+      data:
+        message: "Darren trigger Frontgate"
     - service: switch.turn_on
       data:
         entity_id: switch.open_door
