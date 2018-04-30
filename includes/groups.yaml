@@ -200,6 +200,7 @@
     control: hidden
     entities:
       - light.front_porch_21
+      - input_number.front_porch_timer_duration
       - light.front_garden_28
       - light.front_garden2_29
       - switch.open_door

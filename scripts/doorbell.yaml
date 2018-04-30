@@ -31,7 +31,7 @@ doorbell:
           - media_player.kitchen
           - media_player.master_bedroom
           - media_player.study
-        volume_level: 0.50
+        volume_level: 0.60
     - delay:
         seconds: 4
     - service: media_player.sonos_unjoin
@@ -71,40 +71,6 @@ doorbell_night:
     - service: media_player.sonos_restore
       data:
         entity_id: media_player.master_bedroom
-
-doorbell_lights_off:
-  alias: Turn off lights after Doorbell
-  sequence:
-    service: script.turn_on
-    data_template:
-      entity_id: >
-        {% if states.input_select.house_mode.state == 'Evening' %}
-          script.doorbell_lights_off_evening
-        {% elif states.input_boolean.evening_holiday.state == 'on' %}
-          script.doorbell_lights_off_evening
-        {% elif states.input_select.house_mode.state == 'Bedtime' %}
-          script.doorbell_lights_off_evening
-        {% elif states.input_select.house_mode.state == 'Night' %}
-          script.doorbell_lights_off_night
-        {% endif %}
-doorbell_lights_off_evening:
-  sequence:
-    - service: logbook.log
-      data_template:
-        name: "Doorbell:"
-        message: Evening lights turn OFF
-    - service: light.turn_off
-      entity_id: light.front_porch_21
-doorbell_lights_off_night:
-  sequence:
-    - service: logbook.log
-      data_template:
-        name: "Doorbell:"
-        message: Night lights turn OFF
-    - service: light.turn_off
-      entity_id:
-        - light.front_porch_21
-        - light.front_garden_28
 
 ## only required to simulate the action the doorbell being pushed - via input_boolean.sonos_goup_test
 sonos_group_test:

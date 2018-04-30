@@ -1,12 +1,24 @@
 ## input_number.yaml
 stairs_light_timer:
-    name: Stair Light Timer
+    name: Stair Light Timer Duration
     initial: 2
     min: 0
     max: 5
     step: 1
+front_porch_timer_duration:
+    name: Porch Light Timer Duration
+    initial: 3
+    min: 0
+    max: 10
+    step: 1
+front_lights_timer_duration:
+    name: Front Lights Timer Duration
+    initial: 3
+    min: 0
+    max: 10
+    step: 1
 backdeck_watering_timer:
-    name: Back Deck Watering Timer
+    name: Back Deck Watering Timer Duration
     initial: 2
     min: 0
     max: 5

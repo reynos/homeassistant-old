@@ -88,6 +88,22 @@
 #      data:
 #        entity_id: script.bedtime
 
+- alias: Arrive_home_evening
+  trigger:
+    platform: state
+    entity_id: input_boolean.darrenhome, input_boolean.blythehome
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        light.front_porch_21
+    - service: script.turn_on
+      entity_id: script.timer_front_lights_off
+
 - alias: Bedtime switch off # if triggered manually while the timer is running will turn the stairs light off early
   trigger:
     platform: state
@@ -105,7 +121,6 @@
   action:
     service: light.turn_on
     entity_id: light.front_garden_28
-
 
 ## Dimmers
 #- alias: Kitchen High Dimmer

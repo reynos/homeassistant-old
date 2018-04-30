@@ -23,15 +23,20 @@
     entity_id: input_boolean.tester
     to: 'on'
   action:
-    - service_template: >
-        {% if states.device_tracker.reynolds_darren.state == 'study' %}
-          light.turn_on
-        {% endif %}
-      entity_id: light.study_lamp_18
-    - service: logbook.log
+    - service: notify.ios_Darren
       data_template:
-        name: test
-        message: "on"
+        message: >-
+          {{ trigger.to_state.attributes.friendly_name }} set Darren Away
+#          {{ trigger.entity_id }} set Darren Away
+#    - service_template: >
+#        {% if states.device_tracker.reynolds_darren.state == 'study' %}
+#          light.turn_on
+#        {% endif %}
+#      entity_id: light.study_lamp_18
+#    - service: logbook.log
+#      data_template:
+#        name: test
+#        message: "on"
 #        {% else %}
 #          light.turn_off
 #        entity_id: input_boolean.tester
