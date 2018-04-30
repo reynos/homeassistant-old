@@ -50,3 +50,7 @@ Thumbs.db
 .ftpconfig
 
 includes/known_devices.yaml
+
+devices.yaml
+
+known_devices.yaml
