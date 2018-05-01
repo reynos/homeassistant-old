@@ -1,0 +1,22 @@
+title: Main
+widget_dimensions: [170, 180]
+widget_margins: [15, 15]
+columns: 11
+
+clock:
+  widget_type: clock
+
+weather:
+  widget_type: weather
+  units: "&deg;F"
+
+reload:
+  widget_type: reload
+
+layout:
+  - clock(4x2), weather(3x3)
+  -
+  -
+  -
+  - reload(1x1)
+
