@@ -250,6 +250,7 @@
     view: no
     entities:
       - device_tracker.x5_xdrive30d
+      - camera.bmw_x5_location
       - sensor.template_x5_xdrive30d_mileage
       - sensor.template_x5_xdrive30d_remaining_fuel
       - sensor.template_x5_xdrive30d_remaining_range_fuel
