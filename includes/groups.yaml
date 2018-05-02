@@ -177,6 +177,7 @@
     control: hidden
     entities:
       - binary_sensor.hall_sensor_50
+      - binary_sensor.front_door_65
       - sensor._temperature_sensor_51
       - sensor._humidity_sensor_53
       - sensor._light_sensor_52

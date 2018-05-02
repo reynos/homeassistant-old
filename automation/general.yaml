@@ -10,6 +10,23 @@
       title: 'New Home Assistant Release'
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 
+- alias: Front Door Open
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Bedtime'
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Night'
+  condition:
+    condition: state
+    entity_id: binary_sensor.front_door_65
+    state: 'on'
+  action:
+    service: notify.ios_Darren
+    data:
+      message: "Front Door Still OPEN!"
+
 ## Auto change themes
 - alias: hass_theme
   trigger:
