@@ -125,6 +125,24 @@
   origin: zone.home
   destination: zone.intairport
 
+- platform: darksky
+  api_key: !secret DARKSKY_API_KEY
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+
+
+
 - platform: filesize
   file_paths:
     - /home/homeassistant/.homeassistant/home-assistant_v2.db
