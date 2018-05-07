@@ -36,8 +36,10 @@
       group.all_lights_not_beds: off
       light.lounge_lamp_3: off
       light.stairs_16: on
-#      input_select.house_mode:
-#        option: "Bedtime"
+# this inuput select is OK cause Bedtime is only even manually selecte and will jump out of Holiday mode
+      input_select.house_mode:
+        option: "Bedtime"
+
 # triggered at 6am every morning
   - name: Day
     entities:

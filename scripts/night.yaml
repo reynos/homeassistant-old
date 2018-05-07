@@ -4,7 +4,7 @@ night:
     - service: logbook.log
       data_template:
         name: "Script:"
-        message: Night lights ON
+        message: Night lights OFF
     - service: input_select.select_option
       data:
         entity_id: input_select.house_mode
@@ -22,7 +22,7 @@ night_holiday:
     - service: logbook.log
       data_template:
         name: "Script:"
-        message: Night HOLIDAY lights ON
+        message: Night HOLIDAY lights OFF
     - service: scene.turn_on
       entity_id: scene.night
     - service: input_boolean.turn_off
