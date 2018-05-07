@@ -31,14 +31,13 @@
       input_select.house_mode:
         option: "Night"
 
-# tiggered only if Goodnight switch is activated
   - name: Bedtime
     entities:
       group.all_lights_not_beds: off
       light.lounge_lamp_3: off
       light.stairs_16: on
-      input_select.house_mode:
-        option: "Bedtime"
+#      input_select.house_mode:
+#        option: "Bedtime"
 # triggered at 6am every morning
   - name: Day
     entities:
@@ -47,8 +46,8 @@
 # add turn off light sensors here
 # just to have something here:
       light.front_garden_28: off
-      input_select.house_mode:
-        option: "Day"
+#      input_select.house_mode:
+#        option: "Day"
 
 # tiggered at Sunset only if Holiday switch is ON
   - name: Holiday Evening
