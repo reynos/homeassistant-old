@@ -28,8 +28,8 @@
       group.all_lights_not_beds: off
       light.lounge_lamp_3: off
       light.front_garden_28: off
-      input_select.house_mode:
-        option: "Night"
+#      input_select.house_mode:
+#        option: "Night"
 
   - name: Bedtime
     entities:

@@ -159,7 +159,7 @@
   ensuite:
     name: Ensuite
     view: yes
-    icon: mdi:human-male-female
+    icon: mdi:shower-head
     entities:
       - media_player.ensuite
   study:
