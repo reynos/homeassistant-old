@@ -2,57 +2,14 @@
 # Main arguments, all optional
 #
 title: Main Panel
-widget_dimensions: [122, 120]
+widget_dimensions: [120, 120]
 widget_margins: [5, 5]
-columns: 8
+columns: 10
 #
 # Layout
 #
 layout:
-    - clock(2x1), weather(2x2), temp, darren_presence, blythe_presence
-    - mode(2x1), bins, light_level, light_level
-    - reload
-
-clock:
-  widget_type: clock
-
-weather:
-  widget_type: weather
-  units: "&deg;C"
-
-darren_presence:
-    widget_type: device_tracker
-    title: Darren
-    device: darren
-
-blythe_presence:
-    widget_type: device_tracker
-    title: Blythe
-    device: blythe
-
-mode:
-    widget_type: sensor
-    title: House Mode
-    entity: input_select.house_mode
-
-bins:
-    widget_type: sensor
-    title: Bins
-    entity: sensor.template_calendar_bin_nights
-
-temp:
-    widget_type: sensor
-    title: Kitchen Temp
-    entity: sensor.template_kitchen_temp
-
-light_level:
-    widget_type: sensor
-    title: Light Level
-    units: "lux"
-    precision: 0
-    shorten: 1
-    entity: sensor.light_sensor_61
-
-reload:
-    widget_type: reload
-    title: Reload
+    - include: top_panel
+    - include: main_middle_panel
+    - include: house_mode_panel
+    - include: nav_panel

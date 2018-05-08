@@ -8,6 +8,10 @@ day:
       data_template:
         name: 'Script:'
         message: DAY
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Day
     - service: scene.turn_on
       entity_id: scene.day
     - service: frontend.set_theme
