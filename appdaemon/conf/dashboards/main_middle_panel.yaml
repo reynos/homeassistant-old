@@ -1,0 +1,47 @@
+#
+# Main Middle Panel
+#
+weather:
+    widget_type: weather
+    units: "&deg;C"
+
+mode:
+    widget_type: sensor
+    title: House Mode
+    text_style: "font-size: 30pt"
+    entity: input_select.house_mode
+
+bins:
+    widget_type: sensor
+    title: Wed Bins
+    entity: sensor.template_calendar_bin_nights
+
+temp:
+    widget_type: sensor
+    title: Kitchen Temp
+    entity: sensor.template_kitchen_temp
+
+kit_high_light:
+    widget_type:
+    title: Kitchen Temp
+    entity: sensor.template_kitchen_temp
+
+light_level:
+    widget_type: sensor
+    title: Light Level
+    units: "lux"
+    precision: 0
+    shorten: 1
+    entity: sensor.light_sensor_61
+
+label:
+    widget_type: label
+    text: Main
+
+layout:
+      - label(2x1),light.kitchen_high_15,light.kitchen_low_13,light.kitchen_bench_7,light.lounge_6,light.tv_4,light.lounge_lamp_3,light.backyard_24,light.backyard_fairy_light_22
+      - weather(2x2),light.front_porch_21,light.front_garden_28,spacer,light.study_lamp_18,spacer,light.bedside_darren_17,spacer,light.master_bedroom_23
+      - spacer(2x1),
+      -
+#      - ,,,,,,,,,,
+#      - ,,,,,,,,,,

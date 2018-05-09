@@ -1,0 +1,12 @@
+home:
+    widget_type: navigate
+    dashboard: "main"
+    icon_active: fa-home
+    icon_inactive: fa-home
+
+reload:
+    widget_type: reload
+    title: Reload
+
+layout:
+    - home, spacer(8x1), reload

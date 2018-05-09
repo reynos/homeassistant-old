@@ -1,0 +1,50 @@
+#
+# Top Panel
+#
+clock:
+    widget_type: clock
+
+temp_kit:
+    widget_type: sensor
+    title: Kitchen Temp
+    precision: 1
+    entity: sensor.template_kitchen_temp
+
+temp_nursery:
+    widget_type: sensor
+    title: Nursery Temp
+    precision: 1
+    entity: sensor.nursery_temperature
+
+solar_prod:
+    widget_type: sensor
+    title: Solar Production
+    precision: 2
+    entity: sensor.solar_production
+    icon_on: fa-sun
+
+front_gate:
+    widget_type: navigate
+    title: Front Gate
+    dashboard: "front_gate"
+    icon_active: mdi-gate
+    icon_inactive: mdi-gate
+
+darren_presence:
+    widget_type: device_tracker
+    title: Darren
+    device: darren
+    icon_on: fa-male
+    icon_off: fa-male
+    icon_style_active: "color: #4bcdea"
+
+blythe_presence:
+    widget_type: device_tracker
+    title: Blythe
+    device: blythe
+    icon_on: fa-female
+    icon_off: fa-female
+    icon_style_active: "color: #ea4b82"
+
+layout:
+    - clock(2x1), temp_kit, temp_nursery, solar_prod(2x1), front_gate(2x1), darren_presence, blythe_presence

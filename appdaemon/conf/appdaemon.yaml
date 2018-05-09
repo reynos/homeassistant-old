@@ -1,0 +1,18 @@
+log:
+  accessfile: /home/homeassistant/.homeassistant/appdaemon/logs/access.log
+  errorfile:  /home/homeassistant/.homeassistant/appdaemon/logs/error.log
+  logfile:    /home/homeassistant/.homeassistant/appdaemon/logs/appdaemon.log
+  log_generations: 3
+  log_size: 1000000
+appdaemon:
+  threads: 10
+  dash_force_compile: 1
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret hass_url
+      ha_key: !secret hass_pass
+      cert_path: !secret hass_cert
+      cert_verify: False
+hadashboard:
+  dash_url: !secret dash_url

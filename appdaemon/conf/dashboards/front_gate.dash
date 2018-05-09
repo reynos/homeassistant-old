@@ -1,0 +1,14 @@
+#
+# Main arguments, all optional
+#
+title: Front Gate
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 10
+#
+# Layout
+#
+layout:
+    - include: top_panel
+    - include: front_gate_panel
+    - include: nav_panel

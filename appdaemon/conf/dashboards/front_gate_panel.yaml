@@ -1,0 +1,36 @@
+#
+# Front Gate Panel
+#
+label:
+    widget_type: label
+    text: Front Gate
+
+#front_gate_camera:
+#    widget_type: camera
+#    title: Front Gate
+#    refresh: 1
+#    frame_style: ""
+#    entity: !secret doorbird_cam_ur2
+
+front_gate_camera_light:
+    widget_type: switch
+    title: Night Vision
+    entity: switch.light_on
+
+front_gate_open:
+    widget_type: switch
+    title: Open Gate
+    entity: switch.open_door
+
+layout:
+      - label(2x1) #,front_gate_camera(4x4)
+      - front_gate_camera_light(2x1)
+      -
+      - front_gate_open(2x1)
+
+#front_gate_camera:
+#    widget_type: camera
+#    title: Front Gate
+#    refresh: 1
+#    frame_style: ""
+#    entity: !secret doorbird_cam_url
