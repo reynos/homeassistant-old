@@ -132,10 +132,10 @@ logbook:
   include:
     domains:
       - switch
-      - device_tracker
       - light
       - input_number
       - input_select
+      - input_booleanß
       - script
     entities:
       - sun.sun
@@ -143,6 +143,7 @@ logbook:
     domains:
       - sensor
       - media_player
+      - device_tracker
 
 updater:
 discovery:
