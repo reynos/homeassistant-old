@@ -1,0 +1,85 @@
+#
+# Travel Panel
+#
+uberx_time:
+    widget_type: sensor
+    title: UberX Time
+    entity: sensor.template_uberx_pickup_time
+
+uberx_ap_price_est:
+    widget_type: sensor
+    title: UberX Airport Estimate
+    entity: sensor.template_uberx_price
+car_location:
+    widget_type: sensor
+    title: UberX Airport Estimate
+    entity: sensor.template_uberx_price
+car_doors:
+    widget_type: binary_sensor
+    title: Doors
+    icon_on: mdi-lock-open
+    icon_style_active: "color: red"
+    icon_off: mdi-lock
+    icon_style_inactive: "color: green"
+    entity: binary_sensor.x5_xdrive30d_lids
+car_windows:
+    widget_type: binary_sensor
+    title: Windows
+    icon_on: mdi-lock-open
+    icon_style_active: "color: red"
+    icon_off: mdi-lock
+    icon_style_inactive: "color: green"
+    entity: binary_sensor.x5_xdrive30d_windows
+car_secure:
+    widget_type: binary_sensor
+    title: Car Secured
+    icon_on: mdi-lock-open
+    icon_style_active: "color: red"
+    icon_off: mdi-lock
+    icon_style_inactive: "color: green"
+    entity: binary_sensor.x5_xdrive30d_door_lock_state
+#bus_time:
+bus_next_1:
+    widget_type: sensor
+    title: "1"
+    entity: sensor.template_next_bus_1
+    value_style: "color: white; font-size: 150%;"
+bus_next_2:
+    widget_type: sensor
+    title: "2"
+    entity: sensor.template_next_bus_2
+bus_next_3:
+    widget_type: sensor
+    title: "3"
+    entity: sensor.template_next_bus_3
+bus_next_4:
+    widget_type: sensor
+    title: "4"
+    entity: sensor.template_next_bus_4
+bus_next_5:
+    widget_type: sensor
+    title: "5"
+    entity: sensor.template_next_bus_5
+bus_next_6:
+    widget_type: sensor
+    title: "6"
+    entity: sensor.template_next_bus_6
+
+label:
+    widget_type: label
+    text: Travel
+uber_label:
+    widget_type: label
+    text: Uber
+bus_label:
+    widget_type: label
+    text: Bus
+car_label:
+    widget_type: label
+    text: Car
+
+layout:
+      - label(2x1),sensor.template_gtdarren_home(2x1),sensor.template_gtblythe_home(2x1),sensor.gthome_city(2x1)
+      - uber_label(2x1),uberx_time(2x1),uberx_ap_price_est(2x1),sensor.template_uberx_trip_time(2x1)
+      - bus_label(2x1),bus_next_1,bus_next_2,bus_next_3,bus_next_4,bus_next_5,bus_next_6
+      - car_label(2x1),sensor.template_x5_xdrive30d_mileage,sensor.template_x5_xdrive30d_remaining_fuel,sensor.template_x5_xdrive30d_remaining_range_fuel,car_doors,car_windows,car_secure

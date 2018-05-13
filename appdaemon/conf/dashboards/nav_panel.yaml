@@ -1,12 +1,51 @@
 home:
     widget_type: navigate
     dashboard: "main"
+    widget_style: "background: grey"
     icon_active: fa-home
     icon_inactive: fa-home
+
+front_gate:
+    widget_type: navigate
+    title: Front Gate
+    dashboard: "front_gate"
+    args:
+#      timeout: 10
+      return: main
+      sticky: 1
+    widget_style: "background: grey"
+    icon_active: mdi-gate
+    icon_inactive: mdi-gate
+
+media_players:
+    widget_type: navigate
+    title: Media
+    dashboard: "media_players"
+    args:
+#      timeout: 10
+      return: main
+      sticky: 1
+    widget_style: "background: grey"
+    icon_active: mdi-music
+    icon_inactive: mdi-music
+
+travel:
+    widget_type: navigate
+    title: Travel
+    dashboard: "travel"
+    args:
+#      timeout: 10
+      return: main
+      sticky: 1
+    widget_style: "background: grey"
+    icon_active: mdi-car-side
+    icon_inactive: mdi-car-side
 
 reload:
     widget_type: reload
     title: Reload
+    widget_style: "background: grey"
 
 layout:
-    - home, spacer(8x1), reload
+    - home,front_gate(2x1),media_players(2x1),travel(2x1),reload
+# webcams, upstairs, media/sonos dn/up?, transport

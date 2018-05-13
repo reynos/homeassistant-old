@@ -22,9 +22,102 @@ temp:
     entity: sensor.template_kitchen_temp
 
 kit_high_light:
-    widget_type:
-    title: Kitchen Temp
-    entity: sensor.template_kitchen_temp
+    widget_type: light
+    entity: light.kitchen_high_15
+    title: Kitchen High
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+kit_low_light:
+    widget_type: light
+    entity: light.kitchen_low_13
+    title: Kitchen Low
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+kit_bench_light:
+    widget_type: light
+    entity: light.kitchen_bench_7
+    title: Kitchen Bench
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+lounge_light:
+    widget_type: light
+    entity: light.lounge_6
+    title: Lounge
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+lounge_lamp:
+    widget_type: light
+    entity: light.lounge_lamp_3
+    title: Lounge Lamp
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+stairs_light:
+    widget_type: light
+    entity: light.stairs_16
+    title: Stairs
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+front_garden_light:
+    widget_type: light
+    entity: light.front_garden_28
+    title: Front Garden
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+back_garden_light:
+    widget_type: light
+    entity: light.backyard_24
+    title: Back Garden
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+back_fairy_light:
+    widget_type: light
+    entity: light.backyard_fairy_light_22
+    title: Back Fairylights
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+tv_light:
+    widget_type: light
+    entity: light.tv_4
+    title: TV Light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+front_porch_light:
+    widget_type: light
+    entity: light.front_porch_21
+    title: Front Porch Light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+study_lamp:
+    widget_type: light
+    entity: light.study_lamp_18
+    title: Study Lamp
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+darren_bedside_lamp:
+    widget_type: light
+    entity: light.bedside_darren_17
+    title: Darren Bedside
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
+
+master_bed_light:
+    widget_type: light
+    entity: light.master_bedroom_23
+    title: Front Porch Light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb-outline
 
 light_level:
     widget_type: sensor
@@ -34,14 +127,19 @@ light_level:
     shorten: 1
     entity: sensor.light_sensor_61
 
+media_player_kit:
+    widget_type: media_player
+    entity: media_player.kitchen
+    title: Kitchen Music
+    truncate_name: 10
+
 label:
     widget_type: label
     text: Main
 
 layout:
-      - label(2x1),light.kitchen_high_15,light.kitchen_low_13,light.kitchen_bench_7,light.lounge_6,light.tv_4,light.lounge_lamp_3,light.backyard_24,light.backyard_fairy_light_22
-      - weather(2x2),light.front_porch_21,light.front_garden_28,spacer,light.study_lamp_18,spacer,light.bedside_darren_17,spacer,light.master_bedroom_23
-      - spacer(2x1),
-      -
-#      - ,,,,,,,,,,
+      - label(2x1),lounge_lamp,kit_bench_light,stairs_light,front_garden_light,back_garden_light,back_fairy_light
+      - weather(2x2),kit_high_light,kit_low_light,lounge_light,tv_light,media_player_kit(2x2)
+      - study_lamp,darren_bedside_lamp,master_bed_light,front_porch_light
+#      - ,,,,,,,,,,,light_level(2x1)
 #      - ,,,,,,,,,,

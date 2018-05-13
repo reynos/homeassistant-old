@@ -245,6 +245,27 @@
       - sensor.template_uberx_price
       - sensor.template_uberx_trip_distance
       - sensor.template_uberx_trip_time
+  travel_buses:
+    name: Next Buses
+    view: no
+    entities:
+      - sensor.template_next_bus_1
+      - sensor.template_next_bus_2
+      - sensor.template_next_bus_3
+      - sensor.template_next_bus_4
+  travel_buses_raw:
+    name: Next Buses Raw
+    view: no
+    entities:
+      - sensor.nextbus_occupancy_1
+      - sensor.nextbus_route_1
+      - sensor.nextbus_time_1
+      - sensor.nextbus_occupancy_2
+      - sensor.nextbus_route_2
+      - sensor.nextbus_time_2
+      - sensor.nextbus_occupancy_3
+      - sensor.nextbus_route_3
+      - sensor.nextbus_time_3
   travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
@@ -270,6 +291,8 @@
       - group.travel_home_to
       - group.travel_uberx
       - group.travel_bmw_x5
+      - group.travel_buses
+      - group.travel_buses_raw
   scenes:
     name: Scenes
     view: yes

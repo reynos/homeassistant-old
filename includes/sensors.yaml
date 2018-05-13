@@ -12,6 +12,135 @@
   name: 'Solar Production'
   unit_of_measurement: 'kW'
   scan_interval: 900
+# next bus times
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_1"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.0.departureTimeEstimated}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_2"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.1.departureTimeEstimated}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_3"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.2.departureTimeEstimated}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_4"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.3.departureTimeEstimated}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_5"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.4.departureTimeEstimated}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_time_6"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.5.departureTimeEstimated}}'
+# nest bus routes
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_1"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.0.transportation.number}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_2"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.1.transportation.number}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_3"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.2.transportation.number}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_4"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.3.transportation.number}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_5"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.4.transportation.number}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_route_6"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.5.transportation.number}}'
+# nest bus seats
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_1"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.0.location.properties.occupancy}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_2"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.1.location.properties.occupancy}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_3"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.2.location.properties.occupancy}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_4"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.3.location.properties.occupancy}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_5"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.4.location.properties.occupancy}}'
+- platform: rest
+  resource: !secret transport_nsw_resource
+  name: "nextbus_occupancy_6"
+  headers:
+    Accept: application/json
+    Authorization: !secret transport_nsw_api_key
+  value_template: '{{value_json.stopEvents.5.location.properties.occupancy}}'
 
 - platform: version
 
@@ -140,8 +269,6 @@
     - cloud_cover
     - humidity
     - pressure
-
-
 
 - platform: filesize
   file_paths:
@@ -322,6 +449,93 @@
             {%- endif -%}
           {%- endif -%}
         {%- endif -%}
+# bus templates
+    template_next_bus_time_utc_1:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_1.state) | timestamp_custom("%X") }}
+    template_next_bus_time_utc_2:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_2.state) | timestamp_custom("%X") }}
+    template_next_bus_time_utc_3:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_3.state) | timestamp_custom("%X") }}
+    template_next_bus_time_utc_4:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_4.state) | timestamp_custom("%X") }}
+    template_next_bus_time_utc_5:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_5.state) | timestamp_custom("%X") }}
+    template_next_bus_time_utc_6:
+      value_template: >
+        {{ as_timestamp(states.sensor.nextbus_time_6.state) | timestamp_custom("%X") }}
+    template_next_bus_1:
+      friendly_name: "Next Bus 1"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_1.state, "%H:%M:%S").strftime("%I:%M%p") }}
+        - {{ states.sensor.nextbus_route_1.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_1.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_1.state }}
+        {% endif %}
+#displays mins until bus leaves but not always acurate so can be misleading
+#          ({{ min | int }} mins)
+    template_next_bus_2:
+      friendly_name: "Next Bus 2"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_2.state, "%H:%M:%S").strftime("%I:%M %p") }}
+        - {{ states.sensor.nextbus_route_2.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_2.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_2.state }}
+        {% endif %}
+    template_next_bus_3:
+      friendly_name: "Next Bus 3"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_3.state, "%H:%M:%S").strftime("%I:%M %p") }}
+        - {{ states.sensor.nextbus_route_3.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_3.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_3.state }}
+        {% endif %}
+    template_next_bus_4:
+      friendly_name: "Next Bus 4"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_4.state, "%H:%M:%S").strftime("%I:%M %p") }}
+        - {{ states.sensor.nextbus_route_4.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_4.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_4.state }}
+        {% endif %}
+    template_next_bus_5:
+      friendly_name: "Next Bus 5"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_5.state, "%H:%M:%S").strftime("%I:%M %p") }}
+        - {{ states.sensor.nextbus_route_5.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_5.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_5.state }}
+        {% endif %}
+    template_next_bus_6:
+      friendly_name: "Next Bus 6"
+      value_template: >
+        {{ strptime(states.sensor.template_next_bus_time_utc_6.state, "%H:%M:%S").strftime("%I:%M %p") }}
+        - {{ states.sensor.nextbus_route_6.state }}
+        {% set min = ((as_timestamp(states.sensor.nextbus_time_6.state)-as_timestamp(now()))/60) | int %}
+        {% if min < 1 %}
+          {{ "Already_left" }}
+        {% else %}
+          {{ states.sensor.nextbus_occupancy_6.state }}
+        {% endif %}
 
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"

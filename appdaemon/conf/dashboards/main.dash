@@ -4,7 +4,7 @@
 title: Main Panel
 widget_dimensions: [120, 120]
 widget_margins: [5, 5]
-columns: 10
+columns: 8
 #
 # Layout
 #

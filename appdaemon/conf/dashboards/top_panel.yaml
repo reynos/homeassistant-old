@@ -3,6 +3,8 @@
 #
 clock:
     widget_type: clock
+    date_style: "color: white"
+    time_style: "color: yellow"
 
 temp_kit:
     widget_type: sensor
@@ -23,12 +25,14 @@ solar_prod:
     entity: sensor.solar_production
     icon_on: fa-sun
 
-front_gate:
-    widget_type: navigate
-    title: Front Gate
-    dashboard: "front_gate"
-    icon_active: mdi-gate
-    icon_inactive: mdi-gate
+front_door:
+    widget_type: binary_sensor
+    title: Front Door
+    entity: binary_sensor.front_door_65
+    icon_on: mdi-door-open
+    icon_style_active: "color: red"
+    icon_off: mdi-door-closed
+    icon_style_inactive: "color: green"
 
 darren_presence:
     widget_type: device_tracker
@@ -47,4 +51,4 @@ blythe_presence:
     icon_style_active: "color: #ea4b82"
 
 layout:
-    - clock(2x1), temp_kit, temp_nursery, solar_prod(2x1), front_gate(2x1), darren_presence, blythe_presence
+    - clock(2x1), temp_kit, temp_nursery, solar_prod, front_door, darren_presence, blythe_presence
