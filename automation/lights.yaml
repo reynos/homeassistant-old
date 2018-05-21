@@ -32,7 +32,7 @@
       entity_id: input_boolean.morning_lights_flag
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+      entity_id: sensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
       below: 50
   action:
     - service: logbook.log
@@ -48,7 +48,7 @@
 - alias: "Morning lights sensor OFF"
   trigger:
     platform: numeric_state
-    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+    entity_id: sensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
     above: 50
 #    for:
 #      minutes: 10

@@ -29,8 +29,8 @@
 - alias: Set Inside Lights at Dusk
   trigger:
     platform: numeric_state
-    entity_id: sensor.light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
-    below: 200
+    entity_id: ssensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+    below: 160
   action:
     - service: logbook.log
       data_template:

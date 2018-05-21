@@ -1,0 +1,74 @@
+#
+# Sensors Panel
+#
+label:
+    widget_type: label
+    text: Sensors
+
+kitchen_temp_radial:
+  widget_type: radial
+  entity: sensor.template_nursery_temp
+  settings:
+    title: Nursery Temp
+    minValue: 10
+    maxValue: 35
+    majorTicks: [10,15,20,25,30,35]
+    highlights: [{'from': 10, 'to': 18, 'color': 'rgba(0, 0, 255, .3)'},{'from': 18, 'to': 22, 'color': 'rgba(0, 255, 0, .3)'},{'from': 22, 'to': 35, 'color': 'rgba(255, 0, 0, .3)'}]
+
+nursery_temp_gauge:
+  widget_type: gauge
+  title: Nursery Temp
+  entity: sensor.template_nursery_temp
+  min: 16
+  max: 26
+  low_color: 4CFF00
+  med_color: 51FF00
+  high_color: FF0000
+  units: °
+nursery_light_level:
+    widget_type: sensor
+    title: Nursery Light Level
+    precision: 0
+    entity: sensor.nursery_light_sensor_58
+nursery_humdity:
+    widget_type: sensor
+    title: Nursery Light Level
+    precision: 0
+    entity: sensor.nursery_humidity_59
+
+kitchen_temp_gauge:
+  widget_type: gauge
+  title: Kitchen Temp
+  entity: sensor.template_kitchen_temp
+  min: 10
+  max: 35
+  low_color: 4CFF00
+  med_color: 51FF00
+  high_color: FF0000
+  units: °
+kitchen_humidty:
+    widget_type: sensor
+    title: Nursery Humdity
+    precision: 0
+    entity: sensor.kitchen_humidity_62
+kitchen_light_level:
+    widget_type: sensor
+    title: Nursery Light Level
+    precision: 0
+    entity: sensor.kitchen_light_sensor_61
+
+front_gate_camera_light:
+    widget_type: switch
+    title: Night Vision
+    entity: switch.light_on
+
+front_gate_open:
+    widget_type: switch
+    title: Open Gate
+    entity: switch.open_door
+
+layout:
+      - label(2x1),nursery_temp_gauge(2x2),nursery_light_level,kitchen_temp_gauge(2x2),kitchen_light_level
+      - spacer,spacer,nursery_humdity,kitchen_humidty
+      -
+      - 
