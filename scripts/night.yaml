@@ -1,0 +1,29 @@
+night:
+  alias: "Night lights off"
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Script:"
+        message: Night lights OFF
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.house_mode
+        option: Night
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
+    - service: scene.turn_on
+      entity_id: scene.night
+
+night_holiday:
+  alias: "Evening Holiday lights off"
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Script:"
+        message: Night HOLIDAY lights OFF
+    - service: scene.turn_on
+      entity_id: scene.night
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.evening_holiday

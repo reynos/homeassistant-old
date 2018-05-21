@@ -10,15 +10,15 @@
     - platform: state
       entity_id: device_tracker.reynolds_darren
       to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.darren
+      to: 'not_home'
 #this entity gives false positives
 #    - platform: state
 #      entity_id: device_tracker.darren_iphone
 #      to: 'not_home'
 #      for:
 #        minutes: 10
-    - platform: state
-      entity_id: device_tracker.darren
-      to: 'not_home'
   action:
     - service: notify.ios_Darren
       data_template:
@@ -59,18 +59,18 @@
     entity_id: input_boolean.blythehome
     state: 'on'
   trigger:
-#this entity gives false positives
-#    - platform: state
-#      entity_id: device_tracker.blythe_iphone
-#      to: 'not_home'
-#      for:
-#        minutes: 10
     - platform: state
       entity_id: device_tracker.reynolds_blythe
       to: 'not_home'
     - platform: state
       entity_id: device_tracker.blythe
       to: 'not_home'
+#this entity gives false positives
+#    - platform: state
+#      entity_id: device_tracker.blythe_iphone
+#      to: 'not_home'
+#      for:
+#        minutes: 10
   action:
     - service: notify.ios_Darren
       data_template:
@@ -104,31 +104,33 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.blythehome
 
-- alias: Frontgate Darren
-  trigger:
-    platform: state
-    entity_id: device_tracker.reynolds_darren
-    to: 'frontgate'
-  action:
-    - service: notify.ios_Darren
-      data:
-        message: "Darren trigger Frontgate"
-    - service: switch.turn_on
-      data:
-        entity_id: switch.open_door
+# disabled frontgate tacking due excessive delay
+#
+#- alias: Frontgate Darren
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_darren
+#    to: 'frontgate'
+#  action:
+#    - service: notify.ios_Darren
+#      data:
+#        message: "Darren trigger Frontgate"
+#    - service: switch.turn_on
+#      data:
+#        entity_id: switch.open_door
 
-- alias: Frontgate Blythe
-  trigger:
-    platform: state
-    entity_id: device_tracker.reynolds_blythe
-    to: 'frontgate'
-  action:
-    - service: notify.ios_Darren
-      data:
-        message: "Blythe trigger Frontgate"
-    - service: switch.turn_on
-      data:
-        entity_id: switch.open_door
+#- alias: Frontgate Blythe
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_blythe
+#    to: 'frontgate'
+#  action:
+#    - service: notify.ios_Darren
+#      data:
+#        message: "Blythe trigger Frontgate"
+#    - service: switch.turn_on
+#      data:
+#        entity_id: switch.open_door
 
 - alias: Masterbed Beacon Goodnight
   trigger:
@@ -137,7 +139,7 @@
     to: masterbed
   condition:
     - condition: time
-      after: '20:30:00'
+      after: '20:00:00'
     - condition: state
       entity_id: input_select.house_mode
       state: 'Evening'

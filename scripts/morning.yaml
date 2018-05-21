@@ -1,0 +1,23 @@
+### morning.yaml scripts
+## no currently used - using a scene instead
+morning_lights_on:
+  alias: Morning Lights On
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Script:"
+        message: Morning lights ON
+    - service: input_boolean.turn_on
+      entity_id:
+        - input_boolean.morning_lights_flag
+        - input_boolean.morning_lights #this calls scene.morning
+
+morning_lights_off:
+  alias: Morning Lights Off
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Script:"
+        message: Morning lights OFF
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.morning_lights #this calls scene.morning_off
