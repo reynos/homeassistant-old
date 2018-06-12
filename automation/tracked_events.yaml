@@ -216,37 +216,38 @@
       entity_id: script.morning_lights
 
 #study
-- alias: Enter Study
-  trigger:
-    platform: state
-    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
-    to: 'study'
-  condition:
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Evening'
-  action:
-    - service: light.turn_on
-      entity_id: light.study_lamp_18
-
-- alias: Leave Study
-  trigger:
-    platform: state
-    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
-    from: 'study'
-  condition:
-    - condition: state
-      entity_id: input_select.house_mode
-      state: 'Evening'
-    - condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ states.device_tracker.reynolds_darren.state != 'study' }}"
-        - condition: template
-          value_template: "{{ states.device_tracker.reynolds_blythe.state != 'study' }}"
-  action:
-    - service: light.turn_off
-      entity_id: light.study_lamp_18
+# beacons are inacurate - commenting out
+#- alias: Enter Study
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
+#    to: 'study'
+#  condition:
+#    - condition: state
+#      entity_id: input_select.house_mode
+#      state: 'Evening'
+#  action:
+#    - service: light.turn_on
+#      entity_id: light.study_lamp_18
+#
+#- alias: Leave Study
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.reynolds_darren, device_tracker.reynolds_blythe
+#    from: 'study'
+#  condition:
+#    - condition: state
+#      entity_id: input_select.house_mode
+#      state: 'Evening'
+#    - condition: and
+#      conditions:
+#        - condition: template
+#          value_template: "{{ states.device_tracker.reynolds_darren.state != 'study' }}"
+#        - condition: template
+#          value_template: "{{ states.device_tracker.reynolds_blythe.state != 'study' }}"
+#  action:
+#    - service: light.turn_off
+#      entity_id: light.study_lamp_18
 
 #- alias: Masterbed on
 #  trigger:
