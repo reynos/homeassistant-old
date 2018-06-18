@@ -6,15 +6,18 @@
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
-      - sensor.template_calendar_bin_nights
       - sensor.template_kitchen_temp
 #      - sensor.temperature_sensor_60
 ##      - sensor.humidity_sensor_62
 #      - sensor.temperature_9
 ##      - sensor.humidity_12
-      - sensor.nursery_temperature
+#      - sensor.nursery_temperature
+      - sensor.template_nursery_temp
+      - sensor.outside_temp
       - sensor.high_temperature_11
-#      - sensor.low_temperature_10
+      - sensor.low_temperature_10
+      - sensor.template_calendar_bin_nights
+      - sensor.template_sensor_net_power
       - sensor.solar_production
       - group.qhouse
       - group.qkitchen
@@ -55,14 +58,14 @@
       - input_number.lounge_dimmer
       - light.tv_4
       - input_number.tv_dimmer
-  qnursery:
-    name: Nursery
-    view: no
-    control: hidden
-    entities:
-      - fan.nursery
-      - input_select.nursery_fan_speed
-      - input_boolean.dyson_night_mode
+#  qnursery:
+#    name: Nursery
+#    view: no
+#    control: hidden
+#    entities:
+#      - fan.nursery
+#      - input_select.nursery_fan_speed
+#      - input_boolean.dyson_night_mode
   qother:
     name: Other Lights
     view: no

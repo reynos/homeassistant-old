@@ -1,4 +1,30 @@
 ### sensors.yaml
+
+## emoncms sensors
+- platform: emoncms
+  api_key: !secret emoncms_write_key
+  url: !secret emoncms_url
+  scan_interval: 5
+  include_only_feed_id:
+    - 1
+  id: 1
+  unit_of_measurement: "W"
+  sensor_names:
+    1: "Net Power"
+# this value_teplate does not work and should so converted the KW in a template sensor below_horizon
+#  value_template: '{{ (value | float / 1000) | round(2) }}'
+- platform: emoncms
+  api_key: !secret emoncms_write_key
+  url: !secret emoncms_url
+  scan_interval: 60
+  include_only_feed_id:
+    - 2
+  id: 2
+  unit_of_measurement: "C"
+  sensor_names:
+    2: "Outside Temp"
+
+## solaredge sensors
 - platform: rest
   resource: !secret solaredge_resource
   value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
@@ -303,6 +329,13 @@
 # templates
 - platform: template
   sensors:
+    template_sensor_net_power:
+      friendly_name: "Net Power"
+      value_template: >
+        {{ (states.sensor.net_power.state | float / 1000) | round(2) }}
+      unit_of_measurement: "KW"
+#      value_template: >
+#        {{ (sensor.net_power | float / 1000) | round(2) }}
     template_binary_sensor_x5_xdrive30d_windows_front:
       friendly_name: "Front Windows"
       value_template: >
@@ -461,11 +494,11 @@
 
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
-      unit_of_measurement: "C"
+      unit_of_measurement: "°C"
       value_template: "{{ states.sensor.kitchen_temperature_60.state|round(1) }}"
     template_nursery_temp:
       friendly_name: "Nursery Temp"
-      unit_of_measurement: "C"
+      unit_of_measurement: "°C"
       value_template: "{{ states.sensor.nursery_temp_57.state|round(1) }}"
 
 #      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place

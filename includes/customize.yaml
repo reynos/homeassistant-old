@@ -84,6 +84,8 @@
     friendly_name: Bondi Temp
   sensor.high_temperature_11:
     friendly_name: Bondi Max Temp
+  sensor.low_temperature_10:
+    friendly_name: Bondi Low Temp
   sensor.humidity_12:
     friendly_name: Bondi Humidity
 #cameras
