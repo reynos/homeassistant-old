@@ -7,10 +7,12 @@
   scan_interval: 5
   include_only_feed_id:
     - 1
+    - 6
+    - 7
   id: 1
   unit_of_measurement: "W"
   sensor_names:
-    1: "Net Power"
+    1: "Net Grid Power"
 # this value_teplate does not work and should so converted the KW in a template sensor below_horizon
 #  value_template: '{{ (value | float / 1000) | round(2) }}'
 - platform: emoncms
@@ -28,146 +30,16 @@
 - platform: rest
   resource: !secret solaredge_resource
   value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
-  name: 'Solar Today'
+  name: 'SolarEdge Today'
   unit_of_measurement: 'kWh'
   scan_interval: 900
 
 - platform: rest
   resource: !secret solaredge_resource
   value_template: '{{ (value_json.overview.currentPower.power | float / 1000) | round(2) }}'
-  name: 'Solar Production'
+  name: 'SolarEdge Production'
   unit_of_measurement: 'kW'
   scan_interval: 900
-
-# next bus times
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_1"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.0.departureTimeEstimated}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_2"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.1.departureTimeEstimated}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_3"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.2.departureTimeEstimated}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_4"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.3.departureTimeEstimated}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_5"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.4.departureTimeEstimated}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_time_6"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.5.departureTimeEstimated}}'
-## nest bus routes
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_1"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.0.transportation.number}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_2"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.1.transportation.number}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_3"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.2.transportation.number}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_4"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.3.transportation.number}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_5"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.4.transportation.number}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_route_6"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.5.transportation.number}}'
-## nest bus seats
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_1"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.0.location.properties.occupancy}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_2"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.1.location.properties.occupancy}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_3"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.2.location.properties.occupancy}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_4"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.3.location.properties.occupancy}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_5"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.4.location.properties.occupancy}}'
-#- platform: rest
-#  resource: !secret transport_nsw_resource
-#  name: "nextbus_occupancy_6"
-#  headers:
-#    Accept: application/json
-#    Authorization: !secret transport_nsw_api_key
-#  value_template: '{{value_json.stopEvents.5.location.properties.occupancy}}'
 
 - platform: version
 
@@ -329,13 +201,21 @@
 # templates
 - platform: template
   sensors:
-    template_sensor_net_power:
-      friendly_name: "Net Power"
+    template_sensor_emoncms_net_grid_power:
+      friendly_name: "Net Grid Power"
       value_template: >
-        {{ (states.sensor.net_power.state | float / 1000) | round(2) }}
+        {{ (states.sensor.net_grid_power.state | float / 1000) | round(2) }}
       unit_of_measurement: "KW"
-#      value_template: >
-#        {{ (sensor.net_power | float / 1000) | round(2) }}
+    template_sensor_emoncms_house_consumption:
+      friendly_name: "House Consumption"
+      value_template: >
+        {{ (states.sensor.emoncms_house_consumption.state | float / 1000) | round(2) }}
+      unit_of_measurement: "KW"
+    template_sensor_emoncms_solar_production:
+      friendly_name: "Solar Production"
+      value_template: >
+        {{ (states.sensor.emoncms_solar_production.state | float / 1000) | round(2) }}
+      unit_of_measurement: "KW"
     template_binary_sensor_x5_xdrive30d_windows_front:
       friendly_name: "Front Windows"
       value_template: >
@@ -500,7 +380,6 @@
       friendly_name: "Nursery Temp"
       unit_of_measurement: "°C"
       value_template: "{{ states.sensor.nursery_temp_57.state|round(1) }}"
-
 #      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
@@ -519,6 +398,136 @@
       unit_of_measurement: 'MB'
       value_template: >
         {{"{:,}".format(states('sensor.homeassistant_v2db')|int)}}
+
+# next bus times
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_1"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.0.departureTimeEstimated}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_2"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.1.departureTimeEstimated}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_3"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.2.departureTimeEstimated}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_4"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.3.departureTimeEstimated}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_5"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.4.departureTimeEstimated}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_time_6"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.5.departureTimeEstimated}}'
+## nest bus routes
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_1"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.0.transportation.number}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_2"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.1.transportation.number}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_3"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.2.transportation.number}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_4"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.3.transportation.number}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_5"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.4.transportation.number}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_route_6"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.5.transportation.number}}'
+## nest bus seats
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_1"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.0.location.properties.occupancy}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_2"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.1.location.properties.occupancy}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_3"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.2.location.properties.occupancy}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_4"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.3.location.properties.occupancy}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_5"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.4.location.properties.occupancy}}'
+#- platform: rest
+#  resource: !secret transport_nsw_resource
+#  name: "nextbus_occupancy_6"
+#  headers:
+#    Accept: application/json
+#    Authorization: !secret transport_nsw_api_key
+#  value_template: '{{value_json.stopEvents.5.location.properties.occupancy}}'
 
 ## bus templates
 #    template_next_bus_time_utc_1:

@@ -37,7 +37,6 @@
     friendly_name: Kitchen Temp
   sensor.humidity_sensor_62:
     friendly_name: Kitchen Humidity
-
 #trackers
   device_tracker.darren:
     friendly_name: Darren

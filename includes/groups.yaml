@@ -17,8 +17,9 @@
       - sensor.high_temperature_11
       - sensor.low_temperature_10
       - sensor.template_calendar_bin_nights
-      - sensor.template_sensor_net_power
-      - sensor.solar_production
+      - sensor.template_sensor_emoncms_net_grid_power
+      - sensor.template_sensor_emoncms_house_consumption
+      - sensor.template_sensor_emoncms_solar_production
       - group.qhouse
       - group.qkitchen
       - group.qlounge
@@ -33,6 +34,8 @@
       - group.study
       - group.outside
       - group.camera
+      - group.power
+      - group.devices
   qhouse:
     name: House
     view: no
@@ -308,6 +311,16 @@
       - scene.holiday
       - scene.sydneyfc
       - input_boolean.sydneyfc_game
+  power:
+    name: Power
+    view: yes
+    icon: mdi:flash
+    entities:
+      - sensor.template_sensor_emoncms_net_grid_power
+      - sensor.template_sensor_emoncms_house_consumption
+      - sensor.template_sensor_emoncms_solar_production
+      - sensor.solaredge_production
+      - sensor.solaredge_today
   climate:
     name: Climate
     view: yes
@@ -319,8 +332,6 @@
       - sensor.humidity_12
       - sensor.template_solar_angle
       - sun.sun
-      - sensor.solar_production
-      - sensor.solar_today
   devices_list:
     name: Devices
     view: no
