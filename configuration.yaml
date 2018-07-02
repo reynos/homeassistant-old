@@ -34,11 +34,14 @@ mqtt:
   discovery_prefix: home
 
 doorbird:
-  host: !secret doorbird_host
-  username: !secret doorbird_uname
-  password: !secret doorbird_pass
-  doorbell_events: true
-  hass_url_override: !secret doorbird_hass_url_override
+  devices:
+    host: !secret doorbird_host
+    username: !secret doorbird_uname
+    password: !secret doorbird_pass
+    hass_url_override: !secret doorbird_hass_url_override
+    name: Front Gate
+    monitored_conditions:
+      - doorbell
 
 dyson:
   username: !secret dyson_uname

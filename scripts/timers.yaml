@@ -1,5 +1,6 @@
 ## timers.yaml script
 
+# this cript not used - moved to lights automation
 timer_front_lights_off:
   alias: Auto Turn off front lights
   sequence:
@@ -26,7 +27,7 @@ timer_front_lights_off_evening:
     - service: script.turn_on
       entity_id: script.timer_front_porch
 
-#front lights timer
+
 timer_front_lights_off_night:
   sequence:
     - service: script.turn_off #reset any existing timer

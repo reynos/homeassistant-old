@@ -2,6 +2,7 @@
 
 ## emoncms sensors
 - platform: emoncms
+  id: 1
   api_key: !secret emoncms_write_key
   url: !secret emoncms_url
   scan_interval: 5
@@ -9,22 +10,35 @@
     - 1
     - 6
     - 7
-  id: 1
   unit_of_measurement: "W"
   sensor_names:
     1: "Net Grid Power"
 # this value_teplate does not work and should so converted the KW in a template sensor below_horizon
 #  value_template: '{{ (value | float / 1000) | round(2) }}'
 - platform: emoncms
+  id: 2
   api_key: !secret emoncms_write_key
   url: !secret emoncms_url
   scan_interval: 60
   include_only_feed_id:
     - 2
-  id: 2
   unit_of_measurement: "C"
   sensor_names:
     2: "Outside Temp"
+- platform: emoncms
+  id: 3
+  api_key: !secret emoncms_write_key
+  url: !secret emoncms_url
+  scan_interval: 60
+  include_only_feed_id:
+    - 8
+    - 9
+    - 10
+  unit_of_measurement: "kWh"
+  sensor_names:
+    8: "Grid Power kWh"
+    9: "Solar Production kWh"
+    10: "Solar Production kWh"
 
 ## solaredge sensors
 - platform: rest

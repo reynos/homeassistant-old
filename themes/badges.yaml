@@ -1,0 +1,79 @@
+##########################################################################################
+# Badge-themes in order of temp
+##########################################################################################
+cold:
+  primary-text-color: "#447ebc"
+  label-badge-red: "#447ebc"
+comfortable:
+  primary-text-color: "#629e51"
+  label-badge-red: "#629e51"
+hot:
+  primary-text-color: "#bf1b00"
+  label-badge-red: "#bf1b00"
+
+##########################################################################################
+# Badge-themes in order of severity, either up or down
+##########################################################################################
+#source https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html
+
+# /* for label-badge */
+#    --label-badge-background-color: white;
+#    --label-badge-text-color: rgb(76, 76, 76);
+#    --label-badge-red: #DF4C1E;
+
+#    --label-badge-blue: #039be5;
+#    --label-badge-green: #0DA035;
+#    --label-badge-yellow: #f4b400;
+#    --label-badge-grey: var(--paper-grey-500);
+
+green_badge:
+  label-badge-red: green
+  label-badge-border-color: lightgrey
+  label-badge-background-color: white
+  label-badge-text-color: green
+#  label-badge-blue: blue
+#  label-badge-green: black
+#  label-badge-yellow: yellow
+#  label-badge-grey: grey
+
+grey_badge:
+  label-badge-red: grey
+  label-badge-border-color: lightgrey
+  label-badge-background-color: white
+  label-badge-text-color: grey
+
+black_badge:
+  label-badge-red: black
+  label-badge-border-color: lightgrey
+  label-badge-background-color: white
+  label-badge-text-color: black
+
+brown_badge:
+  label-badge-red: brown
+  label-badge-border-color: brown
+  label-badge-background-color: white
+  label-badge-text-color: brown
+
+orange_badge:
+  label-badge-red: orange
+  label-badge-border-color: orange
+  label-badge-background-color: white
+  label-badge-text-color: orange
+
+blue_badge:
+  label-badge-red: blue
+  label-badge-border-color: blue
+  label-badge-background-color: white
+  label-badge-text-color: blue
+
+yellow_badge:
+  label-badge-red: grey
+  label-badge-border-color: yellow
+  label-badge-background-color: lightgrey
+  label-badge-text-color: yellow
+
+red_badge:
+  label-badge-red: grey
+  label-badge-border-color: lightgrey
+  label-badge-background-color: white
+  label-badge-text-color: red

@@ -37,6 +37,55 @@
     friendly_name: Kitchen Temp
   sensor.humidity_sensor_62:
     friendly_name: Kitchen Humidity
+
+  sensor.net_grid_power:
+#    icon: mdi:flash
+    templates:
+      hs_color: >
+        if (state < -600) return [360, 85];
+        if (state < 1500) return [23, 90];
+        return [100,65];
+#        if (state < 0) return [50,100];
+#        if (state => 1501) return [65,85];
+#        if (state < 4) return [100,65];
+#        return [150,95];
+      brightness: >
+        if (state < -600) return 216;
+        if (state < 1200) return 255;
+        return 192;
+#        if (state < 0) return 255;
+#        if (state < 2) return 220;
+#        if (state < 4) return 192;
+#        return 153;
+      icon: >
+         if (state < -600) {
+           return mdi:arrow-down-bold-circle;
+         } else if (state < 1200 ) {
+           return mdi:check-circle;
+         } else {
+           return mdi:arrow-up-bold-circle;
+         }
+#      icon_color: >
+#        if (state > 600) {
+#          return [255, 0, 0];
+#        } else if (state >= 1 ) {
+#          return [255, 153, 0];
+#        } else {
+#          return [0, 255, 0];
+#        }
+
+  sensor.template_sensor_emoncms_net_grid_power:
+    templates:
+      theme: >
+        if (state > 600) {
+          return 'red_badge';
+        } else if (state >= 0 ) {
+          return 'orange_badge';
+        } else {
+          return 'green_badge';
+        }
+
+
 #trackers
   device_tracker.darren:
     friendly_name: Darren
