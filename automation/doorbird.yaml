@@ -2,7 +2,7 @@
 - alias: Doorbird ring
   trigger:
     platform: event
-    event_type: doorbird_doorbell
+    event_type: doorbird_front_gate_button
   action:
     service: script.turn_on
     data_template:

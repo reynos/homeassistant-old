@@ -21,7 +21,8 @@
 - alias: "Kitchen Morning Lights sensor ON"
   trigger:
     platform: state
-    entity_id: binary_sensor.kitchen_sensor_46
+    entity_id: binary_sensor.kitchen_multisensor_77
+#    entity_id: binary_sensor.kitchen_sensor_46
     to: 'on'
   condition:
 # add or condition - if Holiday - send notify to mobile otherwise do below
@@ -32,14 +33,14 @@
       entity_id: input_boolean.morning_lights_flag
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+      entity_id: sensor.light_sensor_79 # this updates fom the Z-wave sensor every 8mins?
       below: 50
   action:
     - service: logbook.log
       data_template:
         name: Kitchen
         message: motion detected
-        entity_id: binary_sensor.kitchen_sensor_46
+        entity_id: binary_sensor.kitchen_multisensor_77
         domain: binary_sensor
     - service: script.turn_on
       entity_id: script.morning_lights_on
@@ -48,7 +49,8 @@
 - alias: "Morning lights sensor OFF"
   trigger:
     platform: numeric_state
-    entity_id: sensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
+    entity_id: sensor.light_sensor_79 # this updates fom the Z-wave sensor every 8mins?
+#    entity_id: sensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 8mins?
     above: 50
 #    for:
 #      minutes: 10
