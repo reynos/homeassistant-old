@@ -389,7 +389,7 @@
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
       unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.kitchen_temperature_60.state|round(1) }}"
+      value_template: "{{ states.sensor.temperature_sensor_78.state|round(1) }}"
     template_nursery_temp:
       friendly_name: "Nursery Temp"
       unit_of_measurement: "°C"

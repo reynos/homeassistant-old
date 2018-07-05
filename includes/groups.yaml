@@ -88,9 +88,8 @@
     entities:
       - camera.nurserycam
       - camera.frontcam
-      - camera.doorbird_live
-      - camera.doorbird_last_ring
-#      - binary_sensor.doorbell_ringing
+      - camera.front_gate_live
+      - camera.front_gate_last_ring
   kitchen:
     name: Kitchen
     view: yes
