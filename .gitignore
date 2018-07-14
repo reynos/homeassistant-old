@@ -56,3 +56,7 @@ devices.yaml
 known_devices.yaml
 
 appdaemon/conf/secrets.yaml
+
+appdaemon/conf/appdaemon.yaml
+
+appdaemon/conf/dashboards/

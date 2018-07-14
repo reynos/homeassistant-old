@@ -12,6 +12,10 @@ homeassistant:
 
 ##logger:
 
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+
 http:
   api_password: !secret http_api_password
   ssl_certificate: !secret ssl_certificate_loc
@@ -149,6 +153,7 @@ logbook:
       - media_player
       - device_tracker
 
+config:
 updater:
 discovery:
 apcupsd:
@@ -160,7 +165,6 @@ history:
 
 
 #cloud:
-#config:
 
 #climate:
 #  platform: fan
