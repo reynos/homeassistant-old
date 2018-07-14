@@ -3,16 +3,12 @@
     view: yes
     icon: mdi:home
     entities:
+# sensors - across the top of the first page
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
-      - sensor.template_kitchen_temp
-#      - sensor.temperature_sensor_60
-##      - sensor.humidity_sensor_62
-#      - sensor.temperature_9
-##      - sensor.humidity_12
-#      - sensor.nursery_temperature
-      - sensor.template_nursery_temp
+      - sensor.kitchen_temperature
+      - sensor.nursery_temp
       - sensor.outside_temp
       - sensor.template_bondi_max_temp
       - sensor.template_bondi_min_temp
@@ -21,12 +17,13 @@
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
       - sensor.template_sensor_emoncms_solar_production
+# quick groups on the first page
       - group.qhouse
       - group.qkitchen
       - group.qlounge
       - group.qnursery
       - group.qother
-
+# tab groups
       - group.kitchen
       - group.lounge
       - group.hall
@@ -51,9 +48,9 @@
     view: no
     entities:
       - light.kitchen_high_level
-#      - input_number.kitchen_high_dimmer
+      - input_number.kitchen_high_dimmer
       - light.kitchen_low_level
-#      - input_number.kitchen_low_dimmer
+      - input_number.kitchen_low_dimmer
   qlounge:
     name: Lounge Lights
     view: no
@@ -92,6 +89,14 @@
       - camera.frontcam
       - camera.front_gate_live
       - camera.front_gate_last_ring
+  kitchen_lights:
+    name: Kitchen Lights
+    view: no
+    control: hidden
+    entities:
+      - light.kitchen_high_level
+      - light.kitchen_low_level
+      - switch.kitchen_bench_switch
   kitchen:
     name: Kitchen
     view: yes
@@ -101,9 +106,7 @@
       - sensor.kitchen_luminance
       - sensor.kitchen_temperature
       - sensor.kitchen_relative_humidity
-      - light.kitchen_high_level
-      - light.kitchen_low_level
-      - switch.kitchen_bench_switch
+      - group.kitchen_lights
       - media_player.kitchen
   lounge:
     view: yes
@@ -122,6 +125,7 @@
     entities:
       - fan.nursery
       - sensor.template_nursery_air_quality
+      - sensor.nursery_humidity
       - sensor.nursery_dust
       - sensor.nursery_filter_life
       - input_select.nursery_fan_speed
@@ -140,7 +144,6 @@
     icon: mdi:baby-buggy
     entities:
       - sensor.nursery_temperature
-      - sensor.nursery_humidity
       - group.nursery_media
   bathroom:
     name: Bathroom
@@ -168,25 +171,34 @@
       - light.ensuite_level
       - switch.ensuite_fan_switch
       - media_player.ensuite
+  study_lights:
+    name: Study
+    view: no
+    entities:
+      - light.study_level
+      - switch.study_lamp_switch
   study:
     name: Study
     view: yes
     icon: mdi:lamp
     entities:
-      - light.study_level
-      - switch.study_switch
-      - switch.study_lamp
+      - group.study_lights
       - media_player.study
+  hall_lights:
+    name: Hall and Stairs
+    view: no
+    control: hidden
+    entities:
+      - light.hall_level
+      - switch.stairs_switch
+      - input_number.stairs_light_timer
   hall:
     name: Hallways
     view: yes
     icon: mdi:stairs
     control: hidden
     entities:
-      - switch.hall_switch
-      - light.hall_level
-      - switch.stairs_switch
-      - input_number.stairs_light_timer
+      - group.hall_lights
   outside_backyard:
     name: Backyard
     view: no

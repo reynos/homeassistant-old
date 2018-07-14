@@ -399,15 +399,15 @@
       friendly_name: Bondi Humidity
       unit_of_measurement: "%"
       value_template: "{{ states.sensor.dark_sky_humidity.state|int }}"
-    template_kitchen_temp:
-      friendly_name: "Kitchen Temp"
-      unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.temperature_sensor_78.state|round(1) }}"
-    template_nursery_temp:
-      friendly_name: "Nursery Temp"
-      unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.nursery_temp_57.state|round(1) }}"
-#      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place
+#    template_kitchen_temp:
+#      friendly_name: "Kitchen Temp"
+#      unit_of_measurement: "°C"
+#      value_template: "{{ states.sensor.temperature_sensor_78.state|round(1) }}"
+#    template_nursery_temp:
+#      friendly_name: "Nursery Temp"
+#      unit_of_measurement: "°C"
+#      value_template: "{{ states.sensor.nursery_temp_57.state|round(1) }}"
+##      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place
     template_gthome_thornton:
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
       friendly_name: 'Thornton'
