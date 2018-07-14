@@ -14,8 +14,9 @@
 #      - sensor.nursery_temperature
       - sensor.template_nursery_temp
       - sensor.outside_temp
-      - sensor.high_temperature_11
-      - sensor.low_temperature_10
+      - sensor.template_bondi_max_temp
+      - sensor.template_bondi_min_temp
+      - sensor.template_bondi_humidity
       - sensor.template_calendar_bin_nights
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
@@ -49,17 +50,17 @@
     name: Kitchen Lights
     view: no
     entities:
-      - light.kitchen_high_15
-      - input_number.kitchen_high_dimmer
-      - light.kitchen_low_13
-      - input_number.kitchen_low_dimmer
+      - light.kitchen_high_level
+#      - input_number.kitchen_high_dimmer
+      - light.kitchen_low_level
+#      - input_number.kitchen_low_dimmer
   qlounge:
     name: Lounge Lights
     view: no
     entities:
-      - light.lounge_6
+      - light.lounge_level
       - input_number.lounge_dimmer
-      - light.tv_4
+      - light.tv_level
       - input_number.tv_dimmer
 #  qnursery:
 #    name: Nursery
@@ -74,12 +75,13 @@
     view: no
     control: hidden
     entities:
-      - light.bedside_darren_17
-      - light.bedside_blythe_18
-      - light.nursery_lamp_19
-      - light.front_porch_21
-      - light.master_bedroom_23
-      - light.study_31
+      - switch.darren_bedside_switch
+#      - light.bedside_blythe_18
+      - switch.front_porch_switch
+      - light.master_bedroom_level
+      - light.study_level
+      - switch.study_switch
+      - switch.study_lamp_switch
       - input_select.hass_theme
   camera:
     name: Cameras
@@ -95,24 +97,22 @@
     view: yes
     icon: mdi:stove
     entities:
-      - binary_sensor.kitchen_sensor_46
-      - sensor.light_sensor_61
-      - sensor.temperature_sensor_60
-      - sensor.humidity_sensor_62
-      - sensor.light_sensor_48
-      - light.kitchen_high_15
-      - light.kitchen_low_13
-      - light.kitchen_bench_7
-      - switch.kitchen_sensor_46
+      - binary_sensor.kitchen_sensor
+      - sensor.kitchen_luminance
+      - sensor.kitchen_temperature
+      - sensor.kitchen_relative_humidity
+      - light.kitchen_high_level
+      - light.kitchen_low_level
+      - switch.kitchen_bench_switch
       - media_player.kitchen
   lounge:
     view: yes
     icon: mdi:sofa
     name: Lounge Room
     entities:
-      - light.lounge_lamp_3
-      - light.lounge_6
-      - light.tv_4
+      - light.lounge_lamp_level
+      - light.lounge_level
+      - light.tv_level
       - media_player.lounge
       - media_player.tv_ua65js8000
   nursery_fan:
@@ -121,10 +121,13 @@
     control: hidden
     entities:
       - fan.nursery
+      - sensor.template_nursery_air_quality
+      - sensor.nursery_dust
+      - sensor.nursery_filter_life
       - input_select.nursery_fan_speed
       - input_boolean.dyson_night_mode
       - input_boolean.dyson_oscillate
-  nursery_other:
+  nursery_media:
     name: Media
     view: no
     control: hidden
@@ -138,11 +141,7 @@
     entities:
       - sensor.nursery_temperature
       - sensor.nursery_humidity
-      - sensor.template_nursery_air_quality
-      - sensor.nursery_dust
-      - sensor.nursery_filter_life
-      - group.nursery_fan
-      - group.nursery_other
+      - group.nursery_media
   bathroom:
     name: Bathroom
     view: yes
@@ -155,10 +154,10 @@
     name: Bedrooms
     control: hidden
     entities:
-      - light.master_bedroom_23
-      - light.bedside_blythe_18
-      - light.bedside_darren_17
-      - light.front_bedroom_30
+      - light.master_bedroom_level
+#      - light.bedside_blythe_18
+      - switch.darren_bedside_switch
+      - light.front_bedroom_level
       - media_player.master_bedroom
       - media_player.tv_ua60h7000
   ensuite:
@@ -166,14 +165,17 @@
     view: yes
     icon: mdi:shower
     entities:
+      - light.ensuite_level
+      - switch.ensuite_fan_switch
       - media_player.ensuite
   study:
     name: Study
     view: yes
     icon: mdi:lamp
     entities:
-      - light.study_lamp_18
-      - light.study_31
+      - light.study_level
+      - switch.study_switch
+      - switch.study_lamp
       - media_player.study
   hall:
     name: Hallways
@@ -181,36 +183,34 @@
     icon: mdi:stairs
     control: hidden
     entities:
-      - binary_sensor.hall_sensor_50
-      - binary_sensor.front_door_65
-      - sensor._temperature_sensor_51
-      - sensor._humidity_sensor_53
-      - sensor._light_sensor_52
-      - light.hall_33
-      - light.stairs_16
+      - switch.hall_switch
+      - light.hall_level
+      - switch.stairs_switch
       - input_number.stairs_light_timer
-      - switch.hall_sensor_50
   outside_backyard:
     name: Backyard
     view: no
     control: hidden
     entities:
 #      - switch.water_back_deck
+############################## fix zwave
       - switch.greenwall_19
       - input_number.backdeck_watering_timer
-      - light.backyard_24
+      - switch.backyard_switch
+      - switch.back_floods_switch
+############################## fix zwave
       - light.backyard_fairy_light_22
   outside_frontyard:
     name: Frontyard
     view: no
     control: hidden
     entities:
-      - light.front_porch_21
+      - switch.front_porch_switch
       - input_number.front_porch_timer_duration
-      - light.front_garden_28
-      - light.front_garden2_29
-      - switch.open_door
-      - switch.light_on
+      - switch.front_garden_1_switch
+      - switch.front_garden_2_switch
+      - switch.front_gate_open_door
+      - switch.front_gate_light_on
       - media_player.front_garden
       - binary_sensor.front_garden_movement_motion
   outside:
@@ -250,27 +250,27 @@
       - sensor.template_uberx_price
       - sensor.template_uberx_trip_distance
       - sensor.template_uberx_trip_time
-  travel_buses:
-    name: Next Buses
-    view: no
-    entities:
-      - sensor.template_next_bus_1
-      - sensor.template_next_bus_2
-      - sensor.template_next_bus_3
-      - sensor.template_next_bus_4
-  travel_buses_raw:
-    name: Next Buses Raw
-    view: no
-    entities:
-      - sensor.nextbus_occupancy_1
-      - sensor.nextbus_route_1
-      - sensor.nextbus_time_1
-      - sensor.nextbus_occupancy_2
-      - sensor.nextbus_route_2
-      - sensor.nextbus_time_2
-      - sensor.nextbus_occupancy_3
-      - sensor.nextbus_route_3
-      - sensor.nextbus_time_3
+#  travel_buses:
+#    name: Next Buses
+#    view: no
+#    entities:
+#      - sensor.template_next_bus_1
+#      - sensor.template_next_bus_2
+#      - sensor.template_next_bus_3
+#      - sensor.template_next_bus_4
+#  travel_buses_raw:
+#    name: Next Buses Raw
+#    view: no
+#    entities:
+#      - sensor.nextbus_occupancy_1
+#      - sensor.nextbus_route_1
+#      - sensor.nextbus_time_1
+#      - sensor.nextbus_occupancy_2
+#      - sensor.nextbus_route_2
+#      - sensor.nextbus_time_2
+#      - sensor.nextbus_occupancy_3
+#      - sensor.nextbus_route_3
+#      - sensor.nextbus_time_3
   travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
@@ -384,12 +384,12 @@
     name: Evening Lights
     view: no
     entities:
-      - light.kitchen_bench_7
-      - light.lounge_lamp_3
-      - light.stairs_16
+      - switch.kitchen_bench_switch
+      - light.lounge_lamp_level
+      - switch.stairs_switch
       - light.backyard_24
       - light.backyard_fairy_light_22
-      - light.front_garden_28
+      - switch.front_garden_1_switch
       - input_boolean.morning_lights_trigger
   all_lights_not_beds:
     name: All lights not beds
@@ -397,18 +397,18 @@
     entities:
       - light.kitchen_high_15
       - light.kitchen_low_13
-      - light.kitchen_bench_7
-      - light.lounge_6
-      - light.tv_4
-      - light.stairs_16
+      - switch.kitchen_bench_switch
+      - light.lounge_level
+      - light.tv_level
+      - switch.stairs_switch
       - light.hallway_5
-      - light.front_porch_21
+      - switch.front_porch_switch
       - light.backyard_24
       - light.backyard_fairy_light_22
       - light.study_lamp_18
-      - light.study_31
-#      - light.lounge_lamp_3
-# not - light.front_garden_28
+      - light.study_level
+#      - light.lounge_lamp_level
+# not - switch.front_garden_1_switch
 
 #presence groups
   friends_family_presence:
@@ -428,6 +428,6 @@
 #    name: Peanut Nightlight
 #    view: no
 #    entities:
-#      - light.stairs_16
-#      - light.kitchen_bench_7
+#      - switch.stairs_switch
+#      - switch.kitchen_bench_switch
 #      - light.backyard_24

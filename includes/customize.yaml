@@ -31,11 +31,11 @@
   sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear:
     icon: mdi:car
 #sensors
-  binary_sensor.kitchen_sensor_46:
+  binary_sensor.kitchen_sensor:
     friendly_name: Kitchen Motion
-  sensor.temperature_sensor_60:
+  sensor.kitchen_temperature:
     friendly_name: Kitchen Temp
-  sensor.humidity_sensor_62:
+  sensor.kitchen_relative_humidity:
     friendly_name: Kitchen Humidity
 
   sensor.net_grid_power:
@@ -125,17 +125,6 @@
   sensor.GTDom_Airport:
     friendly_name: Domestic Airport
     icon: mdi:airplane
-#temps
-  sensor.nursery_temperature:
-    friendly_name: Nursery Temp
-  sensor.temperature_9:
-    friendly_name: Bondi Temp
-  sensor.high_temperature_11:
-    friendly_name: Bondi Max Temp
-  sensor.low_temperature_10:
-    friendly_name: Bondi Low Temp
-  sensor.humidity_12:
-    friendly_name: Bondi Humidity
 #cameras
   camera.nurserycam:
     friendly_name: Nursery

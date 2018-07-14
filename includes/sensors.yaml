@@ -178,7 +178,8 @@
 - platform: darksky
   api_key: !secret DARKSKY_API_KEY
   monitored_conditions:
-    - summary
+    - temperature_high
+    - temperature_low
     - icon
     - nearest_storm_distance
     - precip_intensity
@@ -386,6 +387,18 @@
           {%- endif -%}
         {%- endif -%}
 
+    template_bondi_max_temp:
+      friendly_name: Bondi Max
+      unit_of_measurement: "°C"
+      value_template: "{{ states.sensor.dark_sky_daytime_high_temperature.state|round(1) }}"
+    template_bondi_min_temp:
+      friendly_name: Bondi Min
+      unit_of_measurement: "°C"
+      value_template: "{{ states.sensor.dark_sky_overnight_low_temperature.state|round(1) }}"
+    template_bondi_humidity:
+      friendly_name: Bondi Humidity
+      unit_of_measurement: "%"
+      value_template: "{{ states.sensor.dark_sky_humidity.state|int }}"
     template_kitchen_temp:
       friendly_name: "Kitchen Temp"
       unit_of_measurement: "°C"

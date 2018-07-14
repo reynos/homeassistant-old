@@ -2,18 +2,18 @@
 
   - name: Morning
     entities:
-      light.kitchen_bench_7: on
-      light.lounge_lamp_3: on
+      switch.kitchen_bench_switch: on
+      light.lounge_lamp_level: on
 
   - name: Morning off
     entities:
-      light.kitchen_bench_7: off
-      light.lounge_lamp_3: off
+      switch.kitchen_bench_switch: off
+      light.lounge_lamp_level: off
 
   - name: Evening
     entities:
       group.evening: on
-      light.lounge_lamp_3:
+      light.lounge_lamp_level:
         state: on
         rgb_color: [255, 64, 0]
         brightness: 30 # brightness not working??
@@ -26,16 +26,16 @@
     entities:
 # add turn on light sensors here
       group.all_lights_not_beds: off
-      light.lounge_lamp_3: off
-      light.front_garden_28: off
+      light.lounge_lamp_level: off
+      switch.front_garden_1_switch: off
 #      input_select.house_mode:
 #        option: "Night"
 
   - name: Bedtime
     entities:
       group.all_lights_not_beds: off
-      light.lounge_lamp_3: off
-      light.stairs_16: on
+      light.lounge_lamp_level: off
+      switch.stairs_switch: on
 # this inuput select is OK cause Bedtime is only even manually selecte and will jump out of Holiday mode
       input_select.house_mode:
         option: "Bedtime"
@@ -44,10 +44,10 @@
   - name: Day
     entities:
 #      group.all_lights_not_beds: off
-#      light.lounge_lamp_3: off
+#      light.lounge_lamp_level: off
 # add turn off light sensors here
 # just to have something here:
-      light.front_garden_28: off
+      switch.front_garden_1_switch: off
 #      input_select.house_mode:
 #        option: "Day"
 
@@ -55,12 +55,12 @@
   - name: Holiday Evening
     entities:
 # when on holidays only turn on selected lights
-      light.front_garden_28: on
-      light.kitchen_bench_7: on
+      switch.front_garden_1_switch: on
+      switch.kitchen_bench_switch: on
 
   - name: SydneyFC
     entities:
-      light.lounge_lamp_3:
+      light.lounge_lamp_level:
         state: on
         brightness_pct: 90
         rgb_color: [0, 191, 255]
