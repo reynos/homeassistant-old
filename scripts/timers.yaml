@@ -39,15 +39,15 @@ timer_front_porch:
   sequence:
     - delay: '00:{{ states.input_number.front_porch_timer_duration.state | int }}:00'
     - service: light.turn_off
-      entity_id: light.front_porch_21
+      entity_id: switch.front_porch_switch
 
 timer_front_lights:
   sequence:
     - delay: '00:{{ states.input_number.front_lights_timer_duration.state | int }}:00'
     - service: light.turn_off
       entity_id:
-        - light.front_porch_21
-        - light.front_garden_28
+        - switch.front_porch_switch
+        - switch.front_garden_1_switch
 
 #backdeck watering timers
 

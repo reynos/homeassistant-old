@@ -29,7 +29,7 @@
 - alias: Set Inside Lights at Dusk
   trigger:
     platform: numeric_state
-    entity_id: ssensor.kitchen_light_sensor_61 # this updates fom the Z-wave sensor every 5mins?
+    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
     below: 160
   action:
     - service: logbook.log
@@ -38,9 +38,9 @@
         message: 'Inside lights ON'
     - service: light.turn_on
       entity_id:
-        - light.kitchen_bench_7
-        - light.lounge_lamp_3
-        - light.stairs_16
+        - switch.kitchen_bench_switch
+        - light.lounge_lamp_level
+        - switch.stairs_switch
 # if either in study turn on study lamp
     - service_template: >
         {% if states.device_tracker.reynolds_darren.state == 'study' %}

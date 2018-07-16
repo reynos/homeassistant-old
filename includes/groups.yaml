@@ -204,14 +204,11 @@
     view: no
     control: hidden
     entities:
-#      - switch.water_back_deck
-############################## fix zwave
-      - switch.greenwall_19
+      - switch.back_deck_watering_switch
       - input_number.backdeck_watering_timer
       - switch.backyard_switch
       - switch.back_floods_switch
-############################## fix zwave
-      - light.backyard_fairy_light_22
+      - light.backyard_fairylights_level
   outside_frontyard:
     name: Frontyard
     view: no
@@ -237,6 +234,7 @@
       - input_boolean.tester
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
+      - switch.side_of_house_switch
       - switch.bedroom_switch1
   travel_to_home:
     name: Drive to Home -
@@ -399,25 +397,28 @@
       - switch.kitchen_bench_switch
       - light.lounge_lamp_level
       - switch.stairs_switch
-      - light.backyard_24
-      - light.backyard_fairy_light_22
+      - switch.backyard_switch
+      - light.backyard_fairylights_level
       - switch.front_garden_1_switch
       - input_boolean.morning_lights_trigger
   all_lights_not_beds:
     name: All lights not beds
     view: no
     entities:
-      - light.kitchen_high_15
-      - light.kitchen_low_13
+      - light.kitchen_high_level
+      - light.kitchen_low_level
       - switch.kitchen_bench_switch
       - light.lounge_level
       - light.tv_level
       - switch.stairs_switch
-      - light.hallway_5
+      - light.laundry_level
+      - light.hall_level
       - switch.front_porch_switch
-      - light.backyard_24
-      - light.backyard_fairy_light_22
-      - light.study_lamp_18
+      - switch.backyard_switch
+      - switch.back_floods_switch
+      - switch.side_of_house_switch
+      - light.backyard_fairylights_level
+      - switch.study_lamp_switch
       - light.study_level
 #      - light.lounge_lamp_level
 # not - switch.front_garden_1_switch
