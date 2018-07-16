@@ -38,7 +38,7 @@
     - service: light.turn_on
       entity_id:
         - switch.front_porch_switch
-        - light.front_garden_28
+        - switch.front_garden_1_switch
     - service: script.turn_on
       entity_id: script.timer_front_lights_off
 

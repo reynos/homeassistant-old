@@ -38,8 +38,10 @@
         message: 'Inside lights ON'
     - service: light.turn_on
       entity_id:
-        - switch.kitchen_bench_switch
         - light.lounge_lamp_level
+    - service: switch.turn_on
+      entity_id:
+        - switch.kitchen_bench_switch
         - switch.stairs_switch
 # if either in study turn on study lamp
     - service_template: >

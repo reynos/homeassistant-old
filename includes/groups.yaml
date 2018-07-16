@@ -8,11 +8,11 @@
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
       - sensor.kitchen_temperature
-      - sensor.nursery_temp
+      - sensor.nursery_temperature
       - sensor.outside_temp
       - sensor.template_bondi_max_temp
       - sensor.template_bondi_min_temp
-      - sensor.template_bondi_humidity
+#      - sensor.template_bondi_humidity
       - sensor.template_calendar_bin_nights
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
@@ -306,8 +306,8 @@
       - group.travel_home_to
       - group.travel_uberx
       - group.travel_bmw_x5
-      - group.travel_buses
-      - group.travel_buses_raw
+#      - group.travel_buses
+#      - group.travel_buses_raw
   scenes:
     name: Scenes
     view: yes
