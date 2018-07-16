@@ -7,11 +7,12 @@ Home Assistant is running in a Python virtual environment on an Intel NUC runnin
 
 House Mode:
   - basis for all time of day events
-  - set based on time and Sunset
+  - set based on luminance or time or Sunset
   - Holiday mode for reduced functionality when away (with appearance of still being at home)
 
 Presence Detection/Device tracking:
   - GPS via HASS iOS Frontend
+  - IP address recognition via asuswrt
   - iBeacon via OwnTracks and MQTT
   - BMW ConnectedDrive
   - Lights based on motion sensors
@@ -20,16 +21,19 @@ Presence Detection/Device tracking:
   - Bedtime House Mode based on iBeacons
 
 Z-wave:
-  - Vera Edge
+  - HASS OpenZave intergation (default)
   - lights
-  - temp/movement sensors
+  - ceiling fans
+  - temp/light/movement sensors
   - switches
 
 Lights:
   - Light control, on/off, dimming
+  - Automated via House Mode
+  - Automated via luminance
   - Automated via Doorbell
-  - Automated via House modes
-  - Automated via Presence
+  - Automated via time
+  - Automated via Presence (iBeacons and OwnTracks)
   - Automated via Media Player state
 
 Watering:
@@ -39,9 +43,13 @@ SolarEdge Solar:
   - inverter power generation data (via Rest Sensor)
   - daily power generated
 
+emoncms:
+  - several sensors covering Solar Prod, House and Grid usage
+  - onewire temp sensor
+
 Dyson:
   - fan, controls
-  - temp and humidity sensors
+  - temp, air quality and humidity sensors
 
 Sonos:
   - Media Player control
@@ -73,6 +81,9 @@ BMW ConnectedDrive:
   - Windows Status
   - Doors Status
 
+NSW Transport:
+  - Live Bus times
+
 MQTT:
   - OwnTracks
   - Device testing
@@ -83,9 +94,8 @@ IT Device Sensors:
   - HASS server HW and version monitoring
   - Speedtest - internet speed
 
-
 Weather/Sun:
-  - Vera Weather
+  - DarkSky weather
   - Sun tracking
 
 Cameras:
@@ -109,7 +119,7 @@ Other features:
 
 Roadmap:
   - MQTT - micro-controllers
-  - Door/gate sensors
+  - Front gate sensors
   - Window control
   - Roller blinds control
   - Extendable sun shade control
