@@ -69,7 +69,7 @@
 - alias: Set Day mode
   trigger:
     platform: time
-    at: '05:30:00'
+    at: '05:00:00'
   action:
     service: script.turn_on
     data_template:

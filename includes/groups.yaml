@@ -144,6 +144,8 @@
     icon: mdi:baby-buggy
     entities:
       - sensor.nursery_temperature
+      - sensor.nursery_luminance
+      - sensor.nursery_relative_humidity
       - group.nursery_media
   bathroom:
     name: Bathroom

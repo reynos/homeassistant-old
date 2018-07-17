@@ -36,8 +36,9 @@ morning_lights:
   name: "Morning Lights"
   icon: mdi:weather-sunny
 
-# hidden flags to stop things happerning twice in a day - reset each day in script.day
+# hidden flags
 evening_holiday:
+# these stop things happerning twice in a day - reset if required each day in script.day
 morning_lights_flag:
 bedtime_beacon_flag:
 
