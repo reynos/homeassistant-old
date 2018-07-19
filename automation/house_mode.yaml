@@ -30,7 +30,10 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
-    below: 160
+    below: 120
+  condition:
+    condition: template
+    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
   action:
     - service: logbook.log
       data_template:
@@ -51,6 +54,21 @@
           light.turn_on
         {% endif %}
       entity_id: light.study_lamp_18
+## below needs to cater for holiday mode! maybe for simplicity just mrege back with the one above
+
+- alias: Set Kitchen Lights at Dusk
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
+    below: 70
+  condition:
+    condition: template
+    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_high_level
+        brightness_pct: 70
 
 - alias: Auto Set Night mode
   trigger:
