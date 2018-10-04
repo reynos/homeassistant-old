@@ -8,7 +8,10 @@
   - name: Morning off
     entities:
       switch.kitchen_bench_switch: off
-      light.lounge_lamp_level: off
+      light.lounge_lamp_level:
+        state: off
+        rgb_color: [255, 241, 224]
+        brightness: 100 # brightness not working??
 
   - name: Evening
     entities:
@@ -16,7 +19,7 @@
       light.lounge_lamp_level:
         state: on
         rgb_color: [255, 64, 0]
-        brightness: 90 # brightness not working??
+        brightness: 80 # brightness not working??
 #        brightness_pct: 50
 #        rgb_color: [255, 147, 41]
 #        kelvin: 1900
