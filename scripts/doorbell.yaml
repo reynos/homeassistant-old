@@ -28,6 +28,31 @@ doorbell:
       data:
         entity_id: media_player.kitchen
         with_group: yes
+
+doorbell_night:
+  alias: Ring Doorbell in Master Bedroom
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Script:"
+        message: Doorbell NIGHT
+    - service: media_player.sonos_snapshot
+      data:
+        entity_id: media_player.master_bedroom
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.master_bedroom
+        volume_level: 0.40
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.master_bedroom
+        media_content_id: http://10.0.26.20/sounds/doorbell.mp3
+        media_content_type: music
+    - delay:
+        seconds: 4
+    - service: media_player.sonos_restore
+      data:
+        entity_id: media_player.master_bedroom
 ##
 #  alias: Ring Doorbell
 #  sequence:
@@ -120,72 +145,3 @@ doorbell:
 #          - media_player.kitchen
 #          - media_player.master_bedroom
 #          - media_player.study
-
-doorbell_night:
-  alias: Ring Doorbell in Master Bedroom
-  sequence:
-    - service: logbook.log
-      data_template:
-        name: "Script:"
-        message: Doorbell NIGHT
-    - service: media_player.sonos_snapshot
-      data:
-        entity_id: media_player.master_bedroom
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.master_bedroom
-        volume_level: 0.40
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.master_bedroom
-        media_content_id: http://10.0.26.20/sounds/doorbell.mp3
-        media_content_type: music
-    - delay:
-        seconds: 4
-    - service: media_player.sonos_restore
-      data:
-        entity_id: media_player.master_bedroom
-
-## only required to simulate the action the doorbell being pushed - via input_boolean.sonos_goup_test
-sonos_group_test:
-  alias: Sonos Group test
-  sequence:
-    - service: media_player.sonos_snapshot
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
-    - service: media_player.sonos_join
-      data:
-        master: media_player.study
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-#          - media_player.study
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.study # the group master
-        media_content_id: http://10.0.26.20/sounds/doorbell.mp3
-        media_content_type: music
-    - service: media_player.volume_set
-      data:
-        entity_id:
-          - media_player.study
-          - media_player.kitchen
-          - media_player.master_bedrom
-        volume_level: 0.50
-    - delay:
-        seconds: 4
-    - service: media_player.sonos_unjoin
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
-    - service: media_player.sonos_restore
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
