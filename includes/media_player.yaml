@@ -1,8 +1,8 @@
 ## media_player.yaml
-- platform: sonos
 - platform: plex
-- platform: cast
 - platform: samsungtv
   host: 10.0.26.27
   port: 8001
   name: LoungeTV
+#- platform: sonos
+#- platform: cast
