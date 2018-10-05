@@ -43,10 +43,6 @@ morning_lights_flag:
 bedtime_beacon_flag:
 
 # tests
-sonos_test:
-  name: "Sonos test"
-  initial: off
-
 tester:
   name: "test"
   initial: off
