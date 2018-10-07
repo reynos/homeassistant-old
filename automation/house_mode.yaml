@@ -30,7 +30,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
-    below: 120
+    below: 60
   condition:
     condition: template
     value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
