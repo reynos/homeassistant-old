@@ -3,15 +3,15 @@
   - name: Morning
     entities:
       switch.kitchen_bench_switch: on
-      light.lounge_lamp_level: on
+      light.lounge_lamp_level:
+        state: on
+        rgb_color: [255, 241, 224]
+        brightness: 100 # brightness not working??
 
   - name: Morning off
     entities:
       switch.kitchen_bench_switch: off
-      light.lounge_lamp_level:
-        state: off
-        rgb_color: [255, 241, 224]
-        brightness: 100 # brightness not working??
+      light.lounge_lamp_level: off
 
   - name: Evening
     entities:

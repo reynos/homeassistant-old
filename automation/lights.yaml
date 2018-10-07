@@ -33,7 +33,7 @@
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.kitchen_luminance
-      below: 50
+      below: 70
   action:
     - service: logbook.log
       data_template:
