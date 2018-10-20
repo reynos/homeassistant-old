@@ -60,3 +60,7 @@ appdaemon/conf/secrets.yaml
 appdaemon/conf/appdaemon.yaml
 
 appdaemon/conf/dashboards/
+
+.ios.conf
+
+OZW_Log.txt
