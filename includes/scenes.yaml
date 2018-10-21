@@ -5,7 +5,7 @@
       switch.kitchen_bench_switch: on
       light.lounge_lamp_level:
         state: on
-        rgb_color: [255, 241, 224]
+        rgb_color: [255, 64, 0]
         brightness: 100 # brightness not working??
 
   - name: Morning off
