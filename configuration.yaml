@@ -87,6 +87,10 @@ device_tracker:
     events_only: True
     mqtt_topic: "owntracks/#"
 
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
 #  - platform: tile
 #    username: tile_uname
 #    password: tile_pass
