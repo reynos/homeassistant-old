@@ -20,7 +20,7 @@
       to: 'Night'
   condition:
     condition: state
-    entity_id: binary_sensor.front_door_65
+    entity_id: binary_sensor.front_door_sensor
     state: 'on'
   action:
     service: notify.ios_Darren

@@ -194,6 +194,24 @@
       - light.hall_level
       - switch.stairs_switch
       - input_number.stairs_light_timer
+  hall_smoke_up:
+    name: Upstairs Smoke Sensor
+    view: no
+    control: hidden
+    entities:
+      - binary_sensor.upstairs_nest_protect_online
+      - sensor.upstairs_nest_protect_battery_health
+      - sensor.upstairs_nest_protect_smoke_status
+      - sensor.upstairs_nest_protect_co_status
+  hall_smoke_down:
+    name: Downstairs Smoke Sensor
+    view: no
+    control: hidden
+      - sensor.downstairs_nest_protect_color_status
+      - binary_sensor.downstairs_nest_protect_online
+      - sensor.downstairs_nest_protect_battery_health
+      - sensor.downstairs_nest_protect_smoke_status
+      - sensor.downstairs_nest_protect_co_status
   hall:
     name: Hallways
     view: yes
@@ -201,6 +219,8 @@
     control: hidden
     entities:
       - group.hall_lights
+      - group.hall_smoke_up
+      - group.hall_smoke_down
   outside_backyard:
     name: Backyard
     view: no
