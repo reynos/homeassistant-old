@@ -194,6 +194,7 @@
       - light.hall_level
       - switch.stairs_switch
       - input_number.stairs_light_timer
+      - binary_sensor.front_door_sensor
   hall_smoke_up:
     name: Upstairs Smoke Sensor
     view: no
@@ -231,6 +232,7 @@
       - switch.backyard_switch
       - switch.back_floods_switch
       - light.backyard_fairylights_level
+      - switch.back_floods_switch
   outside_frontyard:
     name: Frontyard
     view: no
