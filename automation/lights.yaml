@@ -78,7 +78,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
-    below: 50
+    below: 40
   condition:
     condition: template
     value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
@@ -106,19 +106,19 @@
         {% endif %}
       entity_id: light.study_lamp_18
 
-- alias: Set Kitchen Lights at Dusk
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
-    below: 70
-  condition:
-    condition: template
-    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_high_level
-        brightness_pct: 70
+#- alias: Set Kitchen Lights at Dusk
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
+#    below: 70
+#  condition:
+#    condition: template
+#    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
+#  action:
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.kitchen_high_level
+#        brightness_pct: 70
 
 - alias: Bedtime switch on
   trigger:

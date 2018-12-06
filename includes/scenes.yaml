@@ -36,8 +36,8 @@
 
   - name: Bedtime
     entities:
-      light.lounge_lamp_level: off
       group.all_lights_not_beds: off
+      light.lounge_lamp_level: off
       switch.stairs_switch: on
 # this inuput select is OK cause Bedtime is only even manually selecte and will jump out of Holiday mode
       input_select.house_mode:

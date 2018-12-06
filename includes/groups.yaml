@@ -208,6 +208,7 @@
     name: Downstairs Smoke Sensor
     view: no
     control: hidden
+    entities:
       - sensor.downstairs_nest_protect_color_status
       - binary_sensor.downstairs_nest_protect_online
       - sensor.downstairs_nest_protect_battery_health
