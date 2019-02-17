@@ -38,14 +38,15 @@ mqtt:
   discovery_prefix: home
 
 doorbird:
+  token: !secret doorbird_token
   devices:
-    host: !secret doorbird_host
-    username: !secret doorbird_uname
-    password: !secret doorbird_pass
-    hass_url_override: !secret doorbird_hass_url_override
-    name: Front Gate
-    monitored_conditions:
-      - doorbell
+    - host: !secret doorbird_host
+      username: !secret doorbird_uname
+      password: !secret doorbird_pass
+      hass_url_override: !secret doorbird_hass_url_override
+      name: Front Gate
+      monitored_conditions:
+        - doorbell
 
 dyson:
   username: !secret dyson_uname
@@ -81,6 +82,7 @@ device_tracker:
     track_new_devices: false
     new_device_defaults:
       track_new_devices: false
+      hide_if_away: true
   - platform: owntracks
     max_gps_accuracy: 200
     waypoints: False
