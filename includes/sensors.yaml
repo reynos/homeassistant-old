@@ -40,7 +40,18 @@
     9: "Solar Production kWh"
     10: "Solar Production kWh"
 
-## solaredge sensors
+- platform: solaredge
+  api_key: solaredge_api_key
+  site_id: solaredge_site_id
+  name: SolarEdge
+  monitored_conditions:
+    - current_power
+    - energy_today
+    - energy_this_month
+    - energy_this_year
+    - lifetime_energy
+
+## old solaredge REST sensors
 - platform: rest
   resource: !secret solaredge_resource
   value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
@@ -216,6 +227,14 @@
 # templates
 - platform: template
   sensors:
+    solaredge_lifetime_energy_template:
+      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | round(2)}}'
+    solaredge_energy_this_year_template:
+      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
+    solaredge_energy_this_month_template:
+      value_template: '{{(states.sensor.solaredge_energy_this_month.state | float / 1000) | round(2)}}'
+    solaredge_energy_today_template:
+      value_template: '{{(states.sensor.solaredge_energy_today.state | float / 1000) | round(2)}}'
     template_sensor_emoncms_net_grid_power:
       friendly_name: "Net Grid Power"
       value_template: >
