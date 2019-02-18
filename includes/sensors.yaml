@@ -41,8 +41,8 @@
     10: "Solar Production kWh"
 
 - platform: solaredge
-  api_key: solaredge_api_key
-  site_id: solaredge_site_id
+  api_key: !secret solaredge_api_key
+  site_id: !secret solaredge_site_id
   name: SolarEdge
   monitored_conditions:
     - current_power
