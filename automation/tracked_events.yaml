@@ -20,7 +20,7 @@
 #      for:
 #        minutes: 10
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data_template:
         message: >-
           {{ trigger.to_state.attributes.friendly_name }} set Darren Away
@@ -45,7 +45,7 @@
       entity_id: device_tracker.darren
       to: 'home'
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data_template:
         message: >-
           {{ trigger.to_state.attributes.friendly_name }} set Darren Home
@@ -72,7 +72,7 @@
 #      for:
 #        minutes: 10
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data_template:
         message: >-
           {{ trigger.to_state.attributes.friendly_name }} set Blythe Away
@@ -97,7 +97,7 @@
       entity_id: device_tracker.blythe
       to: 'home'
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data_template:
         message: >-
           {{ trigger.to_state.attributes.friendly_name }} set Blythe Home
@@ -112,7 +112,7 @@
 #    entity_id: device_tracker.reynolds_darren
 #    to: 'frontgate'
 #  action:
-#    - service: notify.ios_Darren
+#    - service: notify.ios_darren
 #      data:
 #        message: "Darren trigger Frontgate"
 #    - service: switch.turn_on
@@ -125,7 +125,7 @@
 #    entity_id: device_tracker.reynolds_blythe
 #    to: 'frontgate'
 #  action:
-#    - service: notify.ios_Darren
+#    - service: notify.ios_darren
 #      data:
 #        message: "Blythe trigger Frontgate"
 #    - service: switch.turn_on
@@ -150,7 +150,7 @@
 ##- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
 ##  timeout: '00:01:00'
   action: # actionable notification
-    service: notify.ios_Darren
+    service: notify.ios_darren
     data:
       message: "Going to Bed? What do do with the lights?"
       data:

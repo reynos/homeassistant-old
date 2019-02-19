@@ -14,7 +14,7 @@
       data_template:
         name: 'Watering:'
         message: Back Deck ON
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data:
         message: "Back Deck Watering ON"
     - service: switch.turn_on

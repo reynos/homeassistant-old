@@ -108,7 +108,7 @@
     entity_id: input_select.house_mode
     to: 'Holiday'
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data:
         message: "Holiday mode set"
         data:
@@ -122,7 +122,7 @@
     entity_id: input_select.house_mode
     from: 'Holiday'
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data:
         message: "Holiday mode OFF"
         data:

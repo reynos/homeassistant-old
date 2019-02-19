@@ -72,22 +72,29 @@ google:
   client_id: !secret google_id
   client_secret: !secret google_secret
 
-device_tracker:
-  - platform: asuswrt
-    host: !secret AP_IP
-    username: !secret AP_ADMIN_USERNAME
-    password: !secret AP_ADMIN_PASS
-    mode: ap
-    require_ip: false
-    track_new_devices: false
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: true
-  - platform: owntracks
+asuswrt:
+  host: !secret asuswrt_ip
+  username: !secret asuswrt_usename
+  password: !secret asuswrt_pass
+  mode: ap
+  require_ip: false
+
+owntracks:
     max_gps_accuracy: 200
-    waypoints: False
-    events_only: True
+    waypoints: false
+    events_only: true
     mqtt_topic: "owntracks/#"
+
+#device_tracker:
+#  - platform: asuswrt
+#    new_device_defaults:
+#      track_new_devices: false
+#      hide_if_away: true
+#  - platform: owntracks
+#    max_gps_accuracy: 200
+#    waypoints: False
+#    events_only: True
+#    mqtt_topic: "owntracks/#"
 
 nest:
   client_id: !secret nest_client_id
@@ -159,34 +166,17 @@ logbook:
       - media_player
       - device_tracker
 
+apcupsd:
+#  host: !secret apc_ups_host
+#  port: !secret apc_ups_port
+
+tts:
+  platform: google
+
 config:
 updater:
 discovery:
-apcupsd:
 conversation:
 sun:
-tts:
-  platform: google
 history:
-
-
 #cloud:
-
-#climate:
-#  platform: fan
-
-## emulated_hue:
-##  type: alexa
-##  listen_port: 8300
-##  exposed domains:
-##    - light
-##    - switch
-##    - script
-
-#ifttt:
-#  key: xxxxx-x-xxxxxxxxxxxxx
-
-# Weather Prediction
-#sensor:
-#  platform: yr
-####################

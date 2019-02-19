@@ -50,21 +50,20 @@
     - energy_this_month
     - energy_this_year
     - lifetime_energy
-
 ## old solaredge REST sensors
-- platform: rest
-  resource: !secret solaredge_resource
-  value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
-  name: 'SolarEdge Today'
-  unit_of_measurement: 'kWh'
-  scan_interval: 900
-
-- platform: rest
-  resource: !secret solaredge_resource
-  value_template: '{{ (value_json.overview.currentPower.power | float / 1000) | round(2) }}'
-  name: 'SolarEdge Production'
-  unit_of_measurement: 'kW'
-  scan_interval: 900
+#- platform: rest
+#  resource: !secret solaredge_resource
+#  value_template: '{{ (value_json.overview.lastDayData.energy | float / 1000) | round(2) }}'
+#  name: 'SolarEdge Today'
+#  unit_of_measurement: 'kWh'
+#  scan_interval: 900
+#
+#- platform: rest
+#  resource: !secret solaredge_resource
+#  value_template: '{{ (value_json.overview.currentPower.power | float / 1000) | round(2) }}'
+#  name: 'SolarEdge Production'
+#  unit_of_measurement: 'kW'
+#  scan_interval: 900
 
 - platform: version
 
@@ -187,7 +186,11 @@
 
 - platform: darksky
   api_key: !secret DARKSKY_API_KEY
+  forecast:
+      - 0
+      - 1
   monitored_conditions:
+    - summary
     - temperature_high
     - temperature_low
     - icon
@@ -201,6 +204,10 @@
     - cloud_cover
     - humidity
     - pressure
+    - sunrise_time
+    - sunset_time
+  update_interval:
+    minutes: 15
 
 - platform: filesize
   file_paths:
@@ -226,6 +233,7 @@
 # templates
 - platform: template
   sensors:
+# these solaredge sensors are not right...
     solaredge_lifetime_energy_template:
       value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | round(2)}}'
     solaredge_energy_this_year_template:

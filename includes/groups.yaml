@@ -17,6 +17,7 @@
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
       - sensor.template_sensor_emoncms_solar_production
+      - sensor.solaredge_production
 # quick groups on the first page
       - group.qhouse
       - group.qkitchen
@@ -349,11 +350,13 @@
     name: SolarEdge readings
     view: no
     entities:
-      - sensor.solaredge_current_power
-      - sensor.solaredge_energy_today_template
-      - sensor.solaredge_energy_this_month_template
-      - sensor.solaredge_energy_this_year_template
-      - sensor.solaredge_lifetime_energy_template
+       - sensor.solaredge_production
+       - sensor.solaredge_today
+#      - sensor.solaredge_current_power
+#      - sensor.solaredge_energy_today_template
+#      - sensor.solaredge_energy_this_month_template
+#      - sensor.solaredge_energy_this_year_template
+#      - sensor.solaredge_lifetime_energy_template
   power_emoncms:
     name: EmonCMS readings
     view: no

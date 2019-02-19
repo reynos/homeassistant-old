@@ -23,7 +23,7 @@
     entity_id: input_boolean.tester
     to: 'on'
   action:
-    - service: notify.ios_Darren
+    - service: notify.ios_darren
       data_template:
         message: >-
           {{ trigger.to_state.attributes.friendly_name }} set Darren Away

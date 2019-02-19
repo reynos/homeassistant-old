@@ -5,7 +5,7 @@
     platform: state
     entity_id: updater.updater
   action:
-    service: notify.ios_Darren
+    service: notify.ios_darren
     data_template:
       title: 'New Home Assistant Release'
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
@@ -23,7 +23,7 @@
     entity_id: binary_sensor.front_door_sensor
     state: 'on'
   action:
-    service: notify.ios_Darren
+    service: notify.ios_darren
     data:
       message: "Front Door Still OPEN!"
 
