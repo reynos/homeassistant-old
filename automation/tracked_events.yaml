@@ -106,31 +106,31 @@
 
 # disabled frontgate tacking due excessive delay
 #
-#- alias: Frontgate Darren
-#  trigger:
-#    platform: state
-#    entity_id: device_tracker.reynolds_darren
-#    to: 'frontgate'
-#  action:
-#    - service: notify.ios_darren
-#      data:
-#        message: "Darren trigger Frontgate"
-#    - service: switch.turn_on
-#      data:
-#        entity_id: switch.open_door
+- alias: Frontgate Darren
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_darren
+    to: 'frontgate'
+  action:
+    - service: notify.ios_darren
+      data:
+        message: "Darren trigger Frontgate"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.front_gate_relay_1
 
-#- alias: Frontgate Blythe
-#  trigger:
-#    platform: state
-#    entity_id: device_tracker.reynolds_blythe
-#    to: 'frontgate'
-#  action:
-#    - service: notify.ios_darren
-#      data:
-#        message: "Blythe trigger Frontgate"
-#    - service: switch.turn_on
-#      data:
-#        entity_id: switch.open_door
+- alias: Frontgate Blythe
+  trigger:
+    platform: state
+    entity_id: device_tracker.reynolds_blythe
+    to: 'frontgate'
+  action:
+    - service: notify.ios_darren
+      data:
+        message: "Blythe trigger Frontgate"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.front_gate_relay_1
 
 - alias: Masterbed Beacon Goodnight
   trigger:
@@ -152,7 +152,7 @@
   action: # actionable notification
     service: notify.ios_darren
     data:
-      message: "Going to Bed? What do do with the lights?"
+      message: "Going to Bed? What to do with the lights?"
       data:
         push:
           badge: 5
