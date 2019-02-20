@@ -11,9 +11,9 @@ evening:
       data:
         entity_id: input_select.house_mode
         option: Evening
-#    - service: notify.ios_Darren
-#      data:
-#        message: "Evening lights on"
+    - service: notify.ios_darren
+      data:
+        message: "Evening lights on"
     - service: frontend.set_theme
       data:
         name: night
