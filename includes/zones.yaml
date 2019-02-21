@@ -66,11 +66,11 @@
   latitude: !secret home_lat
   longitude: !secret home_lon
   icon: mdi:bed
-  track_ios: false
-  passive: true
+#  track_ios: true
+#  passive: true
 #  radius: 10
 #  beacon:
 #    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
 #    major: 48427
 #    minor: 769
-#  hidden: false
+  hidden: false

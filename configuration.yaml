@@ -85,11 +85,13 @@ owntracks:
     events_only: true
     mqtt_topic: "owntracks/#"
 
-#device_tracker:
-#  - platform: asuswrt
-#    new_device_defaults:
-#      track_new_devices: false
-#      hide_if_away: true
+device_tracker:
+  - platform: asuswrt
+    new_device_defaults:
+      track_new_devices: true
+      hide_if_away: true
+    interval_seconds: 10
+    consider_home: 180
 #  - platform: owntracks
 #    max_gps_accuracy: 200
 #    waypoints: False

@@ -111,6 +111,15 @@
     friendly_name: DarrenOT
   device_tracker.reynolds_blythe:
     friendly_name: BlytheOT
+#zones
+  zone.masterbed:
+    track_ios: true
+    beacon:
+      uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+      major: 48427
+      minor: 769
+
+
 #google calendars
 #  sensor.template_calendar_bin_nights:
 #    friendly_name: Bin Night
