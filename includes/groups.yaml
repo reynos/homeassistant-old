@@ -316,6 +316,7 @@
       - sensor.template_x5_xdrive30d_mileage
       - sensor.template_x5_xdrive30d_remaining_fuel
       - sensor.template_x5_xdrive30d_remaining_range_fuel
+      - binary_sensor.x5_xdrive30d_lights_parking
       - binary_sensor.x5_xdrive30d_door_lock_state
       - sensor.template_binary_sensor_x5_xdrive30d_windows_front
       - sensor.template_binary_sensor_x5_xdrive30d_windows_rear
@@ -323,7 +324,6 @@
       - sensor.template_binary_sensor_x5_xdrive30d_rear_doors
       - sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear
       - sensor.template_binary_sensor_x5_xdrive30d_sunroof
-      - binary_sensor.x5_xdrive30d_lights_parking
   travel:
     name: Travel
     view: yes

@@ -236,21 +236,51 @@
 # templates
 - platform: template
   sensors:
-# these solaredge sensors are not right...
+#    solaredge_lifetime_energy_template:
+#      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | int}}'
+#      friendly_name: "Lifetime energy generated"
+#      unit_of_measurement: "kWh"
+
     solaredge_lifetime_energy_template:
-      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | int}}'
-      unit_of_measurement: "kWh"
+      friendly_name: "Lifetime energy generated"
+      value_template: >-
+        {% set power = states.sensor.solaredge_lifetime_energy.state | int %}
+        {% set kwh = (power / 1000) | round(2) %}
+        {% set mwh = (power / 1000000) | round(2) %}
+        {%- if kwh > 999 -%}
+          {{ mwh }} MWh
+        {%- else -%}
+          {{ kwh }} kWh
+        {%- endif -%}
     solaredge_energy_this_year_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | int}}'
-      unit_of_measurement: "kWh"
+      friendly_name: "Energy this year"
+      value_template: >-
+        {% set power = states.sensor.solaredge_energy_this_year.state | int %}
+        {% set kwh = (power / 1000) | round(2) %}
+        {% set mwh = (power / 1000000) | round(2) %}
+        {%- if kwh > 999 -%}
+          {{ mwh }} MWh
+        {%- else -%}
+          {{ kwh }} kWh
+        {%- endif -%}
     solaredge_energy_this_month_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_month.state | float / 1000) | int}}'
-      unit_of_measurement: "kWh"
+      friendly_name: "Energy this month"
+      value_template: >-
+        {% set power = states.sensor.solaredge_energy_this_month.state | int %}
+        {% set kwh = (power / 1000) | round(2) %}
+        {% set mwh = (power / 1000000) | round(2) %}
+        {%- if kwh > 999 -%}
+          {{ mwh }} MWh
+        {%- else -%}
+          {{ kwh }} kWh
+        {%- endif -%}
     solaredge_energy_today_template:
       value_template: '{{(states.sensor.solaredge_energy_today.state | float / 1000) | round(2)}}'
+      friendly_name: "Energy today"
       unit_of_measurement: "kWh"
     solaredge_current_power_template:
       value_template: '{{(states.sensor.solaredge_current_power.state | float / 1000) | round(2)}}'
+      friendly_name: "Current power"
       unit_of_measurement: "kW"
     template_sensor_emoncms_net_grid_power:
       friendly_name: "Net Grid Power"
@@ -426,11 +456,11 @@
     template_bondi_max_temp:
       friendly_name: Bondi Max
       unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.dark_sky_daytime_high_temperature.state|round(1) }}"
+      value_template: "{{ states.sensor.dark_sky_daytime_high_temperature_0.state|round(1) }}"
     template_bondi_min_temp:
       friendly_name: Bondi Min
       unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.dark_sky_overnight_low_temperature.state|round(1) }}"
+      value_template: "{{ states.sensor.dark_sky_overnight_low_temperature_0.state|round(1) }}"
     template_bondi_humidity:
       friendly_name: Bondi Humidity
       unit_of_measurement: "%"
@@ -448,10 +478,10 @@
       value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
       friendly_name: 'Thornton'
       unit_of_measurement: ''
-    template_gthome_wangi:
-      value_template: "{{ states.sensor.gthome_wangi.attributes.duration_in_traffic }}"
-      friendly_name: 'Wangi Wangi'
-      unit_of_measurement: ''
+#    template_gthome_wangi:
+#      value_template: "{{ states.sensor.gthome_wangi.attributes.duration_in_traffic }}"
+#      friendly_name: 'Wangi Wangi'
+#      unit_of_measurement: ''
     template_solar_angle:
       friendly_name: "Sun Angle"
       unit_of_measurement: '°'

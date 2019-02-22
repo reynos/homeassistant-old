@@ -12,6 +12,10 @@
     icon: mdi:car-connected
   binary_sensor.x5_xdrive30d_door_lock_state:
     friendly_name: Secured state
+    
+  binary_sensor.x5_xdrive30d_lights_parking:
+    friendly_name: Parking Lights
+    icon: mdi:car-parking-lights
   sensor.template_x5_xdrive30d_mileage:
     icon: mdi:speedometer
   sensor.template_x5_xdrive30d_remaining_fuel:
