@@ -79,7 +79,7 @@
       - light.master_bedroom_level
       - light.study_level
       - switch.study_switch
-      - switch.study_lamp_switch
+#      - switch.study_lamp_switch
       - input_select.hass_theme
   camera:
     name: Cameras
@@ -147,7 +147,7 @@
       - sensor.nursery_temperature
       - sensor.nursery_luminance
       - sensor.nursery_relative_humidity
-      - group.nursery_media
+#      - group.nursery_media
   bathroom:
     name: Bathroom
     view: yes
@@ -179,7 +179,7 @@
     view: no
     entities:
       - light.study_level
-      - switch.study_lamp_switch
+#      - switch.study_lamp_switch
   study:
     name: Study
     view: yes
@@ -244,8 +244,8 @@
       - input_number.front_porch_timer_duration
       - switch.front_garden_1_switch
       - switch.front_garden_2_switch
-      - switch.front_gate_open_door
-      - switch.front_gate_light_on
+      - switch.front_gate_relay_1
+      - switch.front_gate_ir
       - media_player.front_garden
       - binary_sensor.front_garden_movement_motion
   outside:
@@ -323,6 +323,7 @@
       - sensor.template_binary_sensor_x5_xdrive30d_rear_doors
       - sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear
       - sensor.template_binary_sensor_x5_xdrive30d_sunroof
+      - binary_sensor.x5_xdrive30d_lights_parking
   travel:
     name: Travel
     view: yes
@@ -350,13 +351,11 @@
     name: SolarEdge readings
     view: no
     entities:
-       - sensor.solaredge_production
-       - sensor.solaredge_today
-#      - sensor.solaredge_current_power
-#      - sensor.solaredge_energy_today_template
-#      - sensor.solaredge_energy_this_month_template
-#      - sensor.solaredge_energy_this_year_template
-#      - sensor.solaredge_lifetime_energy_template
+      - sensor.solaredge_current_power_template
+      - sensor.solaredge_energy_today_template
+      - sensor.solaredge_energy_this_month_template
+      - sensor.solaredge_energy_this_year_template
+      - sensor.solaredge_lifetime_energy_template
   power_emoncms:
     name: EmonCMS readings
     view: no
@@ -391,8 +390,8 @@
     entities:
       - sensor.current_version
       - sensor.release
-      - sensor.template_homeassistant_db
-      - sensor.since_last_boot
+      - sensor.home_assistant_db_template
+      - sensor.last_boot
       - sensor.ups_status
       - sensor.qnap_status
   devices:

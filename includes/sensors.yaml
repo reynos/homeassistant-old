@@ -235,28 +235,35 @@
   sensors:
 # these solaredge sensors are not right...
     solaredge_lifetime_energy_template:
-      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | round(2)}}'
+      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | int}}'
+      unit_of_measurement: "kWh"
     solaredge_energy_this_year_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
+      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | int}}'
+      unit_of_measurement: "kWh"
     solaredge_energy_this_month_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_month.state | float / 1000) | round(2)}}'
+      value_template: '{{(states.sensor.solaredge_energy_this_month.state | float / 1000) | int}}'
+      unit_of_measurement: "kWh"
     solaredge_energy_today_template:
       value_template: '{{(states.sensor.solaredge_energy_today.state | float / 1000) | round(2)}}'
+      unit_of_measurement: "kWh"
+    solaredge_current_power_template:
+      value_template: '{{(states.sensor.solaredge_current_power.state | float / 1000) | round(2)}}'
+      unit_of_measurement: "kW"
     template_sensor_emoncms_net_grid_power:
       friendly_name: "Net Grid Power"
       value_template: >
         {{ (states.sensor.net_grid_power.state | float / 1000) | round(2) }}
-      unit_of_measurement: "KW"
+      unit_of_measurement: "kW"
     template_sensor_emoncms_house_consumption:
       friendly_name: "House Consumption"
       value_template: >
         {{ (states.sensor.emoncms_house_consumption.state | float / 1000) | round(2) }}
-      unit_of_measurement: "KW"
+      unit_of_measurement: "kW"
     template_sensor_emoncms_solar_production:
       friendly_name: "Solar Production"
       value_template: >
         {{ (states.sensor.emoncms_solar_production.state | float / 1000) | round(2) }}
-      unit_of_measurement: "KW"
+      unit_of_measurement: "kW"
     template_binary_sensor_x5_xdrive30d_windows_front:
       friendly_name: "Front Windows"
       value_template: >
@@ -446,11 +453,11 @@
       friendly_name: "Sun Angle"
       unit_of_measurement: '°'
       value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
-    template_homeassistant_db:
+    home_assistant_db_template:
       friendly_name: "HA database size"
       unit_of_measurement: 'MB'
       value_template: >
-        {{"{:,}".format(states('sensor.homeassistant_v2db')|int)}}
+        {{"{:,}".format(states('sensor.home_assistant_v2_db')|int)}}
 
 # next bus times
 #- platform: rest
