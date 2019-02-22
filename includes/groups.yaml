@@ -273,9 +273,9 @@
     view: no
     entities:
       - sensor.gthome_city
-      - sensor.gthome_work
+#      - sensor.gthome_work
       - sensor.template_gthome_thornton
-      - sensor.template_gthome_wangi
+#      - sensor.template_gthome_wangi
       - sensor.GTDom_Airport
       - sensor.GTInt_Airport
   travel_uberx:
