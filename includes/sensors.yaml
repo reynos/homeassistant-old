@@ -136,7 +136,9 @@
     - '2d1d002b-d4d0-4411-98e1-673b244878b2'
 
 # These call are Distance Matrix Advanced.
-# Free teir allows for up to approx 6 sensors polling every 15mins 24x7 - not not exceed
+# Free teir allows for up to 20,000 calls per month (eviqualebnt to USD$200)
+# Limit these to approx 5 sensors polling every 15mins 24x7 - not not exceed
+# BMW camera sensor also uses calles
 # Google API quota set to 600 calls per hour
 - platform: google_travel_time
   name: GTDarren_Home
@@ -163,18 +165,6 @@
   destination: zone.city
   scan_interval: 900
 - platform: google_travel_time
-  name: GTHome_Thornton
-  api_key: !secret google_maps_api_key
-  origin: zone.home
-  destination: zone.mdn
-  scan_interval: 900
-#- platform: google_travel_time
-#  name: GTHome_Wangi
-#  api_key: !secret google_maps_api_key
-#  origin: zone.home
-#  destination: zone.mdr
-#  scan_interval: 600
-- platform: google_travel_time
   name: GTDom_Airport
   api_key: !secret google_maps_api_key
   origin: zone.home
@@ -186,6 +176,18 @@
   origin: zone.home
   destination: zone.intairport
   scan_interval: 900
+#- platform: google_travel_time
+#  name: GTHome_Thornton
+#  api_key: !secret google_maps_api_key
+#  origin: zone.home
+#  destination: zone.mdn
+#  scan_interval: 900
+#- platform: google_travel_time
+#  name: GTHome_Wangi
+#  api_key: !secret google_maps_api_key
+#  origin: zone.home
+#  destination: zone.mdr
+#  scan_interval: 600
 
 - platform: darksky
   api_key: !secret DARKSKY_API_KEY
@@ -236,11 +238,6 @@
 # templates
 - platform: template
   sensors:
-#    solaredge_lifetime_energy_template:
-#      value_template: '{{(states.sensor.solaredge_lifetime_energy.state | float / 1000) | int}}'
-#      friendly_name: "Lifetime energy generated"
-#      unit_of_measurement: "kWh"
-
     solaredge_lifetime_energy_template:
       friendly_name: "Lifetime energy generated"
       value_template: >-
@@ -474,10 +471,10 @@
 #      unit_of_measurement: "°C"
 #      value_template: "{{ states.sensor.nursery_temp_57.state|round(1) }}"
 ##      value_template: "{{ float(states.sensor.temperature_sensor_60.state) }}" does the same thing as above - default is 1 dec place
-    template_gthome_thornton:
-      value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
-      friendly_name: 'Thornton'
-      unit_of_measurement: ''
+#    template_gthome_thornton:
+#      value_template: "{{ states.sensor.gthome_thornton.attributes.duration_in_traffic }}"
+#      friendly_name: 'Thornton'
+#      unit_of_measurement: ''
 #    template_gthome_wangi:
 #      value_template: "{{ states.sensor.gthome_wangi.attributes.duration_in_traffic }}"
 #      friendly_name: 'Wangi Wangi'
