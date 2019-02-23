@@ -4,21 +4,26 @@
     platform: event
     event_type: doorbird_front_gate_button
   action:
-    service: script.turn_on
-    data_template:
-      entity_id: >
-        {% if is_state('input_select.house_mode', 'Bedtime') or is_state('input_select.house_mode', 'Night') %}
-          script.doorbell_night
-        {% elif states.input_boolean.evening_holiday.state == 'on' %}
-          script.doorbell_night
-        {% else %}
-          script.doorbell
-        {% endif %}
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.doorbell
+          - script.doorbell_night
+    - service: script.turn_on
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.house_mode', 'Bedtime') or is_state('input_select.house_mode', 'Night') %}
+            script.doorbell_night
+          {% elif states.input_boolean.evening_holiday.state == 'on' %}
+            script.doorbell_night
+          {% else %}
+            script.doorbell
+          {% endif %}
 
 - alias: Doorbird ring lights
   trigger:
     platform: event
-    event_type: doorbird_doorbell
+    event_type: doorbird_front_gate_button
   condition:
     condition: or
     conditions:
@@ -35,6 +40,8 @@
         entity_id: input_select.house_mode
         state: 'Bedtime'
   action:
+    - delay:
+        seconds: 2
     - service: light.turn_on
       entity_id:
         - switch.front_porch_switch

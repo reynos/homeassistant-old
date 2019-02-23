@@ -15,7 +15,7 @@ doorbell:
     - service: media_player.volume_set
       data:
         entity_id: media_player.kitchen
-        volume_level: 0.70
+        volume_level: 0.75
     - service: media_player.play_media
       data:
         entity_id: media_player.kitchen
@@ -45,7 +45,7 @@ doorbell_night:
     - service: media_player.volume_set
       data:
         entity_id: media_player.kitchen
-        volume_level: 0.70
+        volume_level: 0.75
     - service: media_player.play_media
       data:
         entity_id: media_player.kitchen

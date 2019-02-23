@@ -140,54 +140,55 @@
 # Limit these to approx 5 sensors polling every 15mins 24x7 - not not exceed
 # BMW camera sensor also uses calles
 # Google API quota set to 600 calls per hour
-- platform: google_travel_time
-  name: GTDarren_Home
-  api_key: !secret google_maps_api_key
-  origin: device_tracker.darren
-  destination: zone.home
-  scan_interval: 900
-- platform: google_travel_time
-  name: GTBlythe_Home
-  api_key: !secret google_maps_api_key
-  origin: device_tracker.blythe
-  destination: zone.home
-  scan_interval: 900
+
 #- platform: google_travel_time
-#  name: GTHome_Work
+#  name: GTDarren_Home
 #  api_key: !secret google_maps_api_key
-#  origin: zone.home
-#  destination: zone.work
-#  scan_interval: 600
-- platform: google_travel_time
-  name: GTHome_City
-  api_key: !secret google_maps_api_key
-  origin: zone.home
-  destination: zone.city
-  scan_interval: 900
-- platform: google_travel_time
-  name: GTDom_Airport
-  api_key: !secret google_maps_api_key
-  origin: zone.home
-  destination: zone.domairport
-  scan_interval: 900
-- platform: google_travel_time
-  name: GTInt_Airport
-  api_key: !secret google_maps_api_key
-  origin: zone.home
-  destination: zone.intairport
-  scan_interval: 900
-#- platform: google_travel_time
-#  name: GTHome_Thornton
-#  api_key: !secret google_maps_api_key
-#  origin: zone.home
-#  destination: zone.mdn
+#  origin: device_tracker.darren
+#  destination: zone.home
 #  scan_interval: 900
 #- platform: google_travel_time
-#  name: GTHome_Wangi
+#  name: GTBlythe_Home
+#  api_key: !secret google_maps_api_key
+#  origin: device_tracker.blythe
+#  destination: zone.home
+#  scan_interval: 900
+##- platform: google_travel_time
+##  name: GTHome_Work
+##  api_key: !secret google_maps_api_key
+##  origin: zone.home
+##  destination: zone.work
+##  scan_interval: 600
+#- platform: google_travel_time
+#  name: GTHome_City
 #  api_key: !secret google_maps_api_key
 #  origin: zone.home
-#  destination: zone.mdr
-#  scan_interval: 600
+#  destination: zone.city
+#  scan_interval: 900
+#- platform: google_travel_time
+#  name: GTDom_Airport
+#  api_key: !secret google_maps_api_key
+#  origin: zone.home
+#  destination: zone.domairport
+#  scan_interval: 900
+#- platform: google_travel_time
+#  name: GTInt_Airport
+#  api_key: !secret google_maps_api_key
+#  origin: zone.home
+#  destination: zone.intairport
+#  scan_interval: 900
+##- platform: google_travel_time
+##  name: GTHome_Thornton
+##  api_key: !secret google_maps_api_key
+##  origin: zone.home
+##  destination: zone.mdn
+##  scan_interval: 900
+##- platform: google_travel_time
+##  name: GTHome_Wangi
+##  api_key: !secret google_maps_api_key
+##  origin: zone.home
+##  destination: zone.mdr
+##  scan_interval: 600
 
 - platform: darksky
   api_key: !secret DARKSKY_API_KEY
