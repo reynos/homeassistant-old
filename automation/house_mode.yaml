@@ -44,14 +44,19 @@
     platform: time
     at: '05:00:00'
   action:
-    service: script.turn_on
-    data_template:
-      entity_id: >
-        {% if states.input_select.house_mode.state == 'Holiday' %}
-          script.day_holiday
-        {% else %}
-          script.day
-        {% endif %}
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.day
+          - script.day_holiday
+    - service: script.turn_on
+      data_template:
+        entity_id: >
+          {% if states.input_select.house_mode.state == 'Holiday' %}
+            script.day_holiday
+          {% else %}
+            script.day
+          {% endif %}
 #    service: input_select.select_option
 #    data:
 #      entity_id: input_select.house_mode
@@ -64,13 +69,18 @@
     to: 'Bedtime'
 ############
   condition:
+## next test - comment this out
     condition: state
     entity_id: input_boolean.bedtime_beacon_flag
-    state: 'off'
+    state: 'off' # remove quotes?
   action:
-    service: script.turn_on
-    data:
-      entity_id: script.bedtime
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.bedtime
+    - service: script.turn_on
+      data:
+        entity_id: script.bedtime
 
 - alias: "House Mode Evening"
   trigger:
@@ -90,8 +100,13 @@
     entity_id: input_select.house_mode
     to: 'Day'
   action:
-    service: script.turn_on
-    entity_id: script.day
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.day
+          - script.day_holiday
+    - service: script.turn_on
+      entity_id: script.day
 
 - alias: "House Mode Night"
   trigger:
@@ -99,6 +114,11 @@
     entity_id: input_select.house_mode
     to: 'Night'
   action:
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.night
+          - script.night_holiday
     - service: script.turn_on
       entity_id: script.night
 

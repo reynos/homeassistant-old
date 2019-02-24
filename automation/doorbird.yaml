@@ -4,6 +4,10 @@
     platform: event
     event_type: doorbird_front_gate_button
   action:
+    - service: logbook.log
+      data:
+        name: "Doorbird:"
+        message: Front gate button pushed
     - service: script.turn_off
       data:
         entity_id:

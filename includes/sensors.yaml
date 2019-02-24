@@ -111,20 +111,20 @@
     - type: network_out
       arg: eno1
 
-- platform: speedtest
-  server_id: 2629
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-  minute: 30
-  hour:
-    - 0
-    - 4
-    - 8
-    - 12
-    - 16
-    - 20
+#- platform: speedtest
+#  server_id: 2629
+#  monitored_conditions:
+#    - ping
+#    - download
+#    - upload
+#  minute: 30
+#  hour:
+#    - 0
+#    - 4
+#    - 8
+#    - 12
+#    - 16
+#    - 20
 
 - platform: uber
   server_token: !secret uber_server_token
@@ -212,7 +212,7 @@
     - pressure
     - sunrise_time
     - sunset_time
-  update_interval:
+  scan_interval:
     minutes: 15
 
 - platform: filesize

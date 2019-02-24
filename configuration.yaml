@@ -68,6 +68,15 @@ notify:
     platform: pushbullet
     api_key: !secret pushbullet_api_key
 
+speedtestdotnet:
+  server_id: 2629
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  scan_interval:
+    hours: 6
+
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
@@ -77,6 +86,7 @@ asuswrt:
   username: !secret asuswrt_usename
   password: !secret asuswrt_pass
   protocol: telnet
+  port: 23
   mode: ap
   require_ip: false
 #  ssh_key: !secret asuswrt_ssh_key
