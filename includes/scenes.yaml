@@ -11,6 +11,8 @@
   - name: Morning off
     entities:
       switch.kitchen_bench_switch: off
+      light.kitchen_high_level: off
+      light.kitchen_low_level: off
       light.lounge_lamp_level: off
 
   - name: Evening

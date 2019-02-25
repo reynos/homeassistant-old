@@ -89,6 +89,7 @@ asuswrt:
   port: 23
   mode: ap
   require_ip: false
+  interval_seconds: 20
 #  ssh_key: !secret asuswrt_ssh_key
 
 owntracks:
@@ -100,9 +101,9 @@ owntracks:
 device_tracker:
   - platform: asuswrt
     new_device_defaults:
-      track_new_devices: true
+      track_new_devices: false
       hide_if_away: true
-    interval_seconds: 10
+    interval_seconds: 20
     consider_home: 180
 #  - platform: owntracks
 #    max_gps_accuracy: 200

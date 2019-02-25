@@ -50,6 +50,12 @@
       entity_id:
         - switch.front_porch_switch
         - switch.front_garden_1_switch
+    - service: logbook.log
+      data:
+        name: "Lights:"
+        message: Doorbell lights activated
+    - service: script.turn_off
+      entity_id: script.timer_front_lights_off
     - service: script.turn_on
       entity_id: script.timer_front_lights_off
 

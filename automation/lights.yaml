@@ -74,37 +74,38 @@
     - service: scene.turn_on
       entity_id: scene.morning_off
 
-- alias: Set Inside Lights at Dusk
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
-    below: 40
-  condition:
-    condition: template
-    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
-  action:
-    - service: logbook.log
-      data_template:
-        name: 'Dusk:'
-        message: 'Inside lights ON'
-    - service: light.turn_on
-      entity_id: light.lounge_lamp_level
-      data:
-        state: on
-        rgb_color: [255, 64, 0]
-        brightness: 80 # brightness not working??
-    - service: switch.turn_on
-      entity_id:
-        - switch.kitchen_bench_switch
-        - switch.stairs_switch
+#- alias: Set Inside Lights at Dusk
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
+#    below: 40
+#  condition:
+#    condition: template
+#    value_template: "{{ states.input_select.house_mode.state != 'Holiday' }}"
+#  action:
+#    - service: logbook.log
+#      data_template:
+#        name: 'Dusk:'
+#        message: 'Inside lights ON'
+#    - service: light.turn_on
+#      entity_id: light.lounge_lamp_level
+#      data:
+#        state: on
+#        rgb_color: [255, 64, 0]
+#        brightness: 80 # brightness not working??
+#    - service: switch.turn_on
+#      entity_id:
+#        - switch.kitchen_bench_switch
+#        - switch.stairs_switch
+
 # if either in study turn on study lamp
-    - service_template: >
-        {% if states.device_tracker.reynolds_darren.state == 'study' %}
-          light.turn_on
-        {% elif states.device_tracker.reynolds_blythe.state == 'study' %}
-          light.turn_on
-        {% endif %}
-      entity_id: light.study_lamp_18
+#    - service_template: >
+#        {% if states.device_tracker.reynolds_darren.state == 'study' %}
+#          light.turn_on
+#        {% elif states.device_tracker.reynolds_blythe.state == 'study' %}
+#          light.turn_on
+#        {% endif %}
+#      entity_id: light.study_lamp_18
 
 #- alias: Set Kitchen Lights at Dusk
 #  trigger:

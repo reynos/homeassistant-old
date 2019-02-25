@@ -35,7 +35,7 @@ doorbell_night:
     - service: logbook.log
       data:
         name: "Script:"
-        message: Doorbell DAY
+        message: Doorbell NIGHT
     - service: media_player.sonos_snapshot
       data:
         entity_id: media_player.kitchen
