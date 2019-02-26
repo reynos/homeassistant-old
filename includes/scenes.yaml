@@ -3,7 +3,7 @@
   - name: Morning
     entities:
       switch.kitchen_bench_switch: on
-      light.lounge_lamp_level:
+      light.lounge_lamp_18:
         state: on
         rgb_color: [255, 64, 0]
         brightness: 100 # brightness not working??
@@ -13,12 +13,13 @@
       switch.kitchen_bench_switch: off
       light.kitchen_high_level: off
       light.kitchen_low_level: off
-      light.lounge_lamp_level: off
+      light.lounge_lamp_18: off
 
   - name: Evening
     entities:
       group.evening: on
-      light.lounge_lamp_level:
+#      light.lounge_lamp_18:
+      light.lounge_lamp_18:
         state: on
         rgb_color: [255, 64, 0]
         brightness: 40 # brightness not working??
@@ -31,7 +32,7 @@
     entities:
 # add turn on light sensors here
       group.all_lights_not_beds: off
-      light.lounge_lamp_level: off
+      light.lounge_lamp_18: off
       switch.front_garden_1_switch: off
 #      input_select.house_mode:
 #        option: "Night"
@@ -39,7 +40,7 @@
   - name: Bedtime
     entities:
       group.all_lights_not_beds: off
-      light.lounge_lamp_level: off
+      light.lounge_lamp_18: off
       switch.stairs_switch: on
 # this inuput select is OK cause Bedtime is only even manually selecte and will jump out of Holiday mode
       input_select.house_mode:
@@ -49,7 +50,7 @@
   - name: Day
     entities:
 #      group.all_lights_not_beds: off
-#      light.lounge_lamp_level: off
+#      light.lounge_lamp_18: off
 # add turn off light sensors here
 # just to have something here:
       switch.front_garden_1_switch: off
@@ -65,7 +66,7 @@
 
   - name: SydneyFC
     entities:
-      light.lounge_lamp_level:
+      light.lounge_lamp_18:
         state: on
         brightness_pct: 90
         rgb_color: [0, 191, 255]

@@ -14,7 +14,7 @@
     to: 'off'
   action:
     service: light.turn_off
-    entity_id: light.lounge_lamp_3
+    entity_id: light.lounge_lamp_18
 
 ##service template working test
 - alias: "testing"

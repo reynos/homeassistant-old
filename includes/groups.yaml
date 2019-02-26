@@ -114,7 +114,7 @@
     icon: mdi:sofa
     name: Lounge Room
     entities:
-      - light.lounge_lamp_level
+      - light.lounge_lamp_18
       - light.lounge_level
       - light.tv_level
       - media_player.lounge
@@ -438,7 +438,7 @@
     view: no
     entities:
       - switch.kitchen_bench_switch
-      - light.lounge_lamp_level
+      - light.lounge_lamp_18
       - switch.stairs_switch
       - switch.backyard_switch
       - light.backyard_fairylights_level
@@ -463,7 +463,7 @@
       - light.backyard_fairylights_level
       - switch.study_lamp_switch
       - light.study_level
-#      - light.lounge_lamp_level
+#      - light.lounge_lamp_18
 # not - switch.front_garden_1_switch
 
 #presence groups

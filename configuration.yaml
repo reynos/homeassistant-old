@@ -25,8 +25,10 @@ http:
 fan:
   platform: dyson
 
-#vera:
-#  vera_controller_url: !secret vera_url
+vera:
+  vera_controller_url: !secret vera_url
+  lights: [18]
+  exclude: []
 #  lights: [2, 3, 4, 6, 7, 8, 9, 13, 15, 16, 17, 18, 21, 24, 25, 26, 28, 29, 30, 31, 33]
 
 mqtt:
@@ -89,7 +91,6 @@ asuswrt:
   port: 23
   mode: ap
   require_ip: false
-  interval_seconds: 20
 #  ssh_key: !secret asuswrt_ssh_key
 
 owntracks:
