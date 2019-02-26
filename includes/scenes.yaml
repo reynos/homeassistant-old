@@ -34,6 +34,7 @@
       group.all_lights_not_beds: off
       light.lounge_lamp_18: off
       switch.front_garden_1_switch: off
+      switch.back_deck_watering_25: off
 #      input_select.house_mode:
 #        option: "Night"
 
@@ -54,6 +55,7 @@
 # add turn off light sensors here
 # just to have something here:
       switch.front_garden_1_switch: off
+      switch.back_deck_watering_25: off
 #      input_select.house_mode:
 #        option: "Day"
 

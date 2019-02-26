@@ -229,7 +229,7 @@
     view: no
     control: hidden
     entities:
-      - switch.back_deck_watering_switch
+      - switch.back_deck_watering_25
       - input_number.backdeck_watering_timer
       - switch.backyard_switch
       - switch.back_floods_switch
