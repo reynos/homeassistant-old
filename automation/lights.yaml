@@ -95,7 +95,7 @@
 #        brightness: 80 # brightness not working??
 #    - service: switch.turn_on
 #      entity_id:
-#        - switch.kitchen_bench_switch
+#        - switch.kitchen_bench_19
 #        - switch.stairs_switch
 
 # if either in study turn on study lamp

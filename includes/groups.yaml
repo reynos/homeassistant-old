@@ -97,7 +97,7 @@
     entities:
       - light.kitchen_high_level
       - light.kitchen_low_level
-      - switch.kitchen_bench_switch
+      - switch.kitchen_bench_19
   kitchen:
     name: Kitchen
     view: yes
@@ -437,7 +437,7 @@
     name: Evening Lights
     view: no
     entities:
-      - switch.kitchen_bench_switch
+      - switch.kitchen_bench_19
       - light.lounge_lamp_18
       - switch.stairs_switch
       - switch.backyard_switch
@@ -450,7 +450,7 @@
     entities:
       - light.kitchen_high_level
       - light.kitchen_low_level
-      - switch.kitchen_bench_switch
+      - switch.kitchen_bench_19
       - light.lounge_level
       - light.tv_level
       - switch.stairs_switch
@@ -485,5 +485,5 @@
 #    view: no
 #    entities:
 #      - switch.stairs_switch
-#      - switch.kitchen_bench_switch
+#      - switch.kitchen_bench_19
 #      - light.backyard_24
