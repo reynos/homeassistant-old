@@ -118,7 +118,7 @@
 #  action:
 #    - service: light.turn_on
 #      data:
-#        entity_id: light.kitchen_high_level
+#        entity_id: light.kitchen_high_31
 #        brightness_pct: 70
 
 - alias: Bedtime switch on

@@ -48,7 +48,7 @@
     name: Kitchen Lights
     view: no
     entities:
-      - light.kitchen_high_level
+      - light.kitchen_high_31
       - input_number.kitchen_high_dimmer
       - light.kitchen_low_level
       - input_number.kitchen_low_dimmer
@@ -95,8 +95,8 @@
     view: no
     control: hidden
     entities:
-      - light.kitchen_high_level
-      - light.kitchen_low_level
+      - light.kitchen_high_31
+      - light.kitchen_low_32
       - switch.kitchen_bench_19
   kitchen:
     name: Kitchen
@@ -192,10 +192,11 @@
     view: no
     control: hidden
     entities:
+      - binary_sensor.front_door_30
       - light.hall_level
-      - switch.stairs_switch
+      - light.stairs_33
       - input_number.stairs_light_timer
-      - binary_sensor.front_door_sensor
+      - switch.front_door_30
   hall_smoke_up:
     name: Upstairs Smoke Sensor
     view: no
@@ -447,7 +448,7 @@
     name: All lights not beds
     view: no
     entities:
-      - light.kitchen_high_level
+      - light.kitchen_high_31
       - light.kitchen_low_level
       - switch.kitchen_bench_19
       - light.lounge_level
