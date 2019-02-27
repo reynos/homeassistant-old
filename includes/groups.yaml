@@ -50,7 +50,7 @@
     entities:
       - light.kitchen_high_31
       - input_number.kitchen_high_dimmer
-      - light.kitchen_low_level
+      - light.kitchen_low_32
       - input_number.kitchen_low_dimmer
   qlounge:
     name: Lounge Lights
@@ -97,16 +97,16 @@
     entities:
       - light.kitchen_high_31
       - light.kitchen_low_32
-      - switch.kitchen_bench_19
+      - light.kitchen_bench_19
   kitchen:
     name: Kitchen
     view: yes
     icon: mdi:stove
     entities:
-      - binary_sensor.kitchen_sensor
-      - sensor.kitchen_luminance
-      - sensor.kitchen_temperature
-      - sensor.kitchen_relative_humidity
+      - binary_sensor.kitchen_sensor_20
+      - sensor.light_sensor_22
+      - sensor.temperature_sensor_21
+      - sensor.humidity_sensor_23
       - group.kitchen_lights
       - media_player.kitchen
   lounge:
@@ -171,8 +171,6 @@
     view: yes
     icon: mdi:shower
     entities:
-      - light.ensuite_level
-      - switch.ensuite_fan_switch
       - media_player.ensuite
   study_lights:
     name: Study

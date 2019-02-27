@@ -2,9 +2,9 @@
   binary_sensor.front_garden_movement_motion:
     friendly_name: Front Garden Camera Movement
 #doorbird
-  switch.open_door:
+  switch.front_gate_relay_1:
     friendly_name: Front Gate
-  switch.light_on:
+  switch.front_gate_ir:
     friendly_name: Doorbird IR
 #bmw_x5
   device_tracker.x5_xdrive30d:
@@ -12,7 +12,7 @@
     icon: mdi:car-connected
   binary_sensor.x5_xdrive30d_door_lock_state:
     friendly_name: Secured state
-    
+
   binary_sensor.x5_xdrive30d_lights_parking:
     friendly_name: Parking Lights
     icon: mdi:car-parking-lights
@@ -35,11 +35,13 @@
   sensor.template_binary_sensor_x5_xdrive30d_bonnet_rear:
     icon: mdi:car
 #sensors
-  binary_sensor.kitchen_sensor:
+  binary_sensor.kitchen_sensor_20:
     friendly_name: Kitchen Motion
-  sensor.kitchen_temperature:
+  sensor.temperature_sensor_21:
     friendly_name: Kitchen Temp
-  sensor.kitchen_relative_humidity:
+  sensor.light_sensor_22:
+    friendly_name: Kitchen Lux
+  sensor.humidity_sensor_23:
     friendly_name: Kitchen Humidity
 #nest
 #  binary_sensor.downstairs_nest_protect_online:

@@ -7,14 +7,14 @@
     - platform: sun
       event: sunset
     - platform: numeric_state
-      entity_id: sensor.kitchen_luminance # this updates fom the Z-wave sensor every 5mins?
+      entity_id: sensor.light_sensor_22 # this updates fom the Z-wave sensor every 5mins?
       below: 40
 #  trigger:
 #    platform: sun
 #    event: sunset
   condition:
     condition: time
-    after: '15:00:00'    
+    after: '15:00:00'
   action:
     - service: logbook.log
       data_template:
