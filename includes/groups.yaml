@@ -231,10 +231,9 @@
     entities:
       - switch.back_deck_watering_25
       - input_number.backdeck_watering_timer
-      - switch.backyard_switch
-      - switch.back_floods_switch
-      - light.backyard_fairylights_level
-      - switch.back_floods_switch
+      - light.back_garden_29
+      - light.back_floodlights_26
+      - light.side_28
   outside_frontyard:
     name: Frontyard
     view: no
@@ -440,7 +439,7 @@
       - switch.kitchen_bench_19
       - light.lounge_lamp_18
       - switch.stairs_switch
-      - switch.backyard_switch
+      - light.back_garden_29
       - light.backyard_fairylights_level
       - switch.front_garden_1_switch
       - input_boolean.morning_lights_trigger
@@ -457,8 +456,8 @@
       - light.laundry_level
       - light.hall_level
       - switch.front_porch_switch
-      - switch.backyard_switch
-      - switch.back_floods_switch
+      - light.back_garden_29
+      - light.back_floodlights_26
       - switch.side_of_house_switch
       - light.backyard_fairylights_level
       - switch.study_lamp_switch
