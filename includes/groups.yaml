@@ -115,8 +115,8 @@
     name: Lounge Room
     entities:
       - light.lounge_lamp_18
-      - light.lounge_level
-      - light.tv_level
+      - light.lounge_34
+      - light.tv_35
       - media_player.lounge
       - media_player.tv_ua65js8000
   nursery_fan:
@@ -445,7 +445,7 @@
     view: no
     entities:
       - switch.kitchen_bench_19
-      - light.lounge_lamp_18
+      - light.lounge_lamp_bulb_38
       - switch.stairs_switch
       - light.back_garden_29
       - light.backyard_fairylights_level
@@ -470,7 +470,7 @@
       - light.backyard_fairylights_level
       - switch.study_lamp_switch
       - light.study_level
-#      - light.lounge_lamp_18
+#      - light.lounge_lamp_bulb_38
 # not - switch.front_garden_1_switch
 
 #presence groups
