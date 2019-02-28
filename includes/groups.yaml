@@ -191,7 +191,8 @@
     control: hidden
     entities:
       - sensor.front_door_sensor_template
-      - light.hall_level
+      - light.hall_36
+      - light.laundry_hall_37
       - light.stairs_33
       - input_number.stairs_light_timer
       - switch.front_door_30

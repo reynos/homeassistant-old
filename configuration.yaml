@@ -27,7 +27,7 @@ fan:
 
 vera:
   vera_controller_url: !secret vera_url
-  lights: [19, 26, 28, 29]
+  lights: [19, 26, 28, 29, 33]
   exclude: []
 #  lights: [2, 3, 4, 6, 7, 8, 9, 13, 15, 16, 17, 18, 21, 24, 25, 26, 28, 29, 30, 31, 33]
 
