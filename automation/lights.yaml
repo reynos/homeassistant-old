@@ -39,7 +39,7 @@
       data_template:
         name: Kitchen
         message: motion detected
-        entity_id: binary_sensor.kitchen_sensor
+        entity_id: binary_sensor.kitchen_sensor_20
         domain: binary_sensor
     - service: script.turn_on
       entity_id: script.morning_lights_on

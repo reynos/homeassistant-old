@@ -12,7 +12,6 @@
     icon: mdi:car-connected
   binary_sensor.x5_xdrive30d_door_lock_state:
     friendly_name: Secured state
-
   binary_sensor.x5_xdrive30d_lights_parking:
     friendly_name: Parking Lights
     icon: mdi:car-parking-lights
@@ -43,20 +42,21 @@
     friendly_name: Kitchen Lux
   sensor.humidity_sensor_23:
     friendly_name: Kitchen Humidity
+
 #nest
 #  binary_sensor.downstairs_nest_protect_online:
-  sensor.downstairs_nest_protect_color_status:
-    templates:
-      icon: >
-        if (state > green) return 'mdi:check-circle-outline';
-        if (state > yellow) return 'mdi:alert-outline';
-        if (state > red) return 'mdi:alert-octagram';
-        return 'mdi:help-circle-outline';
-      icon_color: >
-        if (state > green) return 'rgb(0, 255, 0)';
-        if (state > yellow) return 'rgb(255, 255, 0)';
-        if (state > red) return 'rgb(255, 0, 0)';
-        return 'rgb(128, 128, 128)';
+#  sensor.downstairs_nest_protect_color_status:
+#    templates:
+#      icon: >
+#        if (state > green) return 'mdi:check-circle-outline';
+#        if (state > yellow) return 'mdi:alert-outline';
+#        if (state > red) return 'mdi:alert-octagram';
+#        return 'mdi:help-circle-outline';
+#      icon_color: >
+#        if (state > green) return 'rgb(0, 255, 0)';
+#        if (state > yellow) return 'rgb(255, 255, 0)';
+#        if (state > red) return 'rgb(255, 0, 0)';
+#        return 'rgb(128, 128, 128)';
 
   sensor.net_grid_power:
 #    icon: mdi:flash

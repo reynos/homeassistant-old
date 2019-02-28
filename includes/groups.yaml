@@ -190,7 +190,7 @@
     view: no
     control: hidden
     entities:
-      - binary_sensor.front_door_30
+      - sensor.front_door_sensor_template
       - light.hall_level
       - light.stairs_33
       - input_number.stairs_light_timer
@@ -200,6 +200,7 @@
     view: no
     control: hidden
     entities:
+      - sensor.upstairs_nest_protect_color_status_template
       - binary_sensor.upstairs_nest_protect_online
       - sensor.upstairs_nest_protect_battery_health
       - sensor.upstairs_nest_protect_smoke_status
@@ -209,7 +210,7 @@
     view: no
     control: hidden
     entities:
-      - sensor.downstairs_nest_protect_color_status
+      - sensor.downstairs_nest_protect_color_status_template
       - binary_sensor.downstairs_nest_protect_online
       - sensor.downstairs_nest_protect_battery_health
       - sensor.downstairs_nest_protect_smoke_status
@@ -246,6 +247,12 @@
       - switch.front_gate_ir
       - media_player.front_garden
       - binary_sensor.front_garden_movement_motion
+  outside_side:
+    name: Side of House
+    view: no
+    control: hidden
+    entities:
+      - light.side_28
   outside:
     name: Outside
     view: yes
@@ -254,12 +261,13 @@
     entities:
       - group.outside_backyard
       - group.outside_frontyard
+      - group.outside_side
       - input_boolean.sonos_test
       - input_boolean.tester
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
-      - switch.side_of_house_switch
-      - switch.bedroom_switch1
+
+#      - switch.bedroom_switch1
   travel_to_home:
     name: Drive to Home -
     view: no

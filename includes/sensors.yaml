@@ -239,6 +239,51 @@
 # templates
 - platform: template
   sensors:
+    front_door_sensor_template:
+      friendly_name: "Front Door is"
+      value_template: >-
+        {% if is_state('binary_sensor.front_door_30', 'off') %}
+          Closed
+        {% elif is_state('binary_sensor.front_door_30', 'on') %}
+          Open
+        {% else %}
+          Error
+        {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.front_door_30', 'off') %}
+          mdi:door-closed
+        {% else %}
+          mdi:door-open
+        {% endif %}
+
+    upstairs_nest_protect_color_status_template:
+      friendly_name: "Sensor Status"
+      value_template: '{{ states.sensor.upstairs_nest_protect_color_status.state  | capitalize }}'
+      icon_template: >-
+        {% if is_state('sensor.upstairs_nest_protect_color_status', 'green') %}
+          mdi:check-circle-outline
+        {% elif is_state('sensor.upstairs_nest_protect_color_status', 'yellow') %}
+          mdi:alert-outline
+        {% elif is_state('sensor.upstairs_nest_protect_color_status', 'red') %}
+          mdi:alert-octagram
+        {% else %}
+          mdi:help-rhombus-outline
+        {% endif %}
+
+    downstairs_nest_protect_color_status_template:
+      friendly_name: "Sensor Status"
+      value_template: '{{ states.sensor.downstairs_nest_protect_color_status.state | capitalize }}'
+      icon_template: >-
+        {% if is_state('sensor.downstairs_nest_protect_color_status', 'green') %}
+          mdi:check-circle-outline
+        {% elif is_state('sensor.downstairs_nest_protect_color_status', 'yellow') %}
+          mdi:alert-outline
+        {% elif is_state('sensor.downstairs_nest_protect_color_status', 'red') %}
+          mdi:alert-octagram
+        {% else %}
+          mdi:help-rhombus-outline
+        {% endif %}
+
     solaredge_lifetime_energy_template:
       friendly_name: "Lifetime energy generated"
       value_template: >-
