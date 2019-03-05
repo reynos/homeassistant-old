@@ -145,9 +145,9 @@
     control: hidden
     icon: mdi:baby-buggy
     entities:
-      - sensor.nursery_temperature
-      - sensor.nursery_luminance
-      - sensor.nursery_relative_humidity
+      - sensor.temperature_sensor_67
+      - sensor.light_sensor_68
+      - sensor.humidity_sensor_69
 #      - group.nursery_media
   bathroom:
     name: Bathroom
@@ -455,7 +455,7 @@
     entities:
       - light.kitchen_high_31
       - light.kitchen_low_32
-      - switch.kitchen_bench_19
+      - light.kitchen_bench_19
       - light.lounge_34
       - light.tv_35
       - light.stairs_33
@@ -480,8 +480,6 @@
       - device_tracker.bin_iphone
       - device_tracker.tony_iphone
       - device_tracker.dani_iphone
-
-
 
 #  peanut_lights:
 #    name: Peanut Nightlight
