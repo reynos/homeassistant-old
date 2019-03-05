@@ -1,5 +1,16 @@
 ### scenes.yaml
 
+#some neat code to use in future:
+#automations
+#- alias: Living Room Scene
+#  trigger:
+#    platform: state
+#    entity_id: input_select.livingroom_scene
+#  action:
+#    - service: scene.turn_on
+#      data_template:
+#        entity_id: scene.{{ states.input_select.livingroom_scene.state | replace(' ', '_') | lower | string }}
+
   - name: Morning
     entities:
       light.kitchen_bench_19: on
