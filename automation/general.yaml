@@ -27,6 +27,28 @@
     data:
       message: "Front Door Still OPEN!"
 
+- alias: Doorbell test
+  trigger:
+    platform: state
+    entity_id: input_boolean.doorbell_test
+    to: 'on'
+  action:
+    - service: logbook.log
+      data:
+        name: "Doorbell:"
+        message: Test button pushed
+    - service: script.turn_off
+      data:
+        entity_id:
+          - script.doorbell
+          - script.doorbell_night
+    - service: script.turn_on
+      data_template:
+        entity_id: script.doorbell
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.doorbell_test
+
 ## Auto change themes
 - alias: hass_theme
   trigger:

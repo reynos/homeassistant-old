@@ -6,7 +6,7 @@
       light.lounge_lamp_18:
         state: on
         rgb_color: [255, 64, 0]
-        brightness: 100 # brightness not working??
+        brightness: 60 # brightness not working??
 
   - name: Morning off
     entities:
@@ -18,7 +18,6 @@
   - name: Evening
     entities:
       group.evening: on
-#      light.lounge_lamp_18:
       light.lounge_lamp_18:
         state: on
         rgb_color: [255, 64, 0]
@@ -42,7 +41,7 @@
     entities:
       group.all_lights_not_beds: off
       light.lounge_lamp_18: off
-      switch.stairs_switch: on
+      light.stairs_33: on
 # this inuput select is OK cause Bedtime is only even manually selecte and will jump out of Holiday mode
       input_select.house_mode:
         option: "Bedtime"

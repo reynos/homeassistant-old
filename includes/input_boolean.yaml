@@ -1,5 +1,10 @@
 ## input_boolean.yaml
 
+open_front_gate:
+  name: Open Front Gate
+  initial: off
+  icon: mdi:gate
+
 # presence
 darrenhome:
   name: Darren Home
@@ -45,4 +50,8 @@ bedtime_beacon_flag:
 # tests
 tester:
   name: "test"
+  initial: off
+
+doorbell_test:
+  name: "Doorbell test"
   initial: off

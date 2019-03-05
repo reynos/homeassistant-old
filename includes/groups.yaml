@@ -7,7 +7,7 @@
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
-      - sensor.kitchen_temperature
+      - sensor.temperature_sensor_62
       - sensor.nursery_temperature
       - sensor.outside_temp
       - sensor.template_bondi_max_temp
@@ -41,6 +41,7 @@
     control: hidden
     entities:
       - input_select.house_mode
+      - input_boolean.open_front_gate
       - input_boolean.bed_time
       - input_boolean.morning_lights
       - sensor.template_calendar_family
@@ -56,9 +57,9 @@
     name: Lounge Lights
     view: no
     entities:
-      - light.lounge_level
+      - light.lounge_34
       - input_number.lounge_dimmer
-      - light.tv_level
+      - light.tv_35
       - input_number.tv_dimmer
 #  qnursery:
 #    name: Nursery
@@ -104,9 +105,9 @@
     icon: mdi:stove
     entities:
       - binary_sensor.kitchen_sensor_20
-      - sensor.light_sensor_22
-      - sensor.temperature_sensor_21
-      - sensor.humidity_sensor_23
+      - sensor.light_sensor_63
+      - sensor.temperature_sensor_62
+      - sensor.humidity_sensor_64
       - group.kitchen_lights
       - media_player.kitchen
   lounge:
@@ -444,31 +445,26 @@
     name: Evening Lights
     view: no
     entities:
-      - switch.kitchen_bench_19
-      - light.lounge_lamp_bulb_38
-      - switch.stairs_switch
+      - light.kitchen_bench_19
+      - light.stairs_33
       - light.back_garden_29
-      - light.backyard_fairylights_level
       - switch.front_garden_1_switch
-      - input_boolean.morning_lights_trigger
   all_lights_not_beds:
     name: All lights not beds
     view: no
     entities:
       - light.kitchen_high_31
-      - light.kitchen_low_level
+      - light.kitchen_low_32
       - switch.kitchen_bench_19
-      - light.lounge_level
-      - light.tv_level
-      - switch.stairs_switch
-      - light.laundry_level
-      - light.hall_level
+      - light.lounge_34
+      - light.tv_35
+      - light.stairs_33
+      - light.laundry_hall_37
+      - light.hall_36
       - switch.front_porch_switch
       - light.back_garden_29
       - light.back_floodlights_26
-      - switch.side_of_house_switch
-      - light.backyard_fairylights_level
-      - switch.study_lamp_switch
+      - light.side_28
       - light.study_level
 #      - light.lounge_lamp_bulb_38
 # not - switch.front_garden_1_switch

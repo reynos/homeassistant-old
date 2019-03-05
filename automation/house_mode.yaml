@@ -23,7 +23,7 @@
     - service: script.turn_on
       data_template:
         entity_id: >
-          {% if states.input_select.house_mode.state == 'Holiday' %}
+          {% if is_state("input_select.house_mode", "Holiday") %}
             script.evening_holiday
           {% else %}
             script.evening
@@ -37,7 +37,7 @@
     service: script.turn_on
     data_template:
       entity_id: >
-        {% if states.input_select.house_mode.state == 'Holiday' %}
+        {% if is_state("input_select.house_mode", "Holiday") %}
           script.night_holiday
         {% else %}
           script.night
@@ -56,7 +56,7 @@
     - service: script.turn_on
       data_template:
         entity_id: >
-          {% if states.input_select.house_mode.state == 'Holiday' %}
+          {% if is_state("input_select.house_mode", "Holiday") %}
             script.day_holiday
           {% else %}
             script.day
@@ -71,17 +71,14 @@
     platform: state
     entity_id: input_select.house_mode
     to: 'Bedtime'
-############
   condition:
-## next test - comment this out
     condition: state
     entity_id: input_boolean.bedtime_beacon_flag
     state: 'off' # remove quotes?
   action:
     - service: script.turn_off
       data:
-        entity_id:
-          - script.bedtime
+        entity_id: script.bedtime
     - service: script.turn_on
       data:
         entity_id: script.bedtime

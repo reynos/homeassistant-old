@@ -28,4 +28,4 @@ evening_holiday:
     - service: input_boolean.turn_on
       entity_id: input_boolean.evening_holiday
     - service: scene.turn_on
-      entity_id: script.evening_holiday
+      entity_id: scene.holiday_evening

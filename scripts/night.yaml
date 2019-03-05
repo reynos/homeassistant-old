@@ -1,3 +1,5 @@
+# script night.yaml
+
 night:
   alias: "Night lights off"
   sequence:
