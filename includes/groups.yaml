@@ -7,8 +7,8 @@
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
-      - sensor.temperature_sensor_62
-      - sensor.nursery_temperature
+      - sensor.temperature_sensor_78
+      - sensor.temperature_sensor_67
       - sensor.outside_temp
       - sensor.template_bondi_max_temp
       - sensor.template_bondi_min_temp
@@ -74,7 +74,7 @@
     view: no
     control: hidden
     entities:
-      - switch.darren_bedside_switch
+#      - switch.darren_bedside_switch
 #      - light.bedside_blythe_18
       - switch.front_porch_switch
       - light.master_bedroom_level
@@ -105,9 +105,9 @@
     icon: mdi:stove
     entities:
       - binary_sensor.kitchen_sensor_20
-      - sensor.light_sensor_63
-      - sensor.temperature_sensor_62
-      - sensor.humidity_sensor_64
+      - sensor.light_sensor_79
+      - sensor.temperature_sensor_78
+      - sensor.humidity_sensor_80
       - group.kitchen_lights
       - media_player.kitchen
   lounge:

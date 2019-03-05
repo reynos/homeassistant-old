@@ -32,7 +32,7 @@
       entity_id: input_boolean.morning_lights_flag
       state: 'off'
     - condition: numeric_state
-      entity_id: sensor.light_sensor_63
+      entity_id: sensor.light_sensor_79
       below: 50
   action:
     - service: logbook.log
@@ -48,7 +48,7 @@
 - alias: "Morning lights sensor OFF"
   trigger:
     platform: numeric_state
-    entity_id: sensor.light_sensor_63
+    entity_id: sensor.light_sensor_79
     above: 60
 #    for:
 #      minutes: 10

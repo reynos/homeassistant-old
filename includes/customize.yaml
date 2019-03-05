@@ -36,12 +36,14 @@
 #sensors
   binary_sensor.kitchen_sensor_20:
     friendly_name: Kitchen Motion
-  sensor.temperature_sensor_21:
+  sensor.temperature_sensor_78:
     friendly_name: Kitchen Temp
-  sensor.light_sensor_22:
+  sensor.light_sensor_79:
     friendly_name: Kitchen Lux
-  sensor.humidity_sensor_23:
+  sensor.humidity_sensor_80:
     friendly_name: Kitchen Humidity
+  sensor.temperature_sensor_67:
+    friendly_name: Girls Temp
 
 #nest
 #  binary_sensor.downstairs_nest_protect_online:

@@ -11,7 +11,7 @@ bedtime:
         - group.all_lights_not_beds
         - light.lounge_lamp_18
     - service: light.turn_on
-      entity_id: slight.stairs_33
+      entity_id: light.stairs_33
     - service: input_boolean.turn_on
       entity_id: input_boolean.bedtime_beacon_flag
     - service: input_select.select_option

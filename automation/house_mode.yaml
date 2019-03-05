@@ -7,8 +7,8 @@
     - platform: sun
       event: sunset
     - platform: numeric_state
-      entity_id: sensor.light_sensor_22 # this updates fom the Z-wave sensor every 5mins?
-      below: 40
+      entity_id: sensor.light_sensor_79 # this updates fom the Z-wave sensor every 5mins?
+      below: 70
 #  trigger:
 #    platform: sun
 #    event: sunset
