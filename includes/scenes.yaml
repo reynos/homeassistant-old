@@ -1,5 +1,7 @@
 ### scenes.yaml
-
+##
+## no scenes are used any longer
+##
 #some neat code to use in future:
 #automations
 #- alias: Living Room Scene
@@ -74,7 +76,7 @@
     entities:
 # when on holidays only turn on selected lights
       switch.front_garden_1_switch: on
-      switch.kitchen_bench_19: on
+      light.kitchen_bench_19: on
 
   - name: SydneyFC
     entities:

@@ -92,8 +92,17 @@
     - service: frontend.set_theme
       data:
         name: night
-    - service: scene.turn_on
-      entity_id: scene.evening
+    - service: light.turn_on
+      data:
+        entity_id: light.lounge_lamp_18
+        rgb_color: [255, 64, 0]
+        brightness: 60
+    - service: light.turn_on
+      data:
+        entity_id: group.evening
+    - service: switch.turn_on
+      data:
+        entity_id: switch.front_garden_1_switch
 
 - alias: "House Mode Day"
   trigger:

@@ -27,5 +27,7 @@ evening_holiday:
         message: Evening HOLIDAY lights ON
     - service: input_boolean.turn_on
       entity_id: input_boolean.evening_holiday
-    - service: scene.turn_on
-      entity_id: scene.holiday_evening
+    - service: light.turn_on
+      entity_id: light.kitchen_bench_19
+    - service: switch.turn_on
+      entity_id: switch.front_garden_1_switch

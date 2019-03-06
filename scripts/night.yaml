@@ -15,8 +15,14 @@ night:
       entity_id: input_boolean.morning_lights_trigger #re-sets the morning lights trigger for the next day
     - service: input_boolean.turn_off
       entity_id: input_boolean.morning_lights #ensure the switch is off - in case the lights have been turned off individually
-    - service: scene.turn_on
-      entity_id: scene.night
+    - service: light.turn_off
+      entity_id:
+        - group.all_lights_not_beds
+        - light.lounge_lamp_18
+    - service: switch.turn_off
+      entity_id:
+        - switch.front_garden_1_switch
+        - switch.back_deck_watering_25
 
 night_holiday:
   alias: "Evening Holiday lights off"
@@ -25,7 +31,13 @@ night_holiday:
       data_template:
         name: "Script:"
         message: Night HOLIDAY lights OFF
-    - service: scene.turn_on
-      entity_id: scene.night
+    - service: light.turn_off
+      entity_id:
+        - group.all_lights_not_beds
+        - light.lounge_lamp_18
+    - service: switch.turn_off
+      entity_id:
+        - switch.front_garden_1_switch
+        - switch.back_deck_watering_25
     - service: input_boolean.turn_off
       entity_id: input_boolean.evening_holiday

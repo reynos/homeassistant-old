@@ -62,8 +62,13 @@
     entity_id: input_boolean.morning_lights
     to: 'on'
   action:
-    - service: scene.turn_on
-      entity_id: scene.morning
+    - service: light.turn_on
+      data:
+        entity_id: light.lounge_lamp_18
+        rgb_color: [255, 64, 0]
+        brightness: 60
+    - service: light.turn_on
+      entity_id: light.kitchen_bench_19
 
 - alias: "Morning Lights manual OFF"
   trigger:
@@ -71,8 +76,8 @@
     entity_id: input_boolean.morning_lights
     to: 'off'
   action:
-    - service: scene.turn_on
-      entity_id: scene.morning_off
+    - service: light.turn_off
+      entity_id: group.morning_off
 
 #- alias: Set Inside Lights at Dusk
 #  trigger:

@@ -348,6 +348,7 @@
     view: yes
     icon: mdi:vector-square
     entities:
+      - scene.morning
       - scene.evening
       - scene.bedtime
       - scene.night
@@ -468,6 +469,14 @@
       - light.study_level
 #      - light.lounge_lamp_bulb_38
 # not - switch.front_garden_1_switch
+  morning_off:
+    name: Morning off
+    view: no
+    entities:
+      - light.kitchen_bench_19
+      - light.kitchen_high_31
+      - light.kitchen_low_32
+      - light.lounge_lamp_18
 
 #presence groups
   friends_family_presence:
