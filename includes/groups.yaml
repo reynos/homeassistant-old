@@ -343,19 +343,20 @@
       - group.travel_bmw_x5
 #      - group.travel_buses
 #      - group.travel_buses_raw
-  scenes:
-    name: Scenes
-    view: yes
-    icon: mdi:vector-square
-    entities:
-      - scene.morning
-      - scene.evening
-      - scene.bedtime
-      - scene.night
-      - scene.day
-      - scene.holiday
-      - scene.sydneyfc
-      - input_boolean.sydneyfc_game
+
+#  scenes:
+#    name: Scenes
+#    view: yes
+#    icon: mdi:vector-square
+#    entities:
+#      - scene.morning
+#      - scene.evening
+#      - scene.bedtime
+#      - scene.night
+#      - scene.day
+#      - scene.holiday
+#      - scene.sydneyfc
+#      - input_boolean.sydneyfc_game
   power_solaredge:
     name: SolarEdge readings
     view: no
