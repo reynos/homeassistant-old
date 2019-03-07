@@ -116,9 +116,10 @@
     name: Lounge Room
     entities:
       - light.lounge_lamp_18
+      - light.lounge_lamp_bulb_38
       - light.lounge_34
       - light.tv_35
-      - media_player.lounge
+      - media_player.loungetv
       - media_player.tv_ua65js8000
   nursery_fan:
     name: Fan
@@ -315,6 +316,11 @@
 #      - sensor.nextbus_occupancy_3
 #      - sensor.nextbus_route_3
 #      - sensor.nextbus_time_3
+  travel_buses:
+    name: Next Buses
+    view: no
+    entities:
+      - sensor.333_to_Beach_template
   travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
@@ -337,11 +343,11 @@
     view: yes
     icon: mdi:car-side
     entities:
-      - group.travel_to_home
-      - group.travel_home_to
+      - group.travel_buses
       - group.travel_uberx
       - group.travel_bmw_x5
-#      - group.travel_buses
+      - group.travel_to_home
+      - group.travel_home_to
 #      - group.travel_buses_raw
 
 #  scenes:
@@ -447,6 +453,7 @@
     name: Evening Lights
     view: no
     entities:
+      - light.lounge_lamp_18
       - light.kitchen_bench_19
       - light.stairs_33
       - light.back_garden_29
@@ -460,6 +467,7 @@
       - light.kitchen_bench_19
       - light.lounge_34
       - light.tv_35
+      - light.lounge_lamp_18
       - light.stairs_33
       - light.laundry_hall_37
       - light.hall_36
@@ -474,6 +482,7 @@
     name: Morning off
     view: no
     entities:
+      - light.lounge_lamp_18
       - light.kitchen_bench_19
       - light.kitchen_high_31
       - light.kitchen_low_32

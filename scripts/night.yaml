@@ -18,7 +18,6 @@ night:
     - service: light.turn_off
       entity_id:
         - group.all_lights_not_beds
-        - light.lounge_lamp_18
     - service: switch.turn_off
       entity_id:
         - switch.front_garden_1_switch
@@ -34,7 +33,6 @@ night_holiday:
     - service: light.turn_off
       entity_id:
         - group.all_lights_not_beds
-        - light.lounge_lamp_18
     - service: switch.turn_off
       entity_id:
         - switch.front_garden_1_switch

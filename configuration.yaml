@@ -37,6 +37,8 @@ mqtt:
   username: !secret mqtt_uname
   password: !secret mqtt_pass
   discovery: true
+
+
   discovery_prefix: home
 
 doorbird:

@@ -63,12 +63,14 @@
     to: 'on'
   action:
     - service: light.turn_on
+      entity_id:
+        - light.lounge_lamp_18
+        - light.kitchen_bench_19
+    - service: light.turn_on
       data:
         entity_id: light.lounge_lamp_18
         rgb_color: [255, 64, 0]
-        brightness: 60
-    - service: light.turn_on
-      entity_id: light.kitchen_bench_19
+        brightness: 40
 
 - alias: "Morning Lights manual OFF"
   trigger:

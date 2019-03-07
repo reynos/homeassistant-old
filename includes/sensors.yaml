@@ -65,6 +65,36 @@
 #  unit_of_measurement: 'kW'
 #  scan_interval: 900
 
+- platform: transport_nsw
+  name: '333 Bus to Beach'
+  stop_id: !secret transport_nsw_stop_id_1
+  route:  '333'
+  api_key: !secret transport_nsw_api_key
+- platform: transport_nsw
+  name: '380 Bus to Beach'
+  stop_id: !secret transport_nsw_stop_id_1
+  route:  '380'
+  api_key: !secret transport_nsw_api_key
+- platform: transport_nsw
+  name: '333 Bus to Bondi Junction'
+  stop_id: !secret transport_nsw_stop_id_3
+  route:  '333'
+  api_key: !secret transport_nsw_api_key
+- platform: transport_nsw
+  name: '380 Bus to Bondi Junction'
+  stop_id: !secret transport_nsw_stop_id_3
+  route:  '380'
+  api_key: !secret transport_nsw_api_key
+- platform: transport_nsw
+  name: '381 Bus to Bondi Junction'
+  stop_id: !secret transport_nsw_stop_id_3
+  route:  '381'
+  api_key: !secret transport_nsw_api_key
+- platform: transport_nsw
+  name: 'Bus from Beach'
+  stop_id: !secret transport_nsw_stop_id_4
+  api_key: !secret transport_nsw_api_key
+
 - platform: version
 
 - platform: mqtt
@@ -110,21 +140,6 @@
       arg: eno1 # not eth0
     - type: network_out
       arg: eno1
-
-#- platform: speedtest
-#  server_id: 2629
-#  monitored_conditions:
-#    - ping
-#    - download
-#    - upload
-#  minute: 30
-#  hour:
-#    - 0
-#    - 4
-#    - 8
-#    - 12
-#    - 16
-#    - 20
 
 - platform: uber
   server_token: !secret uber_server_token
@@ -239,6 +254,15 @@
 # templates
 - platform: template
   sensors:
+    333_to_beach_template:
+      friendly_name: "Bus 333 to Beach"
+      value_template: >-
+        {% if is_state_attr('sensor.333_bus_to_beach', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor["333_bus_to_beach"].attributes.route }} in {{ states.sensor["333_bus_to_beach"].attributes.due }}m ({{ states.sensor["333_bus_to_beach"].attributes.delay }})
+        {% endif %}
+
     front_door_sensor_template:
       friendly_name: "Front Door is"
       value_template: >-
