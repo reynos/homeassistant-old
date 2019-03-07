@@ -5,4 +5,11 @@ platform: hikvision
 host: !secret frontcam_ip
 username: !secret frontcam_uname
 password: !secret frontcam_pass
-##  - platform: doorbird --depricated, relpaced with Doorbird door_bell = true
+
+name: Before Sunset
+platform: tod
+name: Night
+after: sunset
+after_offset: '-01:00'
+before: sunset
+after_offset: '+00:05'

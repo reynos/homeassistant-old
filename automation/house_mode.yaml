@@ -9,17 +9,18 @@
     - platform: numeric_state
       entity_id: sensor.light_sensor_79 # this updates fom the Z-wave sensor every 5mins?
       below: 70
-#  trigger:
-#    platform: sun
-#    event: sunset
   condition:
-    condition: time
-    after: '16:00:00' # make sunset - 2 hrs
+#    condition: time
+#    after: '16:00:00'
+# 1 hr before sunset
+    condition: state
+    entity_id: binary_sensor.before_sunset
+    state: 'on' # remove quotes?
   action:
     - service: logbook.log
       data_template:
         name: 'Sunset:'
-        message: 'Evening lights ON'
+        message: 'Evening lights ON ({{ trigger.to_state.attributes.friendly_name }})'        
     - service: script.turn_on
       data_template:
         entity_id: >
