@@ -126,6 +126,7 @@
       - light.lounge_lamp_bulb_38
       - light.lounge_34
       - light.tv_35
+      - media_player.lounge_2
       - media_player.loungetv
       - media_player.tv_ua65js8000
   nursery_fan:
