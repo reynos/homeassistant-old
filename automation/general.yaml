@@ -10,6 +10,7 @@
       title: 'New Home Assistant Release'
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 
+# add to below TTS "front door still open"
 - alias: Front Door Open
   trigger:
     - platform: state

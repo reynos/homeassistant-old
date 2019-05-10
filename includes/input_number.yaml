@@ -5,6 +5,12 @@ stairs_light_timer:
     min: 0
     max: 5
     step: 1
+front_porch_motion_lights_timer_duration:
+    name: Porch Motion Light Timer Duration
+    initial: 2
+    min: 0
+    max: 10
+    step: 1
 front_porch_timer_duration:
     name: Porch Light Timer Duration
     initial: 3

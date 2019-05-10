@@ -19,14 +19,20 @@ timer_front_lights_off:
           script.timer_front_lights_off_night
         {% endif %}
 
-#front porch timer
+#front porch timers
+timer_front_porch_motion_off:
+        sequence:
+          - service: script.turn_off #reset any existing timer
+            entity_id: script.timer_front_porch_motion
+          - service: script.turn_on
+            entity_id: script.timer_front_porch_motion
+
 timer_front_lights_off_evening:
   sequence:
     - service: script.turn_off #reset any existing timer
       entity_id: script.timer_front_porch
     - service: script.turn_on
       entity_id: script.timer_front_porch
-
 
 timer_front_lights_off_night:
   sequence:
@@ -35,18 +41,24 @@ timer_front_lights_off_night:
     - service: script.turn_on
       entity_id: script.timer_front_lights
 
+timer_front_porch_motion:
+  sequence:
+    - delay: '00:{{ states.front_porch_motion_lights_timer_duration.state | int }}:00'
+    - service: switch.turn_off
+      entity_id: light.front_porch_light_86
+
 timer_front_porch:
   sequence:
     - delay: '00:{{ states.input_number.front_porch_timer_duration.state | int }}:00'
-    - service: light.turn_off
-      entity_id: switch.front_porch_switch
+    - service: switch.turn_off
+      entity_id: light.front_porch_light_86
 
 timer_front_lights:
   sequence:
     - delay: '00:{{ states.input_number.front_lights_timer_duration.state | int }}:00'
-    - service: light.turn_off
+    - service: switch.turn_off
       entity_id:
-        - switch.front_porch_switch
+        - light.front_porch_light_86
         - switch.front_garden_1_switch
 
 #backdeck watering timers

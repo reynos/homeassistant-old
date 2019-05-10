@@ -20,8 +20,8 @@
       - sensor.solaredge_production
 # quick groups on the first page
       - group.qhouse
-      - group.qkitchen
-      - group.qlounge
+#      - group.qkitchen
+#      - group.qlounge
       - group.qnursery
       - group.qother
 # tab groups
@@ -42,6 +42,12 @@
     entities:
       - input_select.house_mode
       - input_boolean.open_front_gate
+      - input_boolean.lollie_lights
+      - light.kitchen_high_31
+      - light.kitchen_low_32
+      - light.back_garden_29
+      - light.hall_36
+      - light.master_bedroom_level
       - input_boolean.bed_time
       - input_boolean.morning_lights
       - sensor.template_calendar_family
@@ -50,17 +56,18 @@
     view: no
     entities:
       - light.kitchen_high_31
-      - input_number.kitchen_high_dimmer
+#      - input_number.kitchen_high_dimmer
       - light.kitchen_low_32
-      - input_number.kitchen_low_dimmer
+#      - input_number.kitchen_low_dimmer
   qlounge:
     name: Lounge Lights
     view: no
     entities:
       - light.lounge_34
-      - input_number.lounge_dimmer
+#      - input_number.lounge_dimmer
       - light.tv_35
-      - input_number.tv_dimmer
+#      - input_number.tv_dimmer
+
 #  qnursery:
 #    name: Nursery
 #    view: no
@@ -76,10 +83,10 @@
     entities:
 #      - switch.darren_bedside_switch
 #      - light.bedside_blythe_18
-      - switch.front_porch_switch
+      - light.front_porch_light_86
       - light.master_bedroom_level
-      - light.study_level
-      - switch.study_switch
+#      - light.study_level
+#      - switch.study_switch
 #      - switch.study_lamp_switch
       - input_select.hass_theme
   camera:
@@ -242,14 +249,14 @@
     view: no
     control: hidden
     entities:
-      - switch.front_porch_switch
+      - light.front_porch_light_86
+      - input_number.front_porch_motion_lights_timer_duration
       - input_number.front_porch_timer_duration
       - switch.front_garden_1_switch
       - switch.front_garden_2_switch
       - switch.front_gate_relay_1
       - switch.front_gate_ir
       - media_player.front_garden
-      - binary_sensor.front_garden_movement_motion
   outside_side:
     name: Side of House
     view: no
@@ -262,6 +269,11 @@
     icon: mdi:tree
     control: hidden
     entities:
+      - binary_sensor.front_garden_movement_motion
+      - sensor.front_porch_lux_104
+      - binary_sensor.front_porch_102
+      - sensor.front_porch_temp_103
+      - sensor.front_porch_humidity_105
       - group.outside_backyard
       - group.outside_frontyard
       - group.outside_side
@@ -270,7 +282,6 @@
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
 
-#      - switch.bedroom_switch1
   travel_to_home:
     name: Drive to Home -
     view: no
@@ -321,6 +332,11 @@
     view: no
     entities:
       - sensor.333_to_Beach_template
+      - sensor.380_to_Beach_template
+      - sensor.bus_from_beach_template
+      - sensor.333_to_bondi_junction
+      - sensor.380_to_bondi_junction
+      - sensor.381_to_bondi_junction
   travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
@@ -471,7 +487,7 @@
       - light.stairs_33
       - light.laundry_hall_37
       - light.hall_36
-      - switch.front_porch_switch
+      - light.front_porch_light_86
       - light.back_garden_29
       - light.back_floodlights_26
       - light.side_28
@@ -487,6 +503,7 @@
       - light.kitchen_high_31
       - light.kitchen_low_32
       - light.lounge_lamp_18
+      - light.stairs_33
 
 #presence groups
   friends_family_presence:
@@ -500,10 +517,10 @@
       - device_tracker.tony_iphone
       - device_tracker.dani_iphone
 
-#  peanut_lights:
-#    name: Peanut Nightlight
-#    view: no
-#    entities:
-#      - switch.stairs_switch
-#      - switch.kitchen_bench_19
-#      - light.backyard_24
+  lollie_lights:
+    name: Lollie Nightlight
+    view: no
+    entities:
+      - light.stairs_33
+      - switch.kitchen_bench_19
+      - light.back_garden_29

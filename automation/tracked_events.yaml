@@ -251,7 +251,7 @@
 
 #- alias: Masterbed on
 #  trigger:
-#    platform: state
+#    platform: states
 #    entity_id: device_tracker.reynolds_darren
 #    to: masterbed
 #  action:

@@ -1,16 +1,13 @@
 # open_front_gate.yaml automation
-open_front_gate:
-  alias: Open Front Gate
+- alias: "Open Front Gate"
   trigger:
     platform: state
     entity_id: input_boolean.open_front_gate
     to: 'on'
   action:
     - service: switch.turn_on
-      data:
-        entity_id: switch.front_gate_relay_1
+      entity_id: switch.front_gate_relay_1
     - delay:
         seconds: 3
     - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.open_front_gate
+      entity_id: input_boolean.open_front_gate

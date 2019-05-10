@@ -27,7 +27,7 @@ fan:
 
 vera:
   vera_controller_url: !secret vera_url
-  lights: [19, 26, 28, 29, 33, 38]
+  lights: [19, 26, 28, 29, 33, 38, 86]
   exclude: []
 #  lights: [2, 3, 4, 6, 7, 8, 9, 13, 15, 16, 17, 18, 21, 24, 25, 26, 28, 29, 30, 31, 33]
 
@@ -37,8 +37,6 @@ mqtt:
   username: !secret mqtt_uname
   password: !secret mqtt_pass
   discovery: true
-
-
   discovery_prefix: home
 
 doorbird:
@@ -93,13 +91,12 @@ asuswrt:
   port: 23
   mode: ap
   require_ip: false
+#  sensors:
+#    - upload
+#    - download
+#    - upload_speed
+#    - download_speed
 #  ssh_key: !secret asuswrt_ssh_key
-
-owntracks:
-    max_gps_accuracy: 200
-    waypoints: false
-    events_only: true
-    mqtt_topic: "owntracks/#"
 
 device_tracker:
   - platform: asuswrt
@@ -108,11 +105,18 @@ device_tracker:
       hide_if_away: true
     interval_seconds: 20
     consider_home: 180
+
 #  - platform: owntracks
 #    max_gps_accuracy: 200
 #    waypoints: False
 #    events_only: True
 #    mqtt_topic: "owntracks/#"
+
+owntracks:
+    max_gps_accuracy: 200
+    waypoints: false
+    events_only: true
+    mqtt_topic: "owntracks/#"
 
 nest:
   client_id: !secret nest_client_id
@@ -174,7 +178,7 @@ logbook:
       - light
       - input_number
       - input_select
-      - input_booleanß
+      - input_boolean
       - script
     entities:
       - sun.sun
@@ -189,7 +193,7 @@ apcupsd:
 #  port: !secret apc_ups_port
 
 tts:
-  platform: google
+  platform: google_translate
 
 config:
 updater:

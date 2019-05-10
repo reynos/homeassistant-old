@@ -50,6 +50,17 @@
     - energy_this_month
     - energy_this_year
     - lifetime_energy
+    - site_details
+    - sensors
+#    - inverters
+#    - meters
+#    - gateways
+#    - batteries
+#    - power_consumption
+#    - solar_power
+#    - grid_power
+#    - storage_power
+
 ## old solaredge REST sensors
 #- platform: rest
 #  resource: !secret solaredge_resource
@@ -260,9 +271,48 @@
         {% if is_state_attr('sensor.333_bus_to_beach', 'due', 'n/a') %}
           No schedule found
         {% else %}
-          {{ states.sensor["333_bus_to_beach"].attributes.route }} in {{ states.sensor["333_bus_to_beach"].attributes.due }}m ({{ states.sensor["333_bus_to_beach"].attributes.delay }})
+          {{ states.sensor["333_bus_to_beach"].attributes.due }}m ({{ states.sensor["333_bus_to_beach"].attributes.delay }})
         {% endif %}
-
+    380_to_beach_template:
+      friendly_name: "Bus 380 to Beach"
+      value_template: >-
+        {% if is_state_attr('sensor.380_bus_to_beach', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor["380_bus_to_beach"].attributes.due }}m ({{ states.sensor["380_bus_to_beach"].attributes.delay }})
+        {% endif %}
+    bus_from_beach_template:
+      friendly_name: "Bus from Nth Bondi to Home"
+      value_template: >-
+        {% if is_state_attr('sensor.bus_from_beach', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor.bus_from_beach.attributes.route }} in {{ states.sensor.bus_from_beach.attributes.due }}m ({{ states.sensor.bus_from_beach.attributes.delay }})
+        {% endif %}
+    333_to_bondi_junction:
+      friendly_name: "Bus 333 to Bondi Junct"
+      value_template: >-
+        {% if is_state_attr('sensor.333_bus_to_bondi_junction', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor["333_bus_to_bondi_junction"].attributes.due }}m ({{ states.sensor["333_bus_to_bondi_junction"].attributes.delay }})
+        {% endif %}
+    380_to_bondi_junction:
+      friendly_name: "Bus 380 to Bondi Junct"
+      value_template: >-
+        {% if is_state_attr('sensor.380_bus_to_bondi_junction', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor["380_bus_to_bondi_junction"].attributes.due }}m ({{ states.sensor["380_bus_to_bondi_junction"].attributes.delay }})
+        {% endif %}
+    381_to_bondi_junction:
+      friendly_name: "Bus 381 to Bondi Junct"
+      value_template: >-
+        {% if is_state_attr('sensor.381_bus_to_bondi_junction', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor["381_bus_to_bondi_junction"].attributes.due }}m ({{ states.sensor["381_bus_to_bondi_junction"].attributes.delay }})
+        {% endif %}
     front_door_sensor_template:
       friendly_name: "Front Door is"
       value_template: >-
@@ -523,11 +573,11 @@
     template_bondi_max_temp:
       friendly_name: Bondi Max
       unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.dark_sky_daytime_high_temperature_0.state|round(1) }}"
+      value_template: "{{ states.sensor.dark_sky_daytime_high_temperature_0d.state|round(1) }}"
     template_bondi_min_temp:
       friendly_name: Bondi Min
       unit_of_measurement: "°C"
-      value_template: "{{ states.sensor.dark_sky_overnight_low_temperature_0.state|round(1) }}"
+      value_template: "{{ states.sensor.dark_sky_overnight_low_temperature_0d.state|round(1) }}"
     template_bondi_humidity:
       friendly_name: Bondi Humidity
       unit_of_measurement: "%"

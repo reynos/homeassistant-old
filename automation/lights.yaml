@@ -17,6 +17,27 @@
 #          script.alarm
 #        {% endif %}
 
+## Front Porch Movement Sensor with timer
+- alias: "Front Porch Motion Light ON"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_porch_102
+    to: 'on'
+# commented for testing
+#  condition:
+#    - condition: numeric_state
+#      entity_id: sensor.light_sensor_1_84
+#      below: 50
+  action:
+    - service: logbook.log
+      data_template:
+        name: 'Front Porch:'
+        message: 'motion detected'
+    - service: switch.turn_on
+      entity_id: light.front_porch_light_86
+    - service: script.turn_on
+      entity_id: script.timer_front_porch_motion_off
+
 ## Kitchen Morning Motion light on
 - alias: "Kitchen Morning Lights sensor ON"
   trigger:
@@ -154,7 +175,7 @@
 #  action:
 #    - service: light.turn_on
 #      entity_id:
-#        switch.front_porch_switch
+#        light.front_porch_light_86
 #    - service: script.turn_on
 #      entity_id: script.timer_front_lights_off
 - alias: Arrive_home_evening
@@ -169,7 +190,7 @@
   action:
     - service: light.turn_on
       entity_id:
-        switch.front_porch_switch
+        light.front_porch_light_86
     - service: script.turn_on
       data_template:
         entity_id: >
@@ -202,6 +223,23 @@
   action:
     service: light.turn_on
     entity_id: switch.front_garden_1_switch
+
+# add in a check for the below if house mode= night only, if not skip the turn on and just switch ib off
+- alias: "Lollie Night light"
+  trigger:
+    platform: state
+    entity_id: input_boolean.lollie_lights
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lollie_lights
+    - delay:
+        minutes: 5
+    - service: light.turn_off
+      entity_id: group.lollie_lights
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.lollie_lights
 
 ## Dimmers
 #- alias: Kitchen High Dimmer
