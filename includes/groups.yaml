@@ -23,15 +23,15 @@
 #      - group.qkitchen
 #      - group.qlounge
       - group.qnursery
-      - group.qother
+#      - group.qother
 # tab groups
       - group.kitchen
       - group.lounge
       - group.hall
       - group.bedrooms
+      - group.outside
       - group.nursery
       - group.study
-      - group.outside
       - group.camera
       - group.power
       - group.devices
@@ -41,16 +41,20 @@
     control: hidden
     entities:
       - input_select.house_mode
+      - sensor.template_calendar_family
       - input_boolean.open_front_gate
       - input_boolean.lollie_lights
       - light.kitchen_high_31
       - light.kitchen_low_32
       - light.back_garden_29
-      - light.hall_36
       - light.master_bedroom_level
+      - light.front_porch_light_86
+      - light.stairs_33
+      - light.hall_36
+      - switch.front_gate_ir
       - input_boolean.bed_time
       - input_boolean.morning_lights
-      - sensor.template_calendar_family
+      - input_select.hass_theme
   qkitchen:
     name: Kitchen Lights
     view: no
@@ -88,7 +92,7 @@
 #      - light.study_level
 #      - switch.study_switch
 #      - switch.study_lamp_switch
-      - input_select.hass_theme
+
   camera:
     name: Cameras
     view: yes
@@ -172,7 +176,7 @@
     entities:
       - light.master_bedroom_level
 #      - light.bedside_blythe_18
-      - switch.darren_bedside_switch
+#      - switch.darren_bedside_switch
       - light.front_bedroom_level
       - media_player.master_bedroom
       - media_player.tv_ua60h7000
@@ -523,5 +527,5 @@
     view: no
     entities:
       - light.stairs_33
-      - switch.kitchen_bench_19
+      - light.kitchen_bench_19
       - light.back_garden_29

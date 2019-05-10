@@ -9,5 +9,7 @@
       entity_id: switch.front_gate_relay_1
     - delay:
         seconds: 3
+    - service: switch.turn_off
+      entity_id: switch.front_gate_relay_1
     - service: input_boolean.turn_off
       entity_id: input_boolean.open_front_gate

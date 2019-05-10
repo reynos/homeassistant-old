@@ -9,7 +9,7 @@ house_mode:
     - "Night"
     - "Holiday"
     - "Sydney FC Game"
-  icon: mdi:target
+  icon: mdi:home
 
 nursery_fan_speed:
   name: Speed
