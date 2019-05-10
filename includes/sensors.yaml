@@ -582,6 +582,10 @@
       friendly_name: Bondi Humidity
       unit_of_measurement: "%"
       value_template: "{{ states.sensor.dark_sky_humidity.state|int }}"
+    dark_sky_summary_template:
+      friendly_name_template: "{{ states.sensor.dark_sky_summary.state }}"
+      value_template: "{{ states.sensor.dark_sky_summary.state }}"
+      icon_template: "{{ states.sensor.dark_sky_summary.attributes.icon }}"
 #    template_kitchen_temp:
 #      friendly_name: "Kitchen Temp"
 #      unit_of_measurement: "°C"

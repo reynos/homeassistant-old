@@ -7,17 +7,19 @@
       - device_tracker.darren
       - device_tracker.blythe
 #      - device_tracker.reynolds_darren
-      - sensor.temperature_sensor_78
-      - sensor.temperature_sensor_67
-      - sensor.outside_temp
       - sensor.template_bondi_max_temp
       - sensor.template_bondi_min_temp
+      - sensor.temperature_sensor_67
+      - sensor.outside_temp
+      - sensor.dark_sky_summary_template
+      - sensor.temperature_sensor_78
+      - sensor.temperature_sensor_112
 #      - sensor.template_bondi_humidity
-      - sensor.template_calendar_bin_nights
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
       - sensor.template_sensor_emoncms_solar_production
       - sensor.solaredge_production
+      - sensor.template_calendar_bin_nights
 # quick groups on the first page
       - group.qhouse
 #      - group.qkitchen
@@ -36,7 +38,7 @@
       - group.power
       - group.devices
   qhouse:
-    name: House
+    name: 24 Avoca Street
     view: no
     control: hidden
     entities:
@@ -290,12 +292,14 @@
   travel_to_home:
     name: Drive to Home -
     view: no
+    control: hidden
     entities:
       - sensor.template_gtdarren_home
       - sensor.template_gtblythe_home
   travel_home_to:
     name: Drive from Home to -
     view: no
+    control: hidden
     entities:
       - sensor.gthome_city
 #      - sensor.gthome_work
@@ -306,6 +310,7 @@
   travel_uberx:
     name: UberX to Airport
     view: no
+    control: hidden
     entities:
       - sensor.template_uberx_pickup_time
       - sensor.template_uberx_price
@@ -335,6 +340,7 @@
   travel_buses:
     name: Next Buses
     view: no
+    control: hidden
     entities:
       - sensor.333_to_Beach_template
       - sensor.380_to_Beach_template
@@ -345,6 +351,7 @@
   travel_bmw_x5:
     name: BMW X5 xDrive30d
     view: no
+    control: hidden
     entities:
       - device_tracker.x5_xdrive30d
       - camera.bmw_x5_location
@@ -363,6 +370,7 @@
     name: Travel
     view: yes
     icon: mdi:car-side
+    control: hidden
     entities:
       - group.travel_buses
       - group.travel_uberx
@@ -387,6 +395,7 @@
   power_solaredge:
     name: SolarEdge readings
     view: no
+    control: hidden
     entities:
       - sensor.solaredge_current_power_template
       - sensor.solaredge_energy_today_template
@@ -396,6 +405,7 @@
   power_emoncms:
     name: EmonCMS readings
     view: no
+    control: hidden
     entities:
       - sensor.template_sensor_emoncms_net_grid_power
       - sensor.template_sensor_emoncms_house_consumption
@@ -404,6 +414,7 @@
     name: Power
     view: yes
     icon: mdi:flash
+    control: hidden
     entities:
       - group.power_emoncms
       - group.power_solaredge
@@ -414,6 +425,7 @@
     name: Climate
     view: yes
     icon: mdi:white-balance-sunny
+    control: hidden
     entities:
       - sensor.temperature_9
       - sensor.high_temperature_11
@@ -424,6 +436,7 @@
   devices_list:
     name: Devices
     view: no
+    control: hidden
     entities:
       - sensor.current_version
       - sensor.release
@@ -435,6 +448,7 @@
     name: Device Status
     view: yes
     icon: mdi:desktop-classic
+    control: hidden
     entities:
       - sensor.plex
       - sensor.qnap_cpu_usage

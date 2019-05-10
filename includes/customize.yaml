@@ -42,8 +42,8 @@
     friendly_name: Kitchen Lux
   sensor.humidity_sensor_80:
     friendly_name: Kitchen Humidity
-  sensor.temperature_sensor_67:
-    friendly_name: Girls Temp
+  sensor.temperature_sensor_112:
+    friendly_name: Girl's Temp
 
 #nest
 #  binary_sensor.downstairs_nest_protect_online:
