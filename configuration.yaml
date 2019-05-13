@@ -195,6 +195,7 @@ apcupsd:
 tts:
   platform: google_translate
 
+system_health:
 config:
 updater:
 discovery:

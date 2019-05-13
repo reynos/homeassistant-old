@@ -62,9 +62,15 @@
 - alias: Sonos Doorbell Test
   trigger:
     platform: state
-    entity_id: input_boolean.sonos_test
+    entity_id: input_boolean.doorbell_test
     to: 'on'
   action:
-    service: script.turn_on
-    data:
-      entity_id: script.sonos_group_test
+    - event: doorbird_front_gate_button
+    - service: input_boolean.turn_off
+      entity_id:
+        - input_boolean.doorbell_test
+
+
+#    service: script.turn_on
+#    data:
+#      entity_id: script.sonos_group_test

@@ -284,8 +284,7 @@
       - group.outside_backyard
       - group.outside_frontyard
       - group.outside_side
-      - input_boolean.sonos_test
-      - input_boolean.tester
+      - input_boolean.doorbell_test
       - input_boolean.morning_lights_flag
       - input_boolean.bedtime_beacon_flag
 
@@ -411,13 +410,10 @@
       - sensor.template_sensor_emoncms_house_consumption
       - sensor.template_sensor_emoncms_solar_production
   power:
-    name: Power
     view: yes
     icon: mdi:flash
     control: hidden
     entities:
-      - group.power_emoncms
-      - group.power_solaredge
 # old REST sensors
 #      - sensor.solaredge_today
 #      - sensor.solaredge_production
