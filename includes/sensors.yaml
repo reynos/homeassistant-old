@@ -167,18 +167,18 @@
 # BMW camera sensor also uses calles
 # Google API quota set to 600 calls per hour
 
-#- platform: google_travel_time
-#  name: GTDarren_Home
-#  api_key: !secret google_maps_api_key
-#  origin: device_tracker.darren
-#  destination: zone.home
-#  scan_interval: 900
-#- platform: google_travel_time
-#  name: GTBlythe_Home
-#  api_key: !secret google_maps_api_key
-#  origin: device_tracker.blythe
-#  destination: zone.home
-#  scan_interval: 900
+- platform: google_travel_time
+  name: GTDarren_Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.darren
+  destination: zone.home
+  scan_interval: 900
+- platform: google_travel_time
+  name: GTBlythe_Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.blythe
+  destination: zone.home
+  scan_interval: 900
 ##- platform: google_travel_time
 ##  name: GTHome_Work
 ##  api_key: !secret google_maps_api_key
@@ -215,6 +215,38 @@
 ##  origin: zone.home
 ##  destination: zone.mdr
 ##  scan_interval: 600
+
+- platform: bom
+  station: !secret BOM_station
+  monitored_conditions:
+    - apparent_t
+    - cloud
+    - cloud_base_m
+    - cloud_oktas
+    - cloud_type_id
+    - cloud_type
+    - delta_t
+    - gust_kmh
+    - gust_kt
+    - air_temp
+    - dewpt
+    - local_date_time
+    - local_date_time_full
+    - press
+    - press_qnh
+    - press_msl
+    - press_tend
+    - rain_trace
+    - rel_hum
+    - sea_state
+    - swell_dir_worded
+    - swell_height
+    - swell_period
+    - vis_km
+    - weather
+    - wind_dir
+    - wind_spd_kmh
+    - wind_spd_kt
 
 - platform: darksky
   api_key: !secret DARKSKY_API_KEY

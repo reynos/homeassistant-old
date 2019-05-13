@@ -433,6 +433,7 @@
       - sensor.humidity_12
       - sensor.template_solar_angle
       - sun.sun
+      - camera.bom_radar_loop_sydney
   devices_list:
     name: Devices
     view: no
