@@ -414,9 +414,20 @@
     icon: mdi:flash
     control: hidden
     entities:
+    - group.power_emoncms
+    - group.power_solaredge
 # old REST sensors
 #      - sensor.solaredge_today
 #      - sensor.solaredge_production
+  climate_today:
+    name: Today
+    view: no
+    control: hidden
+    entities:
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_daytime_high_temperature_0d
+      - sensor.dark_sky_overnight_low_temperature_0d
+
   climate:
     name: Climate
     view: yes

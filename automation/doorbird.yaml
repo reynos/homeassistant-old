@@ -66,6 +66,8 @@
     to: 'on'
   action:
     - event: doorbird_front_gate_button
+    - delay:
+        seconds: 2
     - service: input_boolean.turn_off
       entity_id:
         - input_boolean.doorbell_test
