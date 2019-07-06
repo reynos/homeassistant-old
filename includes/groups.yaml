@@ -306,15 +306,16 @@
 #      - sensor.template_gthome_wangi
       - sensor.GTDom_Airport
       - sensor.GTInt_Airport
-  travel_uberx:
-    name: UberX to Airport
-    view: no
-    control: hidden
-    entities:
-      - sensor.template_uberx_pickup_time
-      - sensor.template_uberx_price
-      - sensor.template_uberx_trip_distance
-      - sensor.template_uberx_trip_time
+#  travel_uberx:
+#    name: UberX to Airport
+#    view: no
+#    control: hidden
+#    entities:
+#      - sensor.template_uberx_pickup_time
+#      - sensor.template_uberx_price
+#      - sensor.template_uberx_trip_distance
+#      - sensor.template_uberx_trip_time
+
 #  travel_buses:
 #    name: Next Buses
 #    view: no
@@ -372,7 +373,7 @@
     control: hidden
     entities:
       - group.travel_buses
-      - group.travel_uberx
+#      - group.travel_uberx
       - group.travel_bmw_x5
       - group.travel_to_home
       - group.travel_home_to
